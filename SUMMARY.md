@@ -484,3 +484,4 @@
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
 * [Writeups](tools/writeups.md)
 * [Report template](tools/report-template.md)
+* [Wifi Hacking](tools/wifi-hacking.md)
