@@ -1,6 +1,6 @@
 # Hacking Methodology
 
-#### 1. [RECONNAISSANCE](https://hamcodes.gitbook.io/hackersnotes/~/revisions/sj8ObYzdX683FZ8wZ1Rm/recon)
+#### 1. [RECONNAISSANCE](/broken/pages/2IJ2HLGmvGYnlia0Yahv)
 
 #### 2. [ENUM**ERATION**](/broken/pages/dLkJ30TymMi49ygn4L07)
 
