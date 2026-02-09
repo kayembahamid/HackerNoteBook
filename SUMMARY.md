@@ -491,3 +491,4 @@
 
 * [Computer Fundamentals](fundamentals/computer-fundamentals.md)
 * [Network Fundamentals](fundamentals/network-fundamentals.md)
+* [Unix Fundamentals](fundamentals/unix-fundamentals.md)
