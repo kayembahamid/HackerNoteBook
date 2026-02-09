@@ -56,7 +56,7 @@ Soon enough, the email comes to my gmail:
 
 ...with the following headers - all as expected. Note that at this point the originating IP seen in headers is my droplet IP 206.189.221.162:
 
-```csharp
+```shellscript
 Delivered-To: mantvydo@gmail.com
 Received: by 2002:a81:1157:0:0:0:0:0 with SMTP id 84-v6csp5026946ywr;
         Tue, 2 Oct 2018 12:22:38 -0700 (PDT)
