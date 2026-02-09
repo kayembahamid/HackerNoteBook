@@ -486,3 +486,8 @@
 * [Writeups](tools/writeups.md)
 * [Report template](tools/report-template.md)
 * [Wifi Hacking](tools/wifi-hacking.md)
+
+## Fundamentals
+
+* [Computer Fundamentals](fundamentals/computer-fundamentals.md)
+* [Network Fundamentals](fundamentals/network-fundamentals.md)
