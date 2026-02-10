@@ -402,13 +402,25 @@
 
 ## Privilege Escalation
 
-* [Linux](privilege-escalation/linux.md)
+* [Unix Priv Esca](privilege-escalation/unix-priv-esca/README.md)
+  * [Linux](privilege-escalation/unix-priv-esca/linux.md)
 * [Pivoting](privilege-escalation/pivoting.md)
 * [Windows](privilege-escalation/windows/README.md)
   * [AD s](privilege-escalation/windows/ad-s/README.md)
     * [Kerberos](privilege-escalation/windows/ad-s/kerberos.md)
   * [PS tips & tricks](privilege-escalation/windows/ps-tips-and-tricks.md)
-* [Unix Priv Esca](privilege-escalation/unix-priv-esca.md)
+
+## PIVOTING/LATERAL MOVEMENT
+
+* [Unix Piv/Lateral](pivoting-lateral-movement/unix-piv-lateral.md)
+
+## DATA EXFILTRATION
+
+* [Unix Data Exfilt](data-exfiltration/unix-data-exfilt.md)
+
+## PERSISTENCE
+
+* [Unix Persist](persistence/unix-persist.md)
 
 ## CODE REVIEW
 
@@ -499,3 +511,4 @@
 * [Writeups](tools/writeups.md)
 * [Report template](tools/report-template.md)
 * [Wifi Hacking](tools/wifi-hacking.md)
+* [SSH & SCP](tools/ssh-and-scp.md)
