@@ -383,6 +383,7 @@
   * [ELK](enumeration/web-technologies/elk.md)
   * [Sharepoint](enumeration/web-technologies/sharepoint.md)
   * [Others](enumeration/web-technologies/others.md)
+* [Unix Enum](enumeration/unix-enum.md)
 * [Cloud](enumeration/cloud/README.md)
   * [General](enumeration/cloud/general.md)
   * [Cloud Info Gathering](enumeration/cloud/cloud-info-gathering.md)
