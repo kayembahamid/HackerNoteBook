@@ -398,15 +398,17 @@
 * [Payloads](exploitation/payloads.md)
 * [Reverse Shells](exploitation/reverse-shells.md)
 * [File transfer](exploitation/file-transfer.md)
+* [Unix Exploit](exploitation/unix-exploit.md)
 
-## Post Exploitation
+## Privilege Escalation
 
-* [Linux](post-exploitation/linux.md)
-* [Pivoting](post-exploitation/pivoting.md)
-* [Windows](post-exploitation/windows/README.md)
-  * [AD s](post-exploitation/windows/ad-s/README.md)
-    * [Kerberos](post-exploitation/windows/ad-s/kerberos.md)
-  * [PS tips & tricks](post-exploitation/windows/ps-tips-and-tricks.md)
+* [Linux](privilege-escalation/linux.md)
+* [Pivoting](privilege-escalation/pivoting.md)
+* [Windows](privilege-escalation/windows/README.md)
+  * [AD s](privilege-escalation/windows/ad-s/README.md)
+    * [Kerberos](privilege-escalation/windows/ad-s/kerberos.md)
+  * [PS tips & tricks](privilege-escalation/windows/ps-tips-and-tricks.md)
+* [Unix Priv Esca](privilege-escalation/unix-priv-esca.md)
 
 ## CODE REVIEW
 

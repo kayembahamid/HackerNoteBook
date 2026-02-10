@@ -183,7 +183,7 @@ finger "|/bin/ls -a /@example.com"
 
 ### Port 88 - Kerberos
 
-Check [Kerberos dedicated ](../post-exploitation/windows/ad-s/kerberos.md)section
+Check [Kerberos dedicated ](../privilege-escalation/windows/ad-s/kerberos.md)section
 
 ```bash
 nmap -p 88 --script=krb5-enum-users --script-args="krb5-enum-users.realm='DOMAIN.LOCAL'" IP
@@ -548,7 +548,7 @@ python3 samdump.py SNMP 172.21.0.0
 
 ### Port 389,636 - LDAP
 
-Check [AD ](../post-exploitation/windows/ps-tips-and-tricks.md)section and this [LDAP](ports.md#port-389-636-ldap) guide
+Check [AD ](../privilege-escalation/windows/ps-tips-and-tricks.md)section and this [LDAP](ports.md#port-389-636-ldap) guide
 
 ```bash
 jxplorer
