@@ -400,6 +400,7 @@
 * [Reverse Shells](exploitation/reverse-shells.md)
 * [File transfer](exploitation/file-transfer.md)
 * [Unix Exploit](exploitation/unix-exploit.md)
+* [Window Exploit](exploitation/window-exploit.md)
 
 ## Privilege Escalation
 
