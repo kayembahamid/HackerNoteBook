@@ -1,6 +1,6 @@
 # CDN - Comain Fronting
 
-```
+```shellscript
 CDN - Domain Fronting
 
 **Tools**

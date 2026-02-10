@@ -2,7 +2,7 @@
 
 ### AWS basic info
 
-```
+```shellscript
 Auth methods:
 • Programmatic access - Access + Secret Key
    ◇ Secret Access Key and Access Key ID for authenticating via scripts and CLI
@@ -120,7 +120,7 @@ http://169.254.169.254/latest/dynamic/instance-identity/document
 
 #### Find AWS in domain/company
 
-```
+```shellscript
 # Find subdomains
 
 ./sub.sh -s example.com
@@ -141,7 +141,7 @@ slurp domain -t example.com
 
 #### AIO AWS tools
 
-```
+```shellscript
 # https://github.com/carnal0wnage/weirdAAL
 pip3 install -r requirements
 cp env.sample .env
@@ -175,7 +175,7 @@ smogcloud
 
 #### Basic Commands
 
-```
+```shellscript
 aws s3 ls s3:// 
 aws s3api list-buckets
 aws s3 ls s3://bucket.com

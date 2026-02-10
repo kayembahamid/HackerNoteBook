@@ -298,6 +298,7 @@
 * [Network Scanning](recon/network-scanning.md)
 * [Host Scanning](recon/host-scanning.md)
 * [Packet Scanning](recon/packet-scanning.md)
+* [Cloud Info Gathering](recon/cloud-info-gathering.md)
 
 ## Enumeration
 
@@ -384,15 +385,8 @@
   * [Sharepoint](enumeration/web-technologies/sharepoint.md)
   * [Others](enumeration/web-technologies/others.md)
 * [Unix Enum](enumeration/unix-enum.md)
-* [Windows Enum](enumeration/windows-enum.md)
-* [Cloud](enumeration/cloud/README.md)
-  * [General](enumeration/cloud/general.md)
-  * [Cloud Info Gathering](enumeration/cloud/cloud-info-gathering.md)
-  * [AWS](enumeration/cloud/aws.md)
-  * [Azure](enumeration/cloud/azure.md)
-  * [GCP](enumeration/cloud/gcp.md)
-  * [Docker && Kubernetes](enumeration/cloud/docker-and-and-kubernetes.md)
-  * [CDN - Comain Fronting](enumeration/cloud/cdn-comain-fronting.md)
+* [Windows Enum](enumeration/windows-enum/README.md)
+  * [AD Enum](enumeration/windows-enum/ad-enum.md)
 
 ## Exploitation
 
@@ -400,33 +394,44 @@
 * [Reverse Shells](exploitation/reverse-shells.md)
 * [File transfer](exploitation/file-transfer.md)
 * [Unix Exploit](exploitation/unix-exploit.md)
-* [Window Exploit](exploitation/window-exploit.md)
+* [Window Exploit](exploitation/window-exploit/README.md)
+  * [AD Piv/lateral](exploitation/window-exploit/ad-piv-lateral.md)
 
 ## Privilege Escalation
 
 * [Unix Priv Esca](privilege-escalation/unix-priv-esca/README.md)
   * [Linux](privilege-escalation/unix-priv-esca/linux.md)
-* [Pivoting](privilege-escalation/pivoting.md)
-* [Windows](privilege-escalation/windows/README.md)
-  * [AD s](privilege-escalation/windows/ad-s/README.md)
-    * [Kerberos](privilege-escalation/windows/ad-s/kerberos.md)
-  * [PS tips & tricks](privilege-escalation/windows/ps-tips-and-tricks.md)
+* [Window Priv Esca](privilege-escalation/window-priv-esca/README.md)
+  * [AD Priv Esca](privilege-escalation/window-priv-esca/ad-priv-esca.md)
 
 ## PIVOTING/LATERAL MOVEMENT
 
+* [Pivoting](pivoting-lateral-movement/pivoting.md)
 * [Unix Piv/Lateral](pivoting-lateral-movement/unix-piv-lateral.md)
+* [Window Piv/Lateral](pivoting-lateral-movement/window-piv-lateral/README.md)
+  * [AD Kerberos](pivoting-lateral-movement/window-piv-lateral/ad-kerberos.md)
 
 ## DATA EXFILTRATION
 
 * [Unix Data Exfilt](data-exfiltration/unix-data-exfilt.md)
+* [Window Data Exfilt](data-exfiltration/window-data-exfilt/README.md)
+  * [AD Impacket](data-exfiltration/window-data-exfilt/ad-impacket.md)
 
 ## PERSISTENCE
 
 * [Unix Persist](persistence/unix-persist.md)
+* [Window Persist](persistence/window-persist/README.md)
+  * [AD Persist](persistence/window-persist/ad-persist.md)
 
-## CODE REVIEW
+## CLOUD
 
-* [Sinks](code-review/sinks.md)
+* [Cloud](cloud/cloud/README.md)
+  * [General](cloud/cloud/general.md)
+  * [AWS](cloud/cloud/aws.md)
+  * [Azure](cloud/cloud/azure.md)
+  * [GCP](cloud/cloud/gcp.md)
+  * [Docker && Kubernetes](cloud/cloud/docker-and-and-kubernetes.md)
+  * [CDN - Comain Fronting](cloud/cloud/cdn-comain-fronting.md)
 
 ## AI HACKING
 
@@ -499,8 +504,16 @@
 * [Android](mobile/android.md)
 * [iOS](mobile/ios.md)
 
+## CODE REVIEW
+
+* [Sinks](code-review/sinks.md)
+
 ## Tools
 
+* [Windows Tools](tools/windows-tools/README.md)
+  * [Kerberos](tools/windows-tools/kerberos.md)
+  * [PS tips & tricks](tools/windows-tools/ps-tips-and-tricks.md)
+  * [Active Directory](tools/windows-tools/active-directory.md)
 * [Burp Suite](tools/burp-suite.md)
 * [BugBounty](tools/bugbounty.md)
 * [Red Team Tools](tools/red-team-tools.md)
