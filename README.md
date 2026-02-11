@@ -49,3 +49,5 @@ Silence supports nothing. Operators invest in what builds them.
 If you’re here to actually do the work and not just read about it, you’re good.
 
 <figure><img src=".gitbook/assets/Hamcodes.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/qr-code.png" alt=""><figcaption></figcaption></figure>
