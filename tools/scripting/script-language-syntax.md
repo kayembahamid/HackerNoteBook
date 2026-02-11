@@ -1784,3 +1784,143 @@ echo "The length of the array is" %x%
 ```
 {% endtab %}
 {% endtabs %}
+
+### Conditionals
+
+{% tabs %}
+{% tab title="Python" %}
+
+
+| Switch             | Code Examples                                                                                                                                                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| If / ElseIf / Else | <p><code>a = 42</code></p><p><code>b = 420</code></p><p><code>if b > a:</code></p><p><code>print("b is greater than a")</code></p><p><code>elif a == b:</code></p><p><code>print("a and b are equal")</code></p><p><code>else:</code></p><p><code>print("a is greater than b")</code></p> |
+| Case               |                                                                                                                                                                                                                                                                                           |
+|                    |                                                                                                                                                                                                                                                                                           |
+{% endtab %}
+
+{% tab title="Powershell" %}
+
+
+| Switch             | Code Examples                                                                                                                                                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| If / ElseIf / Else | <p><code>a = 42</code></p><p><code>b = 420</code></p><p><code>if b > a:</code></p><p><code>print("b is greater than a")</code></p><p><code>elif a == b:</code></p><p><code>print("a and b are equal")</code></p><p><code>else:</code></p><p><code>print("a is greater than b")</code></p> |
+| Case               |                                                                                                                                                                                                                                                                                           |
+|                    |                                                                                                                                                                                                                                                                                           |
+{% endtab %}
+
+{% tab title="Bash" %}
+
+
+**Case/switch**
+
+```bash
+case "$1" in
+  start | up)
+    vagrant up
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop|ssh}"
+    ;;
+esac
+```
+
+```bash
+# String
+if [[ -z "$string" ]]; then
+  echo "String is empty"
+elif [[ -n "$string" ]]; then
+  echo "String is not empty"
+else
+  echo "This never happens"
+fi
+```
+{% endtab %}
+
+{% tab title="CMD.bat" %}
+
+
+| Switch             | Code Examples                                           |
+| ------------------ | ------------------------------------------------------- |
+| If / ElseIf / Else | `if "%var%"=="value" (echo Match) else (echo No Match)` |
+| Case               | `REM Not natively supported in CMD`                     |
+
+The first decision-making statement is the 'if' statement. The general form of this statement is as follows:
+
+```bash
+if(condition) do_something
+```
+
+First, a condition is evaluated in the 'if' statement. If the condition is true, it then executes the statements.
+
+#### Checking Variables
+
+One of the common uses for the 'if' statement in Batch Script is for checking variables which are set in the Batch Script itself. The evaluation of the 'if' statement can be done for both strings and numbers.
+
+**Checking Integer Variables**
+
+The following example shows how the 'if' statement can be used for numbers.
+
+**Example**
+
+```bat
+@echo off 
+SET /A a = 5 
+SET /A b = 10 
+SET /A c = %a% + %b% 
+if %c%==15 echo "The value of variable c is 15" 
+if %c%==10 echo "The value of variable c is 10"
+```
+
+The key things to note about the above script are:
+
+* The first 'if' statement checks if the value of the variable c is 15. If so, then it echo's a string to the command prompt.
+* Since the condition in the statement - `if %c% == 10 echo "The value of variable **c** is 10` evaluates to false, the echo part of the statement will not be executed.
+
+**Output**
+
+The above command produces the following output.
+
+```
+15
+```
+
+**Checking String Variables**
+
+The following example shows how the 'if' statement can be used for strings.
+
+**Example**
+
+```bat
+@echo off 
+SET str1 = String1 
+SET str2 = String2 
+if %str1%==String1 echo "The value of variable String1" 
+if %str2%==String3 echo "The value of variable c is String3"
+```
+
+The key thing to note about the above program is −
+
+* The first 'if' statement checks if the value of the variable str1 contains the string “String1”. If so, then it echo's a string to the command prompt.
+* Since the condition of the second 'if' statement evaluates to false, the echo part of the statement will not be executed.
+
+**Output**
+
+The above command produces the following output.
+
+```
+"The value of variable String1"
+```
+
+**Note** − The evaluation in the 'if' statement is case-sensitive. The same program as above is modified a little as shown in the following example. In the first statement, we have changed the comparison criteria. Because of the different casing, the output of the following program would yield nothing.
+
+```bat
+@echo off 
+SET str1 = String1 
+SET str2 = String2 
+if %str1%==StrinG1 echo "The value of variable String1" 
+if %str2%==String3 echo "The value of variable c is String3"
+```
+{% endtab %}
+{% endtabs %}
+

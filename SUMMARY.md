@@ -528,7 +528,6 @@
 * [BugBounty](tools/bugbounty.md)
 * [Scripting](tools/scripting/README.md)
   * [Script Language Syntax](tools/scripting/script-language-syntax.md)
-* [Page 2](tools/page-2.md)
 * [Red Team Tools](tools/red-team-tools.md)
 * [Internal Pentest](tools/internal-pentest.md)
 * [Report template](tools/report-template.md)
