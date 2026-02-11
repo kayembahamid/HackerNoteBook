@@ -22,7 +22,7 @@ Below lists the API calls that are required to execute this technique:
 
 ### Walkthrough
 
-Steps 1-3 of the technique overview are self-explanatory and have been covered in more detail in my notes in [Code & Process Injection](https://www.ired.team/offensive-security/code-injection-process-injection) section.
+Steps 1-3 of the technique overview are self-explanatory and have been covered in more detail in my notes in [Code & Process Injection ](./)section.
 
 In step 4, what happens is that we simply find our target process's (notepad) main thread ID as seen in the below image:
 

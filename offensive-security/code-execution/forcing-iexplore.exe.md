@@ -1,4 +1,8 @@
-# Forcing Iexplore.exe to Load a Malicious DLL via COM Abuse
+---
+description: To Load a Malicious DLL via COM Abuse
+---
+
+# Forcing Iexplore.exe
 
 It's possible to force iexplore.exe (or explorer.exe) to load a malicious DLL and execute it - a technique which could be used when attempting to evade certain defenses.
 

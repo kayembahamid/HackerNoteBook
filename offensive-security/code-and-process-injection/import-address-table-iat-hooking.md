@@ -44,8 +44,8 @@ To hook the `MessageBoxA` we need to:
 2. Define a `MessageBoxA` function prototype
 3. Create a `hookedMessageBox` (rogue `MessageBoxA`) function with the above prototype. This is the function that intercepts the original `MessageBoxA` call, executes some malicious code (in my case, it invokes a `MessageBoxW`) and transfers code execution to the original `MessageBoxA` routine for which the address is retrieved in step 1
 4. Parse IAT table until address of `MessageBoxA` is found
-   1. More about PE parsing in [Parsing PE File Headers with C++](https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/pe-file-header-parser-in-c++)
-   2. More about Import Address Table parsing in [Reflective DLL Injection](https://www.ired.team/offensive-security/reflective-dll-injection#resolving-import-address-table)
+   1. More about PE parsing in [Parsing PE File Headers with C++](../../reversing-forensics-and-misc/internals/parsing-pe-file-headers-with-c++.md)
+   2. More about Import Address Table parsing in [Reflective DLL Injection](reflective-dll-injection.md)
 5. Replace `MessageBoxA` address with address of the `hookedMessageBox`
 
 As a reminder, we can check the IAT of any binary using CFF Explorer or any other PE parser. Below highlighted is one of the IAT entries - the target function `MessageBoxA` that will be patched during runtime and swapped with `hookedMessageBox`:

@@ -1,4 +1,8 @@
-# Executing Code as a Control Panel Item through an Exported Cplapplet Function
+---
+description: Item through an Exported Cplapplet Function
+---
+
+# Executing Code as a Control Panel
 
 This is a quick note that shows how to execute code in a .cpl file, which is a regular DLL file representing a Control Panel item.
 

