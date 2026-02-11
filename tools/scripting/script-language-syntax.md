@@ -3019,3 +3019,97 @@ echo Batch scripting doesn't support heredocs natively.
 ```
 {% endtab %}
 {% endtabs %}
+
+### Package Management
+
+{% tabs %}
+{% tab title="Python" %}
+
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Activity     | Code Examples                                 |
+| ------------ | --------------------------------------------- |
+| Install      | `Install-Package <package-name>` - PowerShell |
+| Import       | `Import-Module <module-name>`                 |
+| List         | `Get-Package` - PowerShell                    |
+| Update       | `Update-Package <package-name>`               |
+| Uninstall    | `Uninstall-Package <package-name>`            |
+| Search       | `Find-Package <package-name>`                 |
+| Show Details | `Get-Package -Name <package-name>`            |
+
+PowerShell uses **PackageManagement** to handle software packages, and it supports multiple providers like NuGet and Chocolatey.
+{% endtab %}
+
+{% tab title="Winget" %}
+**Winget package management**
+
+Winget is used for managing applications on Windows, similar to package managers on Linux and macOS.
+
+| Activity     | Code Examples                     |
+| ------------ | --------------------------------- |
+| Install      | `winget install <package-name>`   |
+| List         | `winget list`                     |
+| Update       | `winget upgrade <package-name>`   |
+| Update All   | `winget upgrade --all`            |
+| Uninstall    | `winget uninstall <package-name>` |
+| Search       | `winget search <package-name>`    |
+| Show Details | `winget show <package-name>`      |
+
+You can find more details on Winget commands [here](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+{% endtab %}
+
+{% tab title="chocolatey" %}
+**Chocolatey package management**
+
+Chocolatey is a powerful package manager for Windows, making software installation and updates much more efficient.
+
+| Activity                    | Code Examples                    |
+| --------------------------- | -------------------------------- |
+| Install                     | `choco install <package-name>`   |
+| List                        | `choco list --local-only`        |
+| Update                      | `choco upgrade <package-name>`   |
+| Update All                  | `choco upgrade all`              |
+| Uninstall                   | `choco uninstall <package-name>` |
+| Search                      | `choco search <package-name>`    |
+| Show Details                | `choco info <package-name>`      |
+| Check for Outdated Packages | `choco outdated`                 |
+
+You can find more details on Chocolatey commands [here](https://docs.chocolatey.org/en-us/choco/commands/).
+{% endtab %}
+
+{% tab title="Bash" %}
+| Activity    | Code Examples                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Install     | <p><code>sudo apt install &#x3C;package-name></code> (Debian/Ubuntu)<br><code>sudo dnf install &#x3C;package-name></code> (Fedora/RHEL)</p> |
+| Import      | Not applicable in Bash package management (Packages are installed, not imported)                                                            |
+| List        | <p><code>apt list --installed</code> (Debian/Ubuntu)<br><code>dnf list installed</code> (Fedora/RHEL)</p>                                   |
+| Update      | <p><code>sudo apt update</code> (Debian/Ubuntu)<br><code>sudo dnf update</code> (Fedora/RHEL)</p>                                           |
+| Upgrade     | <p><code>sudo apt upgrade</code> (Debian/Ubuntu)<br><code>sudo dnf upgrade</code> (Fedora/RHEL)</p>                                         |
+| Remove      | <p><code>sudo apt remove &#x3C;package-name></code> (Debian/Ubuntu)<br><code>sudo dnf remove &#x3C;package-name></code> (Fedora/RHEL)</p>   |
+| Search      | <p><code>apt search &#x3C;package-name></code> (Debian/Ubuntu)<br><code>dnf search &#x3C;package-name></code> (Fedora/RHEL)</p>             |
+| Clean Cache | <p><code>sudo apt clean</code> (Debian/Ubuntu)<br><code>sudo dnf clean all</code> (Fedora/RHEL)</p>                                         |
+|             |                                                                                                                                             |
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+Windows lacks built-in package management, but has a somewhat similar feature using DISM (Deployment Image Servicing and Management) for managing additional features. These features can also be installed/removed using PowerShell commands as well.
+
+| Activity                       | Code Examples                                                        |
+| ------------------------------ | -------------------------------------------------------------------- |
+| Install Feature                | `DISM /Online /Enable-Feature /FeatureName:<feature-name>`           |
+| Remove Feature                 | `DISM /Online /Disable-Feature /FeatureName:<feature-name>`          |
+| List Installed Features        | `DISM /Online /Get-Features`                                         |
+| Check Feature Status           | `DISM /Online /Get-FeatureInfo /FeatureName:<feature-name>`          |
+| Install Feature via PowerShell | `Enable-WindowsOptionalFeature -Online -FeatureName <feature-name>`  |
+| Remove Feature via PowerShell  | `Disable-WindowsOptionalFeature -Online -FeatureName <feature-name>` |
+
+You can find more details on managing Windows features [here](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features).
+{% endtab %}
+{% endtabs %}
+
+References
+
+* [https://devhints.io/bash](https://devhints.io/bash)
+* [https://wiki.bash-hackers.org/syntax/expansion/cmdsubst](https://wiki.bash-hackers.org/syntax/expansion/cmdsubst)
+* [https://www.tutorialspoint.com/batch\_script/batch\_script\_syntax.htm](https://www.tutorialspoint.com/batch_script/batch_script_syntax.htm)
