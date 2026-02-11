@@ -1924,3 +1924,305 @@ if %str2%==String3 echo "The value of variable c is String3"
 {% endtab %}
 {% endtabs %}
 
+### Loops
+
+{% tabs %}
+{% tab title="Python" %}
+| Loop Type | Code Examples                                                                                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| For       | <p><code>fruits = ["apple", "banana", "cherry"]</code></p><p><code>for x in fruits:</code></p><p><code>print(x)</code></p>                                                     |
+| While     | <p><code>i = 1</code></p><p><code>while i &#x3C; 6:</code></p><p><code>print(i)</code></p><p><code>i += 1</code></p>                                                           |
+| Break     | <p><code>i = 1</code></p><p><code>while i &#x3C; 6:</code></p><p><code>print(i)</code></p><p><code>if i == 3:</code></p><p><code>break</code></p><p><code>i += 1</code></p>    |
+| Continue  | <p><code>i = 1</code></p><p><code>while i &#x3C; 6:</code></p><p><code>print(i)</code></p><p><code>if i == 3:</code></p><p><code>continue</code></p><p><code>i += 1</code></p> |
+|           |                                                                                                                                                                                |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Loop Type | Code Examples                                                                                                                                                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| For       | <p><code>$fruits = @("apple", "banana", "cherry")</code></p><p><code>foreach($x in $fruits)</code></p><p><code>{</code></p><p><code>Write-Host $x</code></p><p><code>}</code></p>                                                                                        |
+| While     | <p><code>$i = 1</code></p><p><code>while ($i -lt 6)</code></p><p><code>{</code></p><p><code>Write-Host $i</code></p><p><code>$i++</code></p><p><code>}</code></p>                                                                                                        |
+| Break     | <p><code>$i = 1</code></p><p><code>while ($i -lt 6)</code></p><p><code>{</code></p><p><code>Write-Host $i</code></p><p><code>if ($i -eq 3)</code></p><p><code>{</code></p><p><code>break</code></p><p><code>}</code></p><p><code>$i++</code></p><p><code>}</code></p>    |
+| Continue  | <p><code>$i = 1</code></p><p><code>while ($i -lt 6)</code></p><p><code>{</code></p><p><code>Write-Host $i</code></p><p><code>if ($i -eq 3)</code></p><p><code>{</code></p><p><code>continue</code></p><p><code>}</code></p><p><code>$i++</code></p><p><code>}</code></p> |
+|           |                                                                                                                                                                                                                                                                          |
+{% endtab %}
+
+{% tab title="Bash" %}
+| Loop Type | Code Examples                                                  |
+| --------- | -------------------------------------------------------------- |
+| For       | `for i in 1 2 3; do echo $i; done`                             |
+| While     | `while [ "$var" != "stop" ]; do echo $var; done`               |
+| Break     | `for i in 1 2 3; do [ "$i" = "2" ] && break; echo $i; done`    |
+| Continue  | `for i in 1 2 3; do [ "$i" = "2" ] && continue; echo $i; done` |
+
+**Basic for loop**
+
+```bash
+for i in /etc/rc.*; do
+  echo $i
+done
+```
+
+**C-like for loop**
+
+```bash
+for ((i = 0 ; i < 100 ; i++)); do
+  echo $i
+done
+```
+
+**Ranges**
+
+```bash
+for i in {1..5}; do
+    echo "Welcome $i"
+done
+```
+
+**With step size**
+
+```bash
+for i in {5..50..5}; do
+    echo "Welcome $i"
+done
+```
+
+**Reading lines**
+
+```bash
+cat file.txt | while read line; do
+  echo $line
+done
+```
+
+**Forever**
+
+```bash
+while true; do
+  $commands_here
+done
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+TODO: this
+
+| Loop Type | Code Examples |
+| --------- | ------------- |
+| For       |               |
+| While     |               |
+| Break     |               |
+| Continue  |               |
+
+#### Loops
+
+In the decision making chapter, we have seen statements which have been executed one after the other in a sequential manner. Additionally, implementations can also be done in Batch Script to alter the flow of control in a program's logic. They are then classified into flow of control statements.
+
+#### `While` Statement Implementation
+
+There is no direct `while` statement available in Batch Scripting but we can do an implementation of this loop very easily by using the if statement and labels.
+
+The first part of the while implementation is to set the counters which will be used to control the evaluation of the 'if' condition. We then define our label which will be used to embody the entire code for the while loop implementation. The 'if' condition evaluates an expression. If the expression evaluates to true, the code block is executed. If the condition evaluates to false then the loop is exited. When the code block is executed, it will return back to the label statement for execution again.
+
+**Syntax**
+
+```bat
+Set counters
+:label
+If (expression) (
+   Do_something
+   Increment counter
+   Go back to :label
+)
+```
+
+* The entire code for the while implementation is placed inside of a label.
+* The counter variables must be set or initialized before the while loop implementation starts.
+* The expression for the while condition is done using the 'if' statement. If the expression evaluates to true then the relevant code inside the 'if' loop is executed.
+* A counter needs to be properly incremented inside of 'if' statement so that the while implementation can terminate at some point in time.
+* Finally, we will go back to our label so that we can evaluate our 'if' statement again.
+
+Following is an example of a while loop statement.
+
+**Example**
+
+```bat
+@echo off
+SET /A "index = 1"
+SET /A "count = 5"
+:while
+if %index% leq %count% (
+   echo The value of index is %index%
+   SET /A "index = index + 1"
+   goto :while
+)
+```
+
+In the above example, we are first initializing the value of an index integer variable to 1. Then our condition in the 'if' loop is that we are evaluating the condition of the expression to be that index should it be less than the value of the count variable. Till the value of index is less than 5, we will print the value of index and then increment the value of index.
+
+#### `For` Statement - `List Implementations`
+
+The "FOR" construct offers looping capabilities for batch files. Following is the common construct of the 'for' statement for working with a list of values.
+
+**Syntax**
+
+```bat
+FOR %%variable IN list DO do_something
+```
+
+The classic 'for' statement consists of the following parts −
+
+* Variable declaration – This step is executed only once for the entire loop and used to declare any variables which will be used within the loop. In Batch Script, the variable declaration is done with the %% at the beginning of the variable name.
+* List – This will be the list of values for which the 'for' statement should be executed.
+* The do\_something code block is what needs to be executed for each iteration for the list of values.
+
+Following is an example of how the 'goto' statement can be used.
+
+**Example**
+
+```bat
+@echo off 
+FOR %%F IN (1 2 3 4 5) DO echo %%F
+```
+
+The key thing to note about the above program is −
+
+* The variable declaration is done with the %% sign at the beginning of the variable name.
+* The list of values is defined after the IN clause.
+* The do\_something code is defined after the echo command. Thus for each value in the list, the echo command will be executed.
+
+#### Looping through Ranges
+
+The 'for' statement also has the ability to move through a range of values. Following is the general form of the statement.
+
+#### Syntax
+
+```bat
+FOR /L %%variable IN (lowerlimit,Increment,Upperlimit) DO do_something
+```
+
+Where
+
+* The /L switch is used to denote that the loop is used for iterating through ranges.
+* Variable declaration – This step is executed only once for the entire loop and used to declare any variables which will be used within the loop. In Batch Script, the variable declaration is done with the %% at the beginning of the variable name.
+* The IN list contains of 3 values. The lowerlimit, the increment, and the upperlimit. So, the loop would start with the lowerlimit and move to the upperlimit value, iterating each time by the Increment value.
+* The do\_something code block is what needs to be executed for each iteration.
+
+Following is an example of how the looping through ranges can be carried out.
+
+**Example**
+
+```bat
+@ECHO OFF 
+FOR /L %%X IN (0,1,5) DO ECHO %%X
+```
+
+#### Classic for Loop Implementation
+
+Following is the classic 'for' statement which is available in most programming languages.
+
+**Typical 'for' loop Syntax**
+
+```
+for(variable declaration;expression;Increment) {
+   statement #1
+   statement #2
+   …
+}
+```
+
+The Batch Script language does not have a direct 'for' statement which is similar to the above syntax, but one can still do an implementation of the classic 'for' loop statement using if statements and labels.
+
+Let's look at the general syntax implementation of the classic for loop in batch scripting.
+
+```bat
+Set counter
+:label
+
+If (expression) exit loop
+Do_something
+Increment counter
+Go back to :label
+```
+
+* The entire code for the 'for' implementation is placed inside of a label.
+* The counters variables must be set or initialized before the 'for' loop implementation starts.
+* The expression for the 'for' loop is done using the 'if' statement. If the expression evaluates to be true then an exit is executed to come out of the loop.
+* A counter needs to be properly incremented inside of the 'if' statement so that the 'for' implementation can continue if the expression evaluation is false.
+* Finally, we will go back to our label so that we can evaluate our 'if' statement again.
+
+Following is an example of how to carry out the implementation of the classic 'for' loop statement.
+
+**Example**
+
+```bat
+@echo off 
+SET /A i = 1 
+:loop 
+
+IF %i%==5 GOTO END 
+echo The value of i is %i% 
+SET /a i=%i%+1 
+GOTO :LOOP 
+:END
+```
+
+#### Looping through Command Line Arguments
+
+The 'for' statement can also be used for checking command line arguments. The following example shows how the 'for' statement can be used to loop through the command line arguments.
+
+**Example**
+
+```bat
+@ECHO OFF 
+:Loop 
+
+IF "%1"=="" GOTO completed 
+FOR %%F IN (%1) DO echo %%F 
+SHIFT 
+GOTO Loop 
+:completed
+```
+
+**Output**
+
+Let's assume that our above code is stored in a file called Test.bat. The above command will produce the following output if the batch file passes the command line arguments of 1,2 and 3 as Test.bat 1 2 3.
+
+```
+1 
+2 
+3
+```
+
+#### `Break` Statement Implementation
+
+The break statement is used to alter the flow of control inside loops within any programming language. The break statement is normally used in looping constructs and is used to cause immediate termination of the innermost enclosing loop.
+
+The break statement is used to alter the flow of control inside loops within any programming language. The break statement is normally used in looping constructs and is used to cause immediate termination of the innermost enclosing loop.
+
+The Batch Script language does not have a direct 'for' statement which does a break but this can be implemented by using labels. The following example shows the diagrammatic explanation of the break statement implementation in Batch Script.
+
+**Example**
+
+```bat
+@echo off 
+SET /A "index=1" 
+SET /A "count=5" 
+:while 
+if %index% leq %count% ( 
+   if %index%==2 goto :Increment 
+      echo The value of index is %index% 
+:Increment 
+   SET /A "index=index + 1" 
+   goto :while 
+)
+```
+
+The key thing to note about the above implementation is the involvement of two 'if' conditions. The second 'if' condition is used to control when the break is implemented. If the second 'if' condition is evaluated to be true, then the code block is not executed and the counter is directly implemented.
+
+Following is an example of how to carry out the implementation of the break statement.
+
+The key thing to note about the above script is the addition of a label called :Increment. When the value of index reaches 2, we want to skip the statement which echoes its value to the command prompt and directly just increment the value of index.
+{% endtab %}
+{% endtabs %}
+
