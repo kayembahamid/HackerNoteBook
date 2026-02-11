@@ -5,7 +5,7 @@ description: Links
 # Active Directory & Kerberos Abuse
 
 * [From Domain Admin to Enterprise Admin](from-domain-admin-to-enterprise-admin.md)
-* [Kerberoasting](/broken/pages/61283eb25af883286832dc4fb8c3abea5a3cfb8a)
+* [Kerberoasting](kerberoasting.md)
 * [Kerberos: Golden Tickets](kerberos-golden-tickets.md)
 * [Kerberos: Silver Tickets](kerberos-silver-tickets.md)
 * [AS-REP Roasting](as-rep-roasting.md)
