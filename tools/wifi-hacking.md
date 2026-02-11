@@ -183,7 +183,7 @@ pyrit -r $capturefile -i $wordlist -b $AP_MAC attack_passthrough
 
 ### **MISC**
 
-TODO: Split "Misc" items into proper sections; prep code for scripting (issue [#16](https://github.com/zweilosec/Infosec-Notes/issues/16))
+TODO: Split "Misc" items into proper sections; prep code for scripting&#x20;
 
 * Put each example into its respective section
 * Clean up code examples and prep for scripting

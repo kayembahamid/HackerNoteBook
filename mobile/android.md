@@ -4,7 +4,7 @@
 
 #### Extract
 
-```
+```shellscript
 # Jadx - decompiler gui
 jadx-gui
 # Jadx - decomp cli (with deobf)
@@ -19,7 +19,7 @@ apktool d app_name.apk
 
 #### Get sensitive info
 
-```
+```shellscript
 # Urls and secrets
 # https://github.com/dwisiswant0/apkleaks
 python apkleaks.py -f ~/path/to/file.apk
@@ -65,7 +65,7 @@ Use of permissions
 
 #### Static analyzers
 
-```
+```shellscript
 # Android Malware Analyzer
 # https://github.com/quark-engine/quark-engine
 pipenv shell
@@ -91,7 +91,7 @@ Anything that shouldn't be there (debug info, comments wiht info disclosure, ...
 
 ### Manual analysis (adb, frida, objection, etc...)
 
-```
+```shellscript
 # Good Checklist
 https://mobexler.com/checklist.htm#android
 
@@ -190,7 +190,7 @@ rm -rf cacert.*
 
 ### Tips
 
-```
+```shellscript
 Recon:
 - AndroidManifest.xml (basically a blueprint for the application)
 Find exported components, api keys, custom deep link schemas, schema endpoints etc.

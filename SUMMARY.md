@@ -405,7 +405,10 @@
 
 ## PIVOTING/LATERAL MOVEMENT
 
-* [Pivoting](pivoting-lateral-movement/pivoting.md)
+* [Pivoting](pivoting-lateral-movement/pivoting/README.md)
+  * [Chisel](pivoting-lateral-movement/pivoting/chisel.md)
+  * [SSH](pivoting-lateral-movement/pivoting/ssh.md)
+  * [SSH & SCP](pivoting-lateral-movement/pivoting/ssh-and-scp.md)
 * [Unix Piv/Lateral](pivoting-lateral-movement/unix-piv-lateral.md)
 * [Window Piv/Lateral](pivoting-lateral-movement/window-piv-lateral/README.md)
   * [AD Kerberos](pivoting-lateral-movement/window-piv-lateral/ad-kerberos.md)
@@ -496,6 +499,7 @@
 * [Ai\_enabled\_app\_defense\_checklist](ai-hacking/ai_enabled_app_defense_checklist.md)
 * [Ai\_sec\_questionnaire](ai-hacking/ai_sec_questionnaire.md)
 * [Ai\_threat\_model\_questions](ai-hacking/ai_threat_model_questions.md)
+* [LLM/AI/ML/prompt testing](ai-hacking/llm-ai-ml-prompt-testing.md)
 
 ## Mobile
 
@@ -505,10 +509,17 @@
 
 ## CODE REVIEW
 
+* [Code review](code-review/code-review.md)
 * [Sinks](code-review/sinks.md)
 
 ## Tools
 
+* [OSINT](tools/osint.md)
+* [Wifi Hacking](tools/wifi-hacking.md)
+* [Password cracking](tools/password-cracking/README.md)
+  * [Gathering the Hashes](tools/password-cracking/gathering-the-hashes.md)
+  * [Wordlist Manipulation](tools/password-cracking/wordlist-manipulation.md)
+  * [Cracking the Hashes](tools/password-cracking/cracking-the-hashes.md)
 * [Windows Tools](tools/windows-tools/README.md)
   * [Kerberos](tools/windows-tools/kerberos.md)
   * [PS tips & tricks](tools/windows-tools/ps-tips-and-tricks.md)
@@ -516,13 +527,8 @@
 * [Burp Suite](tools/burp-suite.md)
 * [BugBounty](tools/bugbounty.md)
 * [Red Team Tools](tools/red-team-tools.md)
-* [Password cracking](tools/password-cracking.md)
-* [LLM/AI/ML/prompt testing](tools/llm-ai-ml-prompt-testing.md)
-* [Code review](tools/code-review.md)
 * [Internal Pentest](tools/internal-pentest.md)
+* [Report template](tools/report-template.md)
+* [Writeups](tools/writeups.md)
 * [Random](tools/random.md)
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
-* [Writeups](tools/writeups.md)
-* [Report template](tools/report-template.md)
-* [Wifi Hacking](tools/wifi-hacking.md)
-* [SSH & SCP](tools/ssh-and-scp.md)
