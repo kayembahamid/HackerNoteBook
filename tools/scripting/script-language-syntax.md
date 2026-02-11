@@ -2678,3 +2678,187 @@ Value = 3
 {% endtab %}
 {% endtabs %}
 
+### Lambdas
+
+{% tabs %}
+{% tab title="Python" %}
+| Lambda | Code Examples                                                            |
+| ------ | ------------------------------------------------------------------------ |
+| Lambda | <p><code>x = lambda a : a + 10</code></p><p><code>print(x(5))</code></p> |
+|        |                                                                          |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Lambda | Code Examples                                                                 |
+| ------ | ----------------------------------------------------------------------------- |
+| Lambda | <p><code>$x = { param($a) $a + 10 }</code></p><p><code>&#x26; $x 5</code></p> |
+|        |                                                                               |
+{% endtab %}
+
+{% tab title="Bash" %}
+This is implemented by creating a basic inline function in bash.
+
+| Lambda | Code Examples                               |
+| ------ | ------------------------------------------- |
+| Lambda | `lambda() { echo $(($1 + 10)); }; lambda 5` |
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+Batch scripting does not natively support lambda functions.
+
+| Lambda | Code Examples                       |
+| ------ | ----------------------------------- |
+| Lambda | `REM Not natively supported in CMD` |
+{% endtab %}
+{% endtabs %}
+
+### Math Operators
+
+{% tabs %}
+{% tab title="Python" %}
+TODO: Add other operator types
+
+| Operator       | Code Examples   |
+| -------------- | --------------- |
+| Addition       | `var = 1 + 1`   |
+| Subtraction    | `var = 1 - 1`   |
+| Multiplication | `var = 1 * 1`   |
+| Division       | `var = 1 / 1`   |
+| Modulus        | `var = 1 % 1`   |
+| Floor          | `var = 10 // 3` |
+| Exponent       | `var = 10 ** 3` |
+|                |                 |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Operator       | Code Examples                  |
+| -------------- | ------------------------------ |
+| Addition       | `$var = 1 + 1`                 |
+| Subtraction    | `$var = 1 - 1`                 |
+| Multiplication | `$var = 1 * 1`                 |
+| Division       | `$var = 1 / 1`                 |
+| Modulus        | `$var = 1 % 1`                 |
+| Floor          | `$var = [Math]::Floor(10 / 3)` |
+| Exponent       | `$var = [Math]::Pow(10, 3)`    |
+|                |                                |
+{% endtab %}
+
+{% tab title="Bash" %}
+| Operator       | Code Examples       |
+| -------------- | ------------------- |
+| Addition       | `echo $((1 + 1))`   |
+| Subtraction    | `echo $((1 - 1))`   |
+| Multiplication | `echo $((1 * 1))`   |
+| Division       | `echo $((1 / 1))`   |
+| Modulus        | `echo $((1 % 1))`   |
+| Floor          | `echo $((10 / 3))`  |
+| Exponent       | `echo $((10 ** 3))` |
+|                |                     |
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+
+{% endtab %}
+{% endtabs %}
+
+### Error Handling
+
+{% tabs %}
+{% tab title="Python" %}
+| Error Handling | Code Examples                                                                                                                                                                                                                                         |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Try/Except     | <p><code>try:</code></p><p><code>print(x)</code></p><p><code>except:</code></p><p><code>print("An exception occurred")</code></p>                                                                                                                     |
+| Else           | <p><code>try:</code><br></p><p><code>print("Hello")</code><br></p><p><code>except:</code><br></p><p><code>print("Something went wrong")</code><br></p><p><code>else:</code><br></p><p><code>print("Nothing went wrong")</code></p>                    |
+| Finally        | <p><code>try:</code></p><p><code>f = open("file.txt") f.write("Lorum Ipsum")</code></p><p><code>except:</code></p><p><code>print("Something went wrong when writing to the file")</code></p><p><code>finally:</code></p><p><code>f.close()</code></p> |
+| Raise          | <p><code>x = -1</code></p><p><code>if x &#x3C; 0:</code></p><p><code>raise Exception("Sorry, no numbers below zero")</code></p>                                                                                                                       |
+|                |                                                                                                                                                                                                                                                       |
+{% endtab %}
+
+{% tab title="Powershell" %}
+
+
+| Error Handling | Code Examples                                                                                                                                                     |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Try/Catch      | <p><code>try {</code></p><p><code>Write-Host $x</code></p><p><code>} catch {</code></p><p><code>Write-Host "An exception ocurred"</code></p><p><code>}</code></p> |
+|                |                                                                                                                                                                   |
+{% endtab %}
+
+{% tab title="Bash" %}
+TODO: this
+
+| Error Handling | Code Examples |
+| -------------- | ------------- |
+| Try/Catch      |               |
+
+**Trap errors**
+
+```
+trap 'echo Error at about $LINENO' ERR
+```
+
+or
+
+```
+traperr() {
+  echo "ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}"
+}
+
+set -o errtrace
+trap traperr ERR
+```
+
+**Raising errors**
+
+```
+myfunc() {
+  return 1
+}
+```
+
+```
+if myfunc; then
+  echo "success"
+else
+  echo "failure"
+fi
+```
+{% endtab %}
+
+{% tab title="CMDbat" %}
+TODO: this
+
+| Error Handling | Code Examples |
+| -------------- | ------------- |
+| Try/Catch      |               |
+{% endtab %}
+{% endtabs %}
+
+### Shell Command Execution
+
+{% tabs %}
+{% tab title="Python" %}
+
+{% endtab %}
+
+{% tab title="Powershell" %}
+To execute regular Windows shell commands (from cmd.exe) in PowerShell, simply type the command the same way you would in the Windows command shell. Some commands may not work in the same way, and some may need the full filename (example: to se a directory listing in cmd.exe \`dir\` is the command. To use this in PowerShell you would need to specify \`dir.exe\`.
+
+IEX (Invoke-Expression)
+{% endtab %}
+
+{% tab title="Bash" %}
+**Shell execution**
+
+```
+pwd
+echo "I'm in $(pwd)"
+echo "I'm in `pwd`"
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+To execute regular Windows shell commands (from cmd.exe) in PowerShell, simply type the command the same way you would in the Windows command shell. Some commands may not work in the same way, and some may need the full filename (example: to se a directory listing in cmd.exe dir is the command. To use this in PowerShell you would need to specify dir.exe.
+
+IEX (Invoke-Expression)
+{% endtab %}
+{% endtabs %}
