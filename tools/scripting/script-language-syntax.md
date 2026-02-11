@@ -2384,7 +2384,6 @@ TODO:
 | ------------ | ------------------------------------------------------------------------------- |
 | Single line  | `# Hello, world!`                                                               |
 | Multiline    | <p><code>"""</code></p><p><code>Hello, world!</code></p><p><code>"""</code></p> |
-|              |                                                                                 |
 {% endtab %}
 
 {% tab title="Powershell" %}
@@ -2493,6 +2492,189 @@ And this one...
 ```
 
 
+{% endtab %}
+{% endtabs %}
+
+### Data Type
+
+{% tabs %}
+{% tab title="Python" %}
+| Action            | Code Examples                                            |
+| ----------------- | -------------------------------------------------------- |
+| Get Object's Type | <p><code>var = 1</code></p><p><code>type(var)</code></p> |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Action            | Code Examples                                        |
+| ----------------- | ---------------------------------------------------- |
+| Get Object's Type | <p><code>$var = 1</code></p><p><code>$var</code></p> |
+|                   |                                                      |
+{% endtab %}
+
+{% tab title="Bash" %}
+Bash does not have the concept of typed variables, though attributes can be defined using the `declare` command. See the link below for more information:
+
+[https://stackoverflow.com/questions/29840525/get-variable-type-in-bash](https://stackoverflow.com/questions/29840525/get-variable-type-in-bash)
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+TODO: this
+
+| Action            | Code Examples |
+| ----------------- | ------------- |
+| Get Object's Type |               |
+{% endtab %}
+{% endtabs %}
+
+### Dictionaries
+
+{% tabs %}
+{% tab title="Python" %}
+| **Activity**        | Code Examples                                                                                                                                                                                                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Defining            | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>print(thisdict)</code></p>                                                                                                |
+| Accessing Elements  | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>thisdict['brand']</code></p>                                                                                              |
+| Updating Elements   | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>thisdict['brand'] = 'Chevy'</code></p>                                                                                    |
+| Enumerating Keys    | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>for x in thisdict:</code></p><p><code>print(x)</code></p>                                                                 |
+| Enumerating Values  | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>for x in thisdict.values():</code></p><p><code>print(x)</code></p>                                                        |
+| Check if key exists | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>if "model" in thisdict:</code></p><p><code>print("Yes, 'model' is one of the keys in the thisdict dictionary")</code></p> |
+| Adding items        | <p><code>thisdict = {</code></p><p><code>"brand": "Ford",</code></p><p><code>"model": "Mustang",</code></p><p><code>"year": 1964</code></p><p><code>}</code></p><p><code>thisdict["color"] = "red"</code></p>                                                                                      |
+|                     |                                                                                                                                                                                                                                                                                                    |
+{% endtab %}
+
+{% tab title="PowerShell" %}
+| **Activity**        | Code Examples                                                                                                                                                                                                                                                                                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Defining            | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p>                                                                                                                                                                                             |
+| Accessing Elements  | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>$thisdict.brand</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>or</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>$thisdict['brand']</code></p>                                  |
+| Updating Elements   | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>$thisdict.brand = 'Chevy'</code></p>                                                                                                                                                |
+| Enumerating Keys    | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>$thisdict.Keys</code></p>                                                                                                                                                           |
+| Enumerating Values  | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>$thisdict.Values</code></p>                                                                                                                                                         |
+| Check if key exists | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>if ($thisdict.ContainsKey("model"))</code></p><p><code>{</code></p><p><code>Write-Host "Yes, 'model' is one of the keys in the thisdict dictionary"</code></p><p><code>}</code></p> |
+| Adding items        | <p><code>$thisdict = @{</code></p><p><code>brand = "Ford"</code></p><p><code>model = "Mustang"</code></p><p><code>year = 1964</code></p><p><code>}</code></p><p><code>$thisdict.color = 'red'</code></p>                                                                                                                                                  |
+|                     |                                                                                                                                                                                                                                                                                                                                                           |
+{% endtab %}
+
+{% tab title="Bash" %}
+TODO: this
+
+| **Activity**        | Code Examples |
+| ------------------- | ------------- |
+| Defining            |               |
+| Accessing Elements  |               |
+| Updating Elements   |               |
+| Enumerating Keys    |               |
+| Enumerating Values  |               |
+| Check if key exists |               |
+| Adding items        |               |
+
+**Defining a dictionary**
+
+```bash
+declare -A sounds
+```
+
+```bash
+sounds[dog]="bark"
+sounds[cow]="moo"
+sounds[bird]="tweet"
+sounds[wolf]="howl"
+```
+
+Declares `sound` as a Dictionary object (aka associative array).
+
+**Working with dictionaries**
+
+```bash
+echo ${sounds[dog]} # Dog's sound
+echo ${sounds[@]}   # All values
+echo ${!sounds[@]}  # All keys
+echo ${#sounds[@]}  # Number of elements
+unset sounds[dog]   # Delete dog
+```
+
+**Iteration**
+
+**Iterate over values**
+
+```bash
+for val in "${sounds[@]}"; do
+  echo $val
+done
+```
+
+**Iterate over keys**
+
+```bash
+for key in "${!sounds[@]}"; do
+  echo $key
+done
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+TODO: this
+
+| **Activity**        | Code Examples |
+| ------------------- | ------------- |
+| Defining            |               |
+| Accessing Elements  |               |
+| Updating Elements   |               |
+| Enumerating Keys    |               |
+| Enumerating Values  |               |
+| Check if key exists |               |
+| Adding items        |               |
+
+#### Creating Structures in Arrays
+
+Structures can also be implemented in batch files using a little bit of an extra coding for implementation. The following example shows how this can be achieved.
+
+**Example**
+
+```bat
+@echo off 
+set len = 3 
+set obj[0].Name = Joe 
+set obj[0].ID = 1 
+set obj[1].Name = Mark 
+set obj[1].ID = 2 
+set obj[2].Name = Mohan 
+set obj[2].ID = 3 
+set i = 0 
+:loop 
+
+if %i% equ %len% goto :eof 
+set cur.Name= 
+set cur.ID=
+
+for /f "usebackq delims==.tokens=1-3" %%j in (`set obj[%i%]`) do ( 
+   set cur.%%k=%%l 
+) 
+echo Name = %cur.Name% 
+echo Value = %cur.ID% 
+set /a i = %i%+1 
+goto loop
+```
+
+The following key things need to be noted about the above code:
+
+* Each variable defined using the `set` command has 2 values associated with each index of the array.
+* The variable **i** is set to 0 so that we can loop through the structure will the length of the array which is 3.
+* We always check for the condition on whether the value of i is equal to the value of **len** and if not, we loop through the code.
+* We are able to access each element of the structure using the `obj\[%i%]` notation.
+
+**Output**
+
+The above command produces the following output.
+
+```bat
+Name = Joe 
+Value = 1 
+Name = Mark 
+Value = 2 
+Name = Mohan 
+Value = 3
+```
 {% endtab %}
 {% endtabs %}
 
