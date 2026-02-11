@@ -74,8 +74,8 @@ and that the connection is initiated by the .tmp file (I ran another test, hence
 
 ![](https://386337598-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-LFEMnER3fywgFHoroYn%2F-LPCDhrPWIvoZwxrkWmU%2F-LPCTBFAsNn9BovE4zjP%2FScreenshot%20from%202018-10-19%2018-55-53.png?alt=media\&token=8f9ce791-f54b-4555-8d43-d8205e18bfb4)
 
-### References
+### Reference
 
-[![Logo](https://www.ired.team/~gitbook/image?url=https%3A%2F%2Fwww.cybereason.com%2Fhubfs%2Fcr-favicon-1.png\&width=20\&dpr=4\&quality=100\&sign=3827614a\&sv=2)No Win32 Process Needed | Expanding the WMI Lateral Movement Arsenalwww.cybereason.com](https://www.cybereason.com/blog/wmi-lateral-movement-win32)
+{% embed url="https://www.cybereason.com/blog/wmi-lateral-movement-win32" %}
 
 {% embed url="https://x.com/buffaloverflow/status/1002523407261536256/photo/1" %}
