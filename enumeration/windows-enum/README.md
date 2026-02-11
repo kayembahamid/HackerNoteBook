@@ -1,5 +1,25 @@
 # Windows Enum
 
+### Enumeration&#x20;
+
+* [ ] Enumerate users and groups
+  * [ ] &#x20;List local users
+  * [ ] &#x20;List local groups
+  * [ ] Check membership of interesting groups
+    * [ ] &#x20;Local Administrator
+    * [ ] &#x20;Remote Desktop Users (RDP access)
+    * [ ] &#x20;Remote Management Users (WinRM access)
+* [ ] Enumerate operating system information
+  * [ ] &#x20;Windows version and [build number](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions)
+  * [ ] &#x20;Architecture (32 or 64 bit)
+* [ ] Enumerate network information
+  * [ ] &#x20;IP addresses and network interfaces
+  * [ ] &#x20;List active connections and listening ports
+* [ ] Enumerate program and processes information
+  * [ ] &#x20;List all installed applications and services
+  * [ ] &#x20;Look at processes for any running applications that are not installed
+* [ ] &#x20;Enumerate security features
+
 {% hint style="success" %}
 Hack Responsibly.
 

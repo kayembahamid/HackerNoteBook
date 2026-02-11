@@ -1,5 +1,42 @@
 # Unix Priv Esca
 
+### Privilege Escalation&#x20;
+
+#### Global&#x20;
+
+* [ ] &#x20;Identify the Linux distribution and Kernel version
+* [ ] &#x20;Check for credentials in web application configuration files
+* [ ] &#x20;Check interesting directories (e.g. `/opt`, `/var/mail`, etc.)
+* [ ] &#x20;Check capabilities
+* [ ] &#x20;Check if `sudo` version is vulnerable ([CVE-2023–22809](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22809))
+* [ ] &#x20;Internal Nmap scan
+* [ ] &#x20;Check PwnKit
+* [ ] &#x20;Check LogRotate (versions 3.8.8, 3.11.0, 3.15. and 3.18.0)
+* [ ] &#x20;Monitor processes. Look for anything interesting.
+* [ ] &#x20;Look for writable Docker socket files.
+* [ ] &#x20;Look for Tmux sessions that can be hijacked
+* [ ] &#x20;Check for NFS shares with `no_root_squash` enabled
+* [ ] &#x20;Check kernel exploits (e.g. DirtyCow, DirtyPipe)
+* [ ] &#x20;Listen to traffic using TcpDump. Any cleartext credential?
+
+#### Per User&#x20;
+
+* [ ] &#x20;Check which groups user belongs to
+* [ ] &#x20;Check `sudo` rights
+* [ ] &#x20;Check for environment variables
+* [ ] &#x20;Look for ssh keys on home directory
+* [ ] &#x20;Check for hidden files in home directory
+* [ ] &#x20;Check history files on home directory
+* [ ] &#x20;Hunt for interesting files
+* [ ] &#x20;Enumerate SUID / GUID binaries
+* [ ] Check for exploitable cronjobs:
+  * [ ] &#x20;System-wide cronjobs
+  * [ ] &#x20;User-specific cronjobs
+  * [ ] &#x20;Monitor processes for regularly repeating commands, suggesting a hidden cron job.
+* [ ] &#x20;Try to read other user’s home directory (`.ssh/id_rsa`, `.bash_history`, etc.)
+* [ ] &#x20;Try using user’s password for other users
+* [ ] &#x20;Run `linpeas.sh`
+
 {% hint style="success" %}
 Hack Responsibly.
 

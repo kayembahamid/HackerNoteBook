@@ -1,5 +1,46 @@
 # AD Enum
 
+### Live Host Enumeration&#x20;
+
+* [ ] &#x20;Conduct a ping sweep on the IP range
+* [ ] &#x20;Use NetExec on the IP range (better information)
+* [ ] &#x20;Use Responder to catch IP addresses
+
+
+
+Be sure to properly understand the role of each host. Do your service enumeration.
+
+### User Enumeration&#x20;
+
+**With foothold**
+
+* [ ] &#x20;Get user list via SMB
+
+**Without foothold**
+
+* [ ] &#x20;Attempt to get user list via SMB Null Authentication
+* [ ] &#x20;Attempt to get user list via LDAP Anonymous Bind
+* [ ] &#x20;Attempt to get user list via RPCClient
+* [ ] &#x20;Attempt to get user list via RID brute-forcing
+* [ ] &#x20;Attempt to get user list via Kerbruting
+
+<br>
+
+Some of these techniques are not guaranteed to discover all users. At least try the SMB, LDAP, RPCClient and RID methods.
+
+### Get Foothold&#x20;
+
+* [ ] &#x20;Find Kerberoastable users from the user list
+* [ ] &#x20;Find ASREProastable users from the user list
+* [ ] &#x20;Use Responder to catch credential hashes
+* [ ] &#x20;Try SMB Null Authentication to spider through SMB shares looking for credentials
+* [ ] &#x20;Get `SYSTEM` / `root` on Domain connected host to get a Computer account
+* [ ] &#x20;As a last resource, try password spraying with the user list
+
+<br>
+
+Password spraying can lock accounts due to repeated failed attempts and should be used cautiously.
+
 ## Enumeration
 
 {% hint style="success" %}

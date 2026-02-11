@@ -1,5 +1,29 @@
 # Unix Enum
 
+### Enumeration&#x20;
+
+* Enumerate users and groups
+  * [ ] &#x20;List local users
+  * [ ] &#x20;List local groups
+  * [ ] &#x20;Currently logged on users
+  * [ ] &#x20;Last logins
+  * [ ] Check membership of interesting groups
+    * [ ] &#x20;`wheel`
+    * [ ] &#x20;`docker`
+    * [ ] &#x20;`shadow`
+    * [ ] &#x20;`lxc` and `lxd`
+    * [ ] &#x20;`disk`
+    * [ ] &#x20;`adm`
+* Enumerate operating system information
+  * [ ] &#x20;Linux distribution
+  * [ ] &#x20;Kernel Version
+  * [ ] &#x20;Architecture (32 or 64 bit)
+  * [ ] &#x20;Is it AD domain joined?
+* Enumerate network information
+  * [ ] &#x20;IP addresses and network interfaces
+  * [ ] &#x20;List active connections and listening ports
+* Enumerate program and processes information
+
 {% hint style="success" %}
 Hack Responsibly.
 

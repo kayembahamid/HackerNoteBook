@@ -1,5 +1,37 @@
 # Window Priv Esca
 
+### Privilege Escalation&#x20;
+
+#### Global&#x20;
+
+* [ ] &#x20;Try [WinPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS)
+* [ ] Look for vulnerable services
+  * [ ] &#x20;Services with weak executable permissions
+  * [ ] &#x20;Services where we can alter the executable path
+  * [ ] &#x20;Unquoted service paths
+  * [ ] &#x20;Services prone to DLL hijacking
+* [ ] &#x20;Check if `AlwaysInstallElevated` is enabled.
+* [ ] &#x20;Search for CVEs in installed programs.
+* [ ] &#x20;See if there are known exploits for the Windows version.
+
+#### Per User&#x20;
+
+* [ ] &#x20;Check user’s privileges
+* [ ] &#x20;Check which groups user belongs to
+* [ ] &#x20;Look for secrets in shell environment variables
+* [ ] &#x20;Hunt for credentials
+* [ ] &#x20;Look for Unquoted Service Paths
+* [ ] &#x20;Look for exploitable Scheduled Tasks
+* [ ] &#x20;Try planting malicious SCF and LINK files on writeable SMB shares.
+
+#### After Administrator&#x20;
+
+* Dump secrets
+  * [ ] &#x20;Get credentials using LaZagne
+  * [ ] &#x20;Dump SAM & LSA
+  * [ ] &#x20;Dump LSASS memory
+  * [ ] &#x20;Dump `NTDS.dit` (if Domain Controller)
+
 ### Privilege Escalation
 
 {% hint style="success" %}
