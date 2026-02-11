@@ -2,7 +2,7 @@
 
 ## Azure IP Ranges
 
-https://azurerange.azurewebsites.net/
+{% embed url="https://azurerange.azurewebsites.net/" %}
 
 ## AWS IP Range
 
