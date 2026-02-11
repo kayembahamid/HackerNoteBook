@@ -2226,3 +2226,273 @@ The key thing to note about the above script is the addition of a label called :
 {% endtab %}
 {% endtabs %}
 
+### Functions
+
+{% tabs %}
+{% tab title="Python" %}
+
+
+| Functions          | Code Examples                                                                                                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Definition         | <p><code>def hello_function():</code></p><p><code>print("Hello from my function!")</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>hello_function()</code></p>                                                                           |
+| Arguments          | <p><code>def my_name(fname, lname):</code></p><p><code>print("My name is " + fname + " " + lname)</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>my_function("Wolf", "Zweiler")</code></p>                                              |
+| Variable Arguments | <p><code>def second_arg(*children):</code></p><p><code>print("The youngest child is " + children[1])</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>my_function("Sarah", "Emily", "Tom")</code></p>                                     |
+| Named Arguments    | <p><code>def young_child(child3, child2, child1):</code></p><p><code>print("The youngest child is " + child3)</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>my_function(child1 = "Sarah", child2 = "Emily", child3 = "Tom")</code></p> |
+| Default Values     | <p><code>def my_country(country = "Wakanda"):</code></p><p><code>print("I am from " + country)</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>my_country()</code></p>                                                                   |
+| Return Values      | <p><code>def five_times(x):</code></p><p><code>return 5 * x</code></p>                                                                                                                                                                    |
+|                    |                                                                                                                                                                                                                                           |
+{% endtab %}
+
+{% tab title="Powershell" %}
+
+
+| Functions          | Code Examples                                                                                                                                                                                                                                                                           |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Definition         | <p><code>function hello_function()</code></p><p><code>{</code></p><p><code>Write-Host "Hello from my function!"</code></p><p><code>}</code></p><p><code>hello_function</code></p>                                                                                                       |
+| Arguments          | <p><code>function my_name($fname, $lname)</code></p><p><code>{</code></p><p><code>Write-Host "My name is $fname $lname"</code></p><p><code>}</code></p><p><code>my-function -fname "Wolf" -lname "Zweiler"</code></p>                                                                   |
+| Variable Arguments | <p><code>function second_arg()</code></p><p><code>{</code></p><p><code>Write-Host "The youngest child is $($args[1])"</code></p><p><code>}</code></p><p><code>my-function "Sarah" "Emily" "Tom"</code></p>                                                                              |
+| Named Arguments    | <p><code>function young_child($child3, $child2, $child1)</code></p><p><code>{</code></p><p><code>Write-Host "The youngest child is $child3"</code></p><p><code>}</code></p><p><code>my-function -child1 "Sarah" -child2 "Emily" -child3 "Tom"</code></p>                                |
+| Default Values     | <p><code>function my_country</code></p><p><code>{</code></p><p><code>param(</code></p><p><code>$country = "Wakanda"</code></p><p><code>)</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>Write-Host "I am from $country"</code></p><p><code>}</code></p><p><code>my_country</code></p> |
+| Return Values      | <p><code>function five_times($x)</code></p><p><code>{</code></p><p><code>5 * $x</code></p><p><code>}</code></p>                                                                                                                                                                         |
+|                    |                                                                                                                                                                                                                                                                                         |
+{% endtab %}
+
+{% tab title="Bash" %}
+| Functions          | Code Examples                                                     |
+| ------------------ | ----------------------------------------------------------------- |
+| Definition         | `myfunc() { echo "Hello"; }`                                      |
+| Arguments          | `myfunc() { echo "Hello $1"; }; myfunc World`                     |
+| Variable Arguments | `myfunc() { for arg in "$@"; do echo $arg; done; }; myfunc a b c` |
+| Named Arguments    | `# Not natively supported in Bash`                                |
+| Default Values     | `myfunc() { local var=${1:-default}; echo $var; }; myfunc`        |
+| Return Values      | `myfunc() { return 42; }; myfunc; echo $?`                        |
+
+**Arguments**
+
+Referencing arguments in a bash script:
+
+| `$#` | Number of arguments                   |
+| ---- | ------------------------------------- |
+| `$*` | All arguments                         |
+| `$@` | All arguments, starting from first    |
+| `$1` | First argument, `$2` second, etc.     |
+| `$_` | Last argument of the previous command |
+
+**Returning values**
+
+```bash
+myfunc() {
+    local myresult='some value'
+    echo $myresult
+}
+```
+
+```bash
+result="$(myfunc)"
+```
+
+Defining Functions
+
+```bash
+myfunc() {
+    echo "hello $1"
+}
+```
+
+```bash
+# Same as above (alternate syntax)
+function myfunc() {
+    echo "hello $1"
+}
+```
+
+```bash
+myfunc "John"
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+Basic functions can be defined in batch scripts, hoever they do not accept arguments nor do they have the ability to return values in the programming sense.
+
+| Functions          | Code Examples                       |
+| ------------------ | ----------------------------------- |
+| Definition         | `:myfunc echo Hello & goto :eof`    |
+| Arguments          | `REM Not natively supported in CMD` |
+| Variable Arguments | `REM Not natively supported in CMD` |
+| Named Arguments    | `REM Not natively supported in CMD` |
+| Default Values     | `REM Not natively supported in CMD` |
+| Return Values      | `REM Not natively supported in CMD` |
+{% endtab %}
+{% endtabs %}
+
+### Classes
+
+{% tabs %}
+{% tab title="Python" %}
+
+
+| Activity                   | Code Examples                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Class Definition           | <p><code>class MyClass:</code></p><p><code>x = 5</code></p>                                                                                                                                                                                                                                                                                                                                                                          |
+| Object Creation            | `MyClass()`                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Using Class Constructors   | <p><code>class Person:</code></p><p><code>def </code><strong><code>init</code></strong><code>(self, name, age):</code></p><p><code>self.name = name</code></p><p><code>self.age = age</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>p1 = Person("Bob", 42)</code></p>                                                                                                                                                             |
+| Defining and using Methods | <p><code>class Person:</code></p><p><code>def </code><strong><code>init</code></strong><code>(self, name, age):</code></p><p><code>self.name = name</code></p><p><code>self.age = age</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>def myfunc(self):</code></p><p><code>print("Hello my name is " + self.name)</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>p1 = Person("Bob", 42)</code></p><p><code>p1.myfunc()</code></p> |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Activity                   | Code Examples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Class Definition           | <p><code>class MyClass {</code></p><p><code>$x = 5</code></p><p><code>}</code></p>                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Object Creation            | `[MyClass]::new()`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Using Class Constructors   | <p><code>class Person {</code></p><p><code>Person($Name, $Age) {</code></p><p><code>$this.Name = $Name</code></p><p><code>$this.Age = $Age</code></p><p><code>}</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>$Name = ''</code></p><p><code>$Age = 0</code></p><p><code>}</code></p><p><code>[Person]::new('Bob', 42)</code></p>                                                                                                                                                                                   |
+| Defining and using Methods | <p><code>class Person {</code></p><p><code>Person($Name, $Age) {</code></p><p><code>$this.Name = $Name</code></p><p><code>$this.Age = $Age</code></p><p><code>}</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>[string]myfunc() {</code></p><p><code>return "Hello my name is $($this.Name)"</code></p><p><code>}</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>$Name = ''</code></p><p><code>$Age = 0</code></p><p><code>}</code></p><p>&#x3C;code>&#x3C;/code></p><p><code>[Person]::new('Bob', 42)</code></p> |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+{% endtab %}
+
+{% tab title="Bash" %}
+TODO:
+
+| Activity                   | Code Examples |
+| -------------------------- | ------------- |
+| Class Definition           |               |
+| Object Creation            |               |
+| Using Class Constructors   |               |
+| Defining and using Methods |               |
+|                            |               |
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+TODO:
+
+| Activity                   | Code Examples |
+| -------------------------- | ------------- |
+| Class Definition           |               |
+| Object Creation            |               |
+| Using Class Constructors   |               |
+| Defining and using Methods |               |
+|                            |               |
+|                            |               |
+{% endtab %}
+{% endtabs %}
+
+### Comments
+
+{% tabs %}
+{% tab title="Python" %}
+| Comment Type | Code Examples                                                                   |
+| ------------ | ------------------------------------------------------------------------------- |
+| Single line  | `# Hello, world!`                                                               |
+| Multiline    | <p><code>"""</code></p><p><code>Hello, world!</code></p><p><code>"""</code></p> |
+|              |                                                                                 |
+{% endtab %}
+
+{% tab title="Powershell" %}
+| Comment Type | Code Examples                                                                      |
+| ------------ | ---------------------------------------------------------------------------------- |
+| Single line  | `# Hello, world!`                                                                  |
+| Multiline    | <p><code>&#x3C;#</code></p><p><code>Hello, world!</code></p><p><code>#></code></p> |
+|              |                                                                                    |
+{% endtab %}
+
+{% tab title="Bash" %}
+| Comment Type | Code Examples           |
+| ------------ | ----------------------- |
+| Single line  | `# Single line comment` |
+| Multiline    | See example below       |
+
+**Comments**
+
+```bash
+# Single line comment
+```
+
+```bash
+: '
+This is a
+multi line
+comment
+'
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+| Comment Type | Code Examples                      |
+| ------------ | ---------------------------------- |
+| Single line  | `Rem This is a comment`            |
+| Multiline    | Not implemented in batch scripts\` |
+
+#### Comments Using the Rem Statement
+
+There are two ways to create comments in Batch Script; one is via the Rem command. Any text which follows the Rem statement will be treated as comments and will not be executed. Following is the general syntax of this statement.
+
+**Syntax**
+
+```bat
+Rem This is a comment
+```
+
+**Example**
+
+The following example shows a simple way the **Rem** command can be used to explain the function of the code below it.
+
+```bat
+@echo off 
+Rem This program just displays Hello World 
+set message=Hello World 
+echo %message%
+```
+
+**Output**
+
+The above command produces the following output. You will notice that the line with the Rem statement will not be executed.
+
+```
+Hello World
+```
+
+**Notes:**
+
+1. `REM` command must be followed by a space or tab character.
+2. You may include any symbol in the comments without any restriction.
+3. If `ECHO` is in ON state, the comment is displayed on the command prompt. Otherwise, it is ignored.
+4. If you want `ECHO` to be ON and you don't want to display the comment line, use an at sign `@` before `REM` command.
+5. If you have too many lines of Rem, it could slow down the code, because in the end each line of code in the batch file still needs to be executed.
+
+#### Comments Using the :: Statement
+
+The other way to create comments in Batch Script is via the :: command. Any text which follows the :: statement will be treated as comments and will not be executed. Following is the general syntax of this statement.
+
+**Syntax**
+
+```bat
+:: This is a comment
+```
+
+**Example**
+
+The comment marker `::` is used exactly the same as `Rem`.
+
+```bat
+@echo off 
+:: This program just displays Hello World 
+set message = Hello World 
+echo %message%
+```
+
+### Trick for Multiple Line Comments
+
+Use a `GOTO` statement to simulate a multiline comment by bypassing the lines within the block.
+
+```bat
+GOTO MultiLineComment
+This line is comment.
+And so is this line.
+And this one...
+:MultiLineComment
+```
+
+
+{% endtab %}
+{% endtabs %}
+
