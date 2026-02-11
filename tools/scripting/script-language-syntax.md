@@ -2862,3 +2862,160 @@ To execute regular Windows shell commands (from cmd.exe) in PowerShell, simply t
 IEX (Invoke-Expression)
 {% endtab %}
 {% endtabs %}
+
+### Output Redirection
+
+{% tabs %}
+{% tab title="Python" %}
+#### Redirect Standard Error to the nether
+
+```
+2>null
+```
+
+Many cmdlets also have an `ErrorAction` property
+
+```
+-ErrorAction Silent
+```
+{% endtab %}
+
+{% tab title="Powershell" %}
+#### Redirect Standard Error to the nether
+
+```
+2>null
+```
+
+Many cmdlets also have an `ErrorAction` property
+
+```
+-ErrorAction Silent
+```
+{% endtab %}
+
+{% tab title="Bash" %}
+Redirect Standard Error to the nether
+
+```
+2>/dev/null
+```
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+There are three universal “files” for keyboard input, printing text on the screen and printing errors on the screen. The “Standard In” file, known as **stdin**, contains the input to the program/script. The “Standard Out” file, known as **stdout**, is used to write output for display on the screen. Finally, the “Standard Err” file, known as **stderr**, contains any error messages for display on the screen.
+
+Each of these three standard files, otherwise known as the standard streams, are referenced using the numbers 0, 1, and 2. Stdin is file 0, stdout is file 1, and stderr is file 2.
+
+#### Redirecting Output (Stdout and Stderr)
+
+One common practice in batch files is sending the output of a program to a log file. The > operator sends, or redirects, stdout or stderr to another file. The following example shows how this can be done.
+
+```
+Dir C:\ > list.txt
+```
+
+In the above example, the **stdout** of the command Dir C: is redirected to the file list.txt.
+
+If you append the number 2 to the redirection filter, then it would redirect the **stderr** to the file lists.txt.
+
+```
+Dir C:\ 2> list.txt
+```
+
+One can even combine the **stdout** and **stderr** streams using the file number and the '&' prefix. Following is an example.
+
+```
+DIR C:\ > lists.txt 2>&1
+```
+
+#### Suppressing Program Output
+
+The pseudo file NUL is used to discard any output from a program. The following example shows that the output of the command DIR is discarded by sending the output to NUL.
+
+```
+Dir C:\ > NUL
+```
+
+**Stdin**
+
+To work with the Stdin, you have to use a workaround to achieve this. This can be done by redirecting the command prompt's own stdin, called CON.
+
+The following example shows how you can redirect the output to a file called lists.txt. After you execute the below command, the command prompt will take all the input entered by user till it gets an EOF character. Later, it sends all the input to the file lists.txt.
+
+```
+TYPE CON > lists.txt
+```
+{% endtab %}
+{% endtabs %}
+
+### HERE docs
+
+In scripting, a heredoc (here document) is a way to feed a block of text into a command or script. It's often used to generate multi-line output or pass structured text to commands like cat, echo, or tee. Some benefits of using HERE docs:
+
+* Simplifies Multi-Line Input – Instead of writing multiple commands, you can provide large text blocks neatly to a single input.
+* Improves Readability – Using heredocs makes scripts easier to read and maintain, especially when handling structured data.
+* Supports Variable Expansion – In most languages, heredocs allow variables to be expanded dynamically.
+
+{% tabs %}
+{% tab title="Python" %}
+Python doesn't have a direct heredoc equivalent, but triple-quoted strings (`"""` or `'''`) serve a similar purpose.
+
+```python
+text = """This is a multi-line string.
+It works like a heredoc."""
+print(text)
+```
+{% endtab %}
+
+{% tab title="Powershell" %}
+
+
+PowerShell uses here-strings, which are enclosed in `@"` and `"@`, which support expansion and variables (or `@'` and `'@` for literal strings).
+
+```powershell
+$text = @"
+This is a PowerShell here-string.
+It spans multiple lines.
+"@
+Write-Output $text
+```
+
+**Note**
+
+Here-strings in PowerShell are useful for handling multi-line text, but they come with some limitations:
+
+* Must Start on a New Line – The opening `@"` or `@'` must be on its own line, or PowerShell will throw an error.
+* No Indentation for Closing Marker – The closing `"@` or `'@` must start at the very beginning of a line, which can make formatting tricky.
+* Limited Formatting Control – Unlike heredocs in Bash, PowerShell here-strings don’t support indentation or trimming whitespace easily.
+{% endtab %}
+
+{% tab title="Bash" %}
+**Heredoc**
+
+Heredocs in Bash scripting offer several additional benefits, making them a powerful tool for handling multi-line text inputs efficiently:
+
+* Avoids Escape Characters – Unlike inline strings, heredocs allow you to include quotes and special characters without excessive escaping.
+* Supports Variable Expansion – Unless explicitly prevented with `<<'EOF'`, heredocs expand variables, making dynamic content generation easier.
+
+```
+cat <<HERE
+hello
+world
+HERE
+```
+
+Everything between `<<EOF` and `EOF` is treated as input for cat, allowing the script to process multi-line text without needing individual echo statements. `EOF` can be any unique string of ASCII characters.
+{% endtab %}
+
+{% tab title="CMD. bat" %}
+Batch scripting lacks a true heredoc feature, but workarounds exist using echo and parentheses.
+
+```bat
+(
+echo This is a simulated heredoc.
+echo Batch scripting doesn't support heredocs natively.
+) > output.txt
+```
+{% endtab %}
+{% endtabs %}
