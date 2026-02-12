@@ -14,19 +14,19 @@ I’m [_**Hamcodes**_](https://www.google.com/search?sca_esv=89aaa52b873f06b6\&s
 
 ### You’re here because you don’t want average.
 
-This book wasn’t written by someone guessing.It was written in the dark.Late nights. Failed exploits. Burned time. Real grind. Most people consume knowledge. Few respect the cost behind it.
+{% hint style="success" %}
+This book wasn’t written by someone guessing.It was written in the dark, Late nights, Failed exploits and Burned time. Real grind! Most people consume knowledge. Few respect the cost behind it.
 
-If this material sharpens you…, If it saves you hours of trial and error…If it pushes you one level ahead
+If this material sharpens you…, If it saves you hours of trial and error… If it pushes you one level ahead
 
 Then don’t just take. [_**Fund what makes you dangerous**_](https://buymeacoffee.com/abdlhamidkb).
 
 Silence supports nothing. Operators invest in what builds them.
+{% endhint %}
 
 ☕ Coffee = Energy ⇒ [**Buy Me a Coffee**](https://buymeacoffee.com/abdlhamidkb)
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/abdlhamidkb)
-
-
 
 ### BOOKS:
 
