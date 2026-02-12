@@ -425,6 +425,9 @@
 * [Wifi Priv](wireless-hacking/wifi-priv.md)
 * [VPN](wireless-hacking/vpn/README.md)
   * [OpenVPN Troubleshooting](wireless-hacking/vpn/openvpn-troubleshooting.md)
+* [Audio/Tv Hacking](wireless-hacking/audio-tv-hacking/README.md)
+  * [Spectrogram](wireless-hacking/audio-tv-hacking/spectrogram.md)
+  * [SSTV (Slow-scan Television)](wireless-hacking/audio-tv-hacking/sstv-slow-scan-television.md)
 
 ## EMAIL HACKING
 
@@ -573,6 +576,19 @@
 * [Code review](code-hacking/code-review.md)
 * [Sinks](code-hacking/sinks.md)
 
+## IOT HACKING
+
+* [Printer Pentesting](iot-hacking/printer-pentesting.md)
+* [IPP (Internet Printing Protocol) Pentesting](iot-hacking/ipp-internet-printing-protocol-pentesting.md)
+
+## HARDWARE HACKING
+
+* [Firmware Analysis](hardware-hacking/firmware-analysis.md)
+* [Gerber (GBR) Files](hardware-hacking/gerber-gbr-files.md)
+* [MQTT Pentesting](hardware-hacking/mqtt-pentesting.md)
+* [NETGEAR Pentesting](hardware-hacking/netgear-pentesting.md)
+* [SAL Logic Analysis](hardware-hacking/sal-logic-analysis.md)
+
 ## Tools
 
 * [OSINT](tools/osint.md)
@@ -593,8 +609,5 @@
 * [Internal Pentest](tools/internal-pentest.md)
 * [Report template](tools/report-template.md)
 * [Writeups](tools/writeups.md)
-* [Audio/Tv Hacking](tools/audio-tv-hacking/README.md)
-  * [Spectrogram](tools/audio-tv-hacking/spectrogram.md)
-  * [SSTV (Slow-scan Television)](tools/audio-tv-hacking/sstv-slow-scan-television.md)
 * [Random](tools/random.md)
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
