@@ -1,6 +1,86 @@
 # Android
 
-### Tools
+## Android Pentesting <a href="#android-pentesting" id="android-pentesting"></a>
+
+The Android Package with the file extension apk is the file format used by the Android operating system, and a number of other Android-based operating systems for distribution and installation of mobile apps, mobile games and middleware.
+
+### APK Analysis <a href="#apk-analysis" id="apk-analysis"></a>
+
+If we have a `.apk` file, we can investigate the file using some tools.
+
+#### Using JADX <a href="#using-jadx" id="using-jadx"></a>
+
+The most easiest way to analyze a `.apk` file, use `jadx-gui`.
+
+```
+jadx-gui ./example.apk
+```
+
+#### Using JD <a href="#using-jd" id="using-jd"></a>
+
+1.  Extract APK File to DEX File
+
+    You can retrieve "classes.dex".
+
+    ```
+    unzip example.apk -d ./Example
+    ```
+
+    Now you can observe files.\
+    For **React Native**, it may contain the sensitive information in the bundle file.
+
+    ```
+    strings assets/index.android.bundle
+    ```
+2.  Convert DEX to JAR
+
+    You can retrieve JAR file.
+
+    ```
+    d2j-dex2jar classes.dex
+    ```
+3.  Observation
+
+    **JD-GUI** is a JAVA decompiler tool. It reveals class in the JAR file.\
+    Open JD-GUI.
+
+    ```
+    jd-gui
+    ```
+
+### Static Analysis <a href="#static-analysis" id="static-analysis"></a>
+
+```
+# Decode APK file
+apktool d example.apk -o ./example
+
+ghidra
+```
+
+*   [**Pithus**](https://beta.pithus.org/)
+
+    An open-source mobile threat intelligence platform.
+*   [**MobSF**](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+
+    MobSF (Mobile Security Framework) is an automated all-in-one mobile application pentesting, malware analysis framework capable of static and dynamic analysis.
+
+### Dynamic Analysis <a href="#dynamic-analysis" id="dynamic-analysis"></a>
+
+If you pentest on virtual devices, you need to install some emulator as below.
+
+* [**Android Studio**](https://developer.android.com/studio)
+* [**Genymotion**](https://www.genymotion.com/)
+* [**Nox**](https://www.bignox.com/)
+
+### Android Backup (.ab) <a href="#android-backup-ab" id="android-backup-ab"></a>
+
+#### Extract <a href="#extract" id="extract"></a>
+
+```
+(printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; tail -n +5 sample.ab) | tar -xvz
+```
+
+## Tools
 
 #### Extract
 

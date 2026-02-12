@@ -528,10 +528,26 @@
 * [Ai\_threat\_model\_questions](ai-hacking/ai_threat_model_questions.md)
 * [LLM/AI/ML/prompt testing](ai-hacking/llm-ai-ml-prompt-testing.md)
 
+## MACHINE LEARNING HACKS
+
+* [Jupyter Notebook Pentesting](machine-learning-hacks/jupyter-notebook-pentesting.md)
+* [Orange Data Mining](machine-learning-hacks/orange-data-mining.md)
+* [Read HDF5 (H5) File](machine-learning-hacks/read-hdf5-h5-file.md)
+* [Read PT File](machine-learning-hacks/read-pt-file.md)
+* [Read PT File](machine-learning-hacks/read-pt-file-1.md)
+* [Computer Vision](machine-learning-hacks/computer-vision/README.md)
+  * [Image Manipulation for Machine Learning](machine-learning-hacks/computer-vision/image-manipulation-for-machine-learning.md)
+  * [Image Recognition Bypass for Machine Learning](machine-learning-hacks/computer-vision/image-recognition-bypass-for-machine-learning.md)
+* [Data Processing](machine-learning-hacks/data-processing/README.md)
+  * [Data Manipulation for Machine Learning](machine-learning-hacks/data-processing/data-manipulation-for-machine-learning.md)
+  * [Data Visualization for Machine Learning](machine-learning-hacks/data-processing/data-visualization-for-machine-learning.md)
+  * [Dimensionality Reduction for Machine Learning](machine-learning-hacks/data-processing/dimensionality-reduction-for-machine-learning.md)
+
 ## MOBILE HACKING
 
 * [General](mobile-hacking/general.md)
-* [Android](mobile-hacking/android.md)
+* [Android](mobile-hacking/android/README.md)
+  * [Connect to Android Device from PC using SSH](mobile-hacking/android/connect-to-android-device-from-pc-using-ssh.md)
 * [iOS](mobile-hacking/ios.md)
 
 ## BLOCKCHAIN HACKING
