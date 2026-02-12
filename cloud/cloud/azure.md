@@ -4,7 +4,7 @@
 
 ### Basic Info
 
-```
+```shellscript
 # Azure services list by domain
 https://learn.microsoft.com/en-us/azure/security/fundamentals/azure-domains
 
@@ -255,7 +255,7 @@ http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/pu
 
 #### **Basic Azure AD concepts and tips**
 
-```
+```shellscript
 - Source of authentication for Office 365, Azure Resource Manager, and anything else you integrate with it.
 
 - Powershell interaction:
@@ -334,7 +334,7 @@ Anyone who can edit properties* of the AZUREADSSOACC$ account, can impersonate a
 
 ### **Azure enum**
 
-```
+```shellscript
 # Must install
 # https://github.com/Gerenios/AADInternals 
 # https://github.com/NetSPI/MicroBurst
@@ -377,7 +377,7 @@ Get-AzureADMSGroup | ?{$_.GroupTypes -eq 'DynamicMembership'} | select Membershi
 
 ### **Azure attacks examples**
 
-```
+```shellscript
 # Password spraying
 https://github.com/dafthack/MSOLSpray/MSOLSpray.ps1
 Create a text file with ten (10) fake users we will spray along with your own user account (YourAzureADUser@youraccount.onmicrosoft.com ). (Do not spray accounts you do not own. You may use my domain “glitchcloud.com” for generating fake target users) and save as userlist.txt

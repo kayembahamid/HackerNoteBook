@@ -416,6 +416,14 @@
 * [Window Persist](persistence/window-persist/README.md)
   * [AD Persist](persistence/window-persist/ad-persist.md)
 
+## DATABASE
+
+* [CouchDB Pentesting](database/couchdb-pentesting.md)
+* [InfluxDB Pentesting](database/influxdb-pentesting.md)
+* [MongoDB Pentesting](database/mongodb-pentesting.md)
+* [MSSQL (Microsoft SQL) Pentesting](database/mssql-microsoft-sql-pentesting.md)
+* [MySQL Pentesting](database/mysql-pentesting.md)
+
 ## CLOUD
 
 * [Cloud](cloud/cloud/README.md)
@@ -525,3 +533,7 @@
 * [Writeups](tools/writeups.md)
 * [Random](tools/random.md)
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
+
+## Group 1
+
+* [Page 2](group-1/page-2.md)

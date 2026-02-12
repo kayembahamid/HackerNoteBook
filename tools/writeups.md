@@ -9,3 +9,7 @@
 {% embed url="https://medium.com/mitre-attack" %}
 
 {% embed url="https://www.brunorochamoura.com/" %}
+
+{% embed url="https://zweilosec.gitbook.io/home/" %}
+
+{% embed url="https://www.vulnhub.com/" %}
