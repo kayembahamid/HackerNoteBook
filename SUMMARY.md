@@ -418,6 +418,36 @@
 * [Window Persist](persistence/window-persist/README.md)
   * [AD Persist](persistence/window-persist/ad-persist.md)
 
+## NETWORK HACKING
+
+* [Apache Hadoop Pentesting](network-hacking/apache-hadoop-pentesting.md)
+* [ARP (Address Resolution Protocol) Spoofing](network-hacking/arp-address-resolution-protocol-spoofing.md)
+* [EthernetIP Pentesting](network-hacking/ethernetip-pentesting.md)
+* [FastCGI Pentesting](network-hacking/fastcgi-pentesting.md)
+* [Firewall](network-hacking/firewall.md)
+* [GRPC Pentesting](network-hacking/grpc-pentesting.md)
+* [ReDoS (Regular Expression Denial of Service)](network-hacking/redos-regular-expression-denial-of-service.md)
+* [Rsync Pentesting](network-hacking/rsync-pentesting.md)
+* [Protocols](network-hacking/protocols/README.md)
+  * [AMQP (Advanced Message Queuing Protocol)](network-hacking/protocols/amqp-advanced-message-queuing-protocol.md)
+  * [DHCP (Dynamic Host Configuration Protocol) Pentesting](network-hacking/protocols/dhcp-dynamic-host-configuration-protocol-pentesting.md)
+  * [FTP (File Transfer Protocol) Pentesting](network-hacking/protocols/ftp-file-transfer-protocol-pentesting.md)
+  * [IRC (Internet Relay Chat) Pentesting](network-hacking/protocols/irc-internet-relay-chat-pentesting.md)
+  * [Memcache Pentesting](network-hacking/protocols/memcache-pentesting.md)
+  * [Modbus Pentesting](network-hacking/protocols/modbus-pentesting.md)
+  * [NFS (Network File System) Pentesting](network-hacking/protocols/nfs-network-file-system-pentesting.md)
+  * [NTP (Network Time Protocol) Pentesting](network-hacking/protocols/ntp-network-time-protocol-pentesting.md)
+  * [PPTP Pentesting](network-hacking/protocols/pptp-pentesting.md)
+  * [Restricted Shell (rbash, rzsh) Bypass](network-hacking/protocols/restricted-shell-rbash-rzsh-bypass.md)
+  * [RTSP (Real Time Streaming Protocol) Pentesting](network-hacking/protocols/rtsp-real-time-streaming-protocol-pentesting.md)
+  * [SNMP (Simple Network Management Protocol) Pentesting](network-hacking/protocols/snmp-simple-network-management-protocol-pentesting.md)
+  * [SSH (Secure Shell) Pentesting](network-hacking/protocols/ssh-secure-shell-pentesting.md)
+  * [Telnet Pentesting](network-hacking/protocols/telnet-pentesting.md)
+  * [TFTP (Trivial File Transfer Protocol) Pentesting](network-hacking/protocols/tftp-trivial-file-transfer-protocol-pentesting.md)
+  * [UPnP (Universal Plug and Play) Pentesting](network-hacking/protocols/upnp-universal-plug-and-play-pentesting.md)
+  * [VNC (Virtual Network Computing) Pentesting](network-hacking/protocols/vnc-virtual-network-computing-pentesting.md)
+  * [WASTE Pentesting](network-hacking/protocols/waste-pentesting.md)
+
 ## WIRELESS HACKING
 
 * [Wifi Enum](wireless-hacking/wifi-enum.md)
