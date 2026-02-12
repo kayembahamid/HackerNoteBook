@@ -418,34 +418,49 @@
 * [Window Persist](persistence/window-persist/README.md)
   * [AD Persist](persistence/window-persist/ad-persist.md)
 
-## DATABASE
+## WIRELESS HACKING
 
-* [CouchDB Pentesting](database/couchdb-pentesting.md)
-* [InfluxDB Pentesting](database/influxdb-pentesting.md)
-* [MongoDB Pentesting](database/mongodb-pentesting.md)
-* [MSSQL (Microsoft SQL) Pentesting](database/mssql-microsoft-sql-pentesting.md)
-* [MySQL Pentesting](database/mysql-pentesting.md)
-* [Neo4j Pentesting](database/neo4j-pentesting.md)
-* [PostgreSQL Pentesting](database/postgresql-pentesting.md)
-* [Redis Pentesting](database/redis-pentesting.md)
-* [SQLite Pentesting](database/sqlite-pentesting.md)
+* [Wifi Enum](wireless-hacking/wifi-enum.md)
+* [Wifi Exploit](wireless-hacking/wifi-exploit.md)
+* [Wifi Priv](wireless-hacking/wifi-priv.md)
+* [VPN](wireless-hacking/vpn/README.md)
+  * [OpenVPN Troubleshooting](wireless-hacking/vpn/openvpn-troubleshooting.md)
 
-## CLOUD
+## EMAIL HACKING
 
-* [General](cloud/general.md)
-* [AWS](cloud/aws.md)
-* [Azure](cloud/azure.md)
-* [GCP](cloud/gcp.md)
-* [CDN - Comain Fronting](cloud/cdn-comain-fronting.md)
-* [Docker && Kubernetes](cloud/docker-and-and-kubernetes/README.md)
-  * [Docker Pentesting](cloud/docker-and-and-kubernetes/docker-pentesting.md)
-  * [Docker Engine API Pentesting](cloud/docker-and-and-kubernetes/docker-engine-api-pentesting.md)
-  * [Docker Escape](cloud/docker-and-and-kubernetes/docker-escape.md)
-  * [Docker Registry Pentesting](cloud/docker-and-and-kubernetes/docker-registry-pentesting.md)
-  * [Moby Docker Engine Privilege Escalation](cloud/docker-and-and-kubernetes/moby-docker-engine-privilege-escalation.md)
-  * [Kubernetes Pentesting](cloud/docker-and-and-kubernetes/kubernetes-pentesting.md)
-  * [MicroK8s Pentesting](cloud/docker-and-and-kubernetes/microk8s-pentesting.md)
-* [Virtual Machine](cloud/virtual-machine.md)
+* [IMAP Pentesting](email-hacking/imap-pentesting.md)
+* [POP Pentesting](email-hacking/pop-pentesting.md)
+* [Receive Email as Another Address](email-hacking/receive-email-as-another-address.md)
+* [SMTP Pentesting](email-hacking/smtp-pentesting.md)
+
+## DATABASE HACKING
+
+* [CouchDB Pentesting](database-hacking/couchdb-pentesting.md)
+* [InfluxDB Pentesting](database-hacking/influxdb-pentesting.md)
+* [MongoDB Pentesting](database-hacking/mongodb-pentesting.md)
+* [MSSQL (Microsoft SQL) Pentesting](database-hacking/mssql-microsoft-sql-pentesting.md)
+* [MySQL Pentesting](database-hacking/mysql-pentesting.md)
+* [Neo4j Pentesting](database-hacking/neo4j-pentesting.md)
+* [PostgreSQL Pentesting](database-hacking/postgresql-pentesting.md)
+* [Redis Pentesting](database-hacking/redis-pentesting.md)
+* [SQLite Pentesting](database-hacking/sqlite-pentesting.md)
+
+## CLOUD HACKING
+
+* [General](cloud-hacking/general.md)
+* [AWS](cloud-hacking/aws.md)
+* [Azure](cloud-hacking/azure.md)
+* [GCP](cloud-hacking/gcp.md)
+* [CDN - Comain Fronting](cloud-hacking/cdn-comain-fronting.md)
+* [Docker && Kubernetes](cloud-hacking/docker-and-and-kubernetes/README.md)
+  * [Docker Pentesting](cloud-hacking/docker-and-and-kubernetes/docker-pentesting.md)
+  * [Docker Engine API Pentesting](cloud-hacking/docker-and-and-kubernetes/docker-engine-api-pentesting.md)
+  * [Docker Escape](cloud-hacking/docker-and-and-kubernetes/docker-escape.md)
+  * [Docker Registry Pentesting](cloud-hacking/docker-and-and-kubernetes/docker-registry-pentesting.md)
+  * [Moby Docker Engine Privilege Escalation](cloud-hacking/docker-and-and-kubernetes/moby-docker-engine-privilege-escalation.md)
+  * [Kubernetes Pentesting](cloud-hacking/docker-and-and-kubernetes/kubernetes-pentesting.md)
+  * [MicroK8s Pentesting](cloud-hacking/docker-and-and-kubernetes/microk8s-pentesting.md)
+* [Virtual Machine](cloud-hacking/virtual-machine.md)
 
 ## AI HACKING
 
@@ -513,37 +528,36 @@
 * [Ai\_threat\_model\_questions](ai-hacking/ai_threat_model_questions.md)
 * [LLM/AI/ML/prompt testing](ai-hacking/llm-ai-ml-prompt-testing.md)
 
-## Mobile
+## MOBILE HACKING
 
-* [General](mobile/general.md)
-* [Android](mobile/android.md)
-* [iOS](mobile/ios.md)
+* [General](mobile-hacking/general.md)
+* [Android](mobile-hacking/android.md)
+* [iOS](mobile-hacking/ios.md)
 
-## BLOCKCHAIN
+## BLOCKCHAIN HACKING
 
-* [Ethereum](blockchain/ethereum/README.md)
-  * [Interact with Ethereum using Python](blockchain/ethereum/interact-with-ethereum-using-python.md)
-* [Attack Methodology](blockchain/attack-methodology/README.md)
-  * [Contract Address Recovery](blockchain/attack-methodology/contract-address-recovery.md)
-  * [Delegatecall Attack](blockchain/attack-methodology/delegatecall-attack.md)
-  * [DoS Attack for Smart Contract](blockchain/attack-methodology/dos-attack-for-smart-contract.md)
-  * [Reentrancy Attack](blockchain/attack-methodology/reentrancy-attack.md)
-  * [Self Destruct Attack](blockchain/attack-methodology/self-destruct-attack.md)
-  * [Solidity Assembly](blockchain/attack-methodology/solidity-assembly.md)
-  * [Solidity Overflow & Underflow](blockchain/attack-methodology/solidity-overflow-and-underflow.md)
-  * [Solidity Storage Values Analysis](blockchain/attack-methodology/solidity-storage-values-analysis.md)
-  * [Tx Origin Attack](blockchain/attack-methodology/tx-origin-attack.md)
+* [Ethereum](blockchain-hacking/ethereum/README.md)
+  * [Interact with Ethereum using Python](blockchain-hacking/ethereum/interact-with-ethereum-using-python.md)
+* [Attack Methodology](blockchain-hacking/attack-methodology/README.md)
+  * [Contract Address Recovery](blockchain-hacking/attack-methodology/contract-address-recovery.md)
+  * [Delegatecall Attack](blockchain-hacking/attack-methodology/delegatecall-attack.md)
+  * [DoS Attack for Smart Contract](blockchain-hacking/attack-methodology/dos-attack-for-smart-contract.md)
+  * [Reentrancy Attack](blockchain-hacking/attack-methodology/reentrancy-attack.md)
+  * [Self Destruct Attack](blockchain-hacking/attack-methodology/self-destruct-attack.md)
+  * [Solidity Assembly](blockchain-hacking/attack-methodology/solidity-assembly.md)
+  * [Solidity Overflow & Underflow](blockchain-hacking/attack-methodology/solidity-overflow-and-underflow.md)
+  * [Solidity Storage Values Analysis](blockchain-hacking/attack-methodology/solidity-storage-values-analysis.md)
+  * [Tx Origin Attack](blockchain-hacking/attack-methodology/tx-origin-attack.md)
 
-## CODE REVIEW
+## CODE HACKING
 
-* [Code review](code-review/code-review.md)
-* [Sinks](code-review/sinks.md)
+* [Code review](code-hacking/code-review.md)
+* [Sinks](code-hacking/sinks.md)
 
 ## Tools
 
 * [OSINT](tools/osint.md)
 * [Privacy](tools/privacy.md)
-* [Wifi Hacking](tools/wifi-hacking.md)
 * [Password cracking](tools/password-cracking/README.md)
   * [Gathering the Hashes](tools/password-cracking/gathering-the-hashes.md)
   * [Wordlist Manipulation](tools/password-cracking/wordlist-manipulation.md)

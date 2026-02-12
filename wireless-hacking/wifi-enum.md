@@ -1,0 +1,155 @@
+# Wifi Enum
+
+### Enumeration <a href="#enumeration" id="enumeration"></a>
+
+```shellscript
+# IP addresses
+ip addr
+# specific interface
+ip addr show eth0
+ip addr show eth1
+ip addr show tun0
+# IPv4/6 only
+ip -4 addr
+ip -6 addr
+# Static route
+ip route
+
+# Get the currently connected WiFi router's IP address (see the 'Default gateway' line in the output)
+ipconfig
+
+# Find any wireless devices
+iw dev
+# Display information of the specified device
+iw dev <interface> info
+# Scan wifi networks nearby the specified device
+iw dev <interface> scan
+
+# Find another computer's IP address/MAC address on the network
+arp -av
+
+# Get public IP address
+curl https://api.ipify.org
+```
+
+#### Using WiGLE <a href="#using-wigle" id="using-wigle"></a>
+
+If BSSIDs found, we can find the location for devices using [WiGLE](https://wigle.net/).
+
+To find BSSID From SSID using WiGLE:
+
+1. Access to WiGLE and login.
+2. Go to View → Advanced Search.
+3. Open the General Search tab.
+4. Input the SSID in the SSID/Network Name.
+5. Check the result.
+
+### Delete Network Interfaces From Your Devices <a href="#delete-network-interfaces-from-your-devices" id="delete-network-interfaces-from-your-devices"></a>
+
+```
+ip link delete <iterface>
+```
+
+### Crack WiFi Passwords <a href="#crack-wifi-passwords" id="crack-wifi-passwords"></a>
+
+#### Default Router Credentials <a href="#default-router-credentials" id="default-router-credentials"></a>
+
+```
+admin:Admin
+admin:admin
+admin:password
+admin:Michelangelo
+root:admin
+root:alpine
+sitecom:Admin
+telco:telco
+```
+
+#### Crack from A Packet Capture File <a href="#crack-from-a-packet-capture-file" id="crack-from-a-packet-capture-file"></a>
+
+If we have a packet capture file (.cap or .pcap) of the WiFi network, we can crack the WiFi password using the file.
+
+```
+aircrack-ng example.cap -w wordlist.txt
+```
+
+### MAC Address Spoofing <a href="#mac-address-spoofing" id="mac-address-spoofing"></a>
+
+First of all, you need to use network adapter which has monitor mode on your machine.\
+[**Aircrack-ng**](https://github.com/aircrack-ng/aircrack-ng) is a complete suite of tools to assess WiFi network security.
+
+1.  **Preparation**
+
+    ```shellscript
+    # Show available interfaces
+    airmon-ng
+
+    # Put an interface into monitor mode
+    airmon-ng start wlan0
+    airmon-ng start eth0
+    # or
+    iwconfig wlan0 mode monitor
+    iwconfig eth0 mode monitor
+
+    # Choose the access point (monitor mode)
+    airodump-ng wlan0mon
+    ```
+2.  **Retrieve Client's MAC Addresses**
+
+    ```shellscript
+    # Retrieve client's MAC address from the chosen access point
+    # -c 9: channel 9
+    # --bssid: target router MAC address
+    # -w psk: the dump file prefix
+    # eth0: interface name
+    airodump-ng -c 6 --bssid XX:XX:XX:XX:XX:XX -i wlan0mon
+    airodump-ng -c 9 --bssid 00:14:6C:7E:40:80 -w psk eth0
+    ```
+3.  **Spoof MAC Address using the Retrieved Address**
+
+    ```shellscript
+    # Take down the network at first
+    ip link set wlan0 down
+
+    # Set MAC address which you got by airodump-ng in the previous section
+    macchanger -m XX:XX:XX:XX:XX:XX wlan0
+
+    # Bring up the network
+    ip link set wlan0 up
+    ```
+4.  **Confirmation**
+
+    ```shellscript
+    # Check the current MAC address
+    macchanger -s wlan0
+    ```
+5.  **Reset to the Original MAC Address**
+
+    ```shellscript
+    # Reset to the original (permanent) MAC address
+    macchanger -p wlan0
+    ```
+
+### Deauthentication Attack <a href="#deauthentication-attack" id="deauthentication-attack"></a>
+
+Reference: [https://medium.com/@flytechoriginal/state-of-wifi-security-in-2024-b88091015cc2](https://medium.com/@flytechoriginal/state-of-wifi-security-in-2024-b88091015cc2)
+
+Using (Freeway)\[https://github.com/FLOCK4H/Freeway], we can easily achieve this attack.
+
+```shellscript
+sudo Freeway -i wlan1 -a deauth
+```
+
+### Other Useful Tools <a href="#other-useful-tools" id="other-useful-tools"></a>
+
+*   [Bettercap](https://www.bettercap.org/)
+
+    The Swiss Army knife for 802.11, BLE, IPv4 and IPv6 networks reconnaissance and MITM attacks.
+*   [OUI Standards](https://standards-oui.ieee.org/oui/oui.txt)
+
+    List of MAC OUI (Organizationally Unique Identifier). You can get the information from the BSSID.
+
+    *   **Access to the OUI Standards**
+
+        If the target BSSID is "B4:5D:50:AA:86:41", search text by inputting "B4-5D-50" on the string search.\
+        Then check the information.
