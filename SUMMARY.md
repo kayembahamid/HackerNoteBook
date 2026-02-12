@@ -542,6 +542,9 @@
   * [Data Manipulation for Machine Learning](machine-learning-hacks/data-processing/data-manipulation-for-machine-learning.md)
   * [Data Visualization for Machine Learning](machine-learning-hacks/data-processing/data-visualization-for-machine-learning.md)
   * [Dimensionality Reduction for Machine Learning](machine-learning-hacks/data-processing/dimensionality-reduction-for-machine-learning.md)
+* [Create Malicious ML Model](machine-learning-hacks/create-malicious-ml-model/README.md)
+  * [Model analysis](machine-learning-hacks/create-malicious-ml-model/model-analysis.md)
+  * [Pickle Code Injection](machine-learning-hacks/create-malicious-ml-model/pickle-code-injection.md)
 
 ## MOBILE HACKING
 
