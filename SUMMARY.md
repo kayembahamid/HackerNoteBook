@@ -423,16 +423,19 @@
 * [MongoDB Pentesting](database/mongodb-pentesting.md)
 * [MSSQL (Microsoft SQL) Pentesting](database/mssql-microsoft-sql-pentesting.md)
 * [MySQL Pentesting](database/mysql-pentesting.md)
+* [Neo4j Pentesting](database/neo4j-pentesting.md)
+* [PostgreSQL Pentesting](database/postgresql-pentesting.md)
+* [Redis Pentesting](database/redis-pentesting.md)
+* [SQLite Pentesting](database/sqlite-pentesting.md)
 
 ## CLOUD
 
-* [Cloud](cloud/cloud/README.md)
-  * [General](cloud/cloud/general.md)
-  * [AWS](cloud/cloud/aws.md)
-  * [Azure](cloud/cloud/azure.md)
-  * [GCP](cloud/cloud/gcp.md)
-  * [Docker && Kubernetes](cloud/cloud/docker-and-and-kubernetes.md)
-  * [CDN - Comain Fronting](cloud/cloud/cdn-comain-fronting.md)
+* [General](cloud/general.md)
+* [AWS](cloud/aws.md)
+* [Azure](cloud/azure.md)
+* [GCP](cloud/gcp.md)
+* [CDN - Comain Fronting](cloud/cdn-comain-fronting.md)
+* [Docker && Kubernetes](cloud/docker-and-and-kubernetes.md)
 
 ## AI HACKING
 
@@ -533,7 +536,3 @@
 * [Writeups](tools/writeups.md)
 * [Random](tools/random.md)
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
-
-## Group 1
-
-* [Page 2](group-1/page-2.md)
