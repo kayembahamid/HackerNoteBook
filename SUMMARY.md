@@ -278,17 +278,26 @@
   * [Methodology](hacking-manuel/pentesting-web-checklist/methodology.md)
   * [Web Security Testing Guide Checklist](hacking-manuel/pentesting-web-checklist/web-security-testing-guide-checklist.md)
 
-## RECON
+## RECONNAISSANCE
 
-* [Public info gathering](recon/public-info-gathering.md)
-* [Root domains](recon/root-domains.md)
-* [Subdomain Enum](recon/subdomain-enum/README.md)
-  * [Subdomain Takeover](recon/subdomain-enum/subdomain-takeover.md)
-* [Webs recon](recon/webs-recon.md)
-* [Network Scanning](recon/network-scanning.md)
-* [Host Scanning](recon/host-scanning.md)
-* [Packet Scanning](recon/packet-scanning.md)
-* [Cloud Info Gathering](recon/cloud-info-gathering.md)
+* [OSINT](reconnaissance/osint/README.md)
+  * [OSINT (Open Source Intelligence)](reconnaissance/osint/osint-open-source-intelligence.md)
+  * [GitHub Dorks](reconnaissance/osint/github-dorks.md)
+  * [Google Dorks](reconnaissance/osint/google-dorks.md)
+  * [IMINT (Image Intelligence) and GEOINT (Geospatial Intelligence)](reconnaissance/osint/imint-image-intelligence-and-geoint-geospatial-intelligence.md)
+* [Public info gathering](reconnaissance/public-info-gathering.md)
+* [Basic recon](reconnaissance/basic-recon.md)
+* [Root domains](reconnaissance/root-domains.md)
+* [Subdomain Enum](reconnaissance/subdomain-enum/README.md)
+  * [Subdomain Takeover](reconnaissance/subdomain-enum/subdomain-takeover.md)
+* [Port Scan](reconnaissance/port-scan.md)
+* [Network Scanning](reconnaissance/network-scanning.md)
+* [Host Scanning](reconnaissance/host-scanning.md)
+* [Packet Scanning](reconnaissance/packet-scanning.md)
+* [Find Leaked API Keys](reconnaissance/find-leaked-api-keys.md)
+* [Email Analysis](reconnaissance/email-analysis.md)
+* [Webs recon](reconnaissance/webs-recon.md)
+* [Cloud Info Gathering](reconnaissance/cloud-info-gathering.md)
 
 ## Enumeration
 
@@ -622,7 +631,6 @@
 
 ## Tools
 
-* [OSINT](tools/osint.md)
 * [Privacy](tools/privacy.md)
 * [Password cracking](tools/password-cracking/README.md)
   * [Gathering the Hashes](tools/password-cracking/gathering-the-hashes.md)
