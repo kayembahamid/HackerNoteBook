@@ -139,3 +139,53 @@ Navigate through target main website with Burp:
 * Set forms auto submit
 * Scope in advanced, any protocol and one keyword ("tesla")
 * Last step, select all sitemap, Engagement Tools -> Analyze target
+
+## Subdomain Discovery <a href="#subdomain-discovery" id="subdomain-discovery"></a>
+
+Finding subdomains is a method of reconnaissance.
+
+### Online Tools <a href="#online-tools" id="online-tools"></a>
+
+* [Subdomain Finder](https://subdomainfinder.c99.nl/)
+* [nmmapper](https://www.nmmapper.com/)
+
+### Automation <a href="#automation" id="automation"></a>
+
+Reference: [How to find subdomain takeover using httpx + dig](https://medium.com/@DrakenKun/how-to-find-subdomain-takeover-using-httpx-dig-5c2351d380b4)
+
+#### Subfinder <a href="#subfinder" id="subfinder"></a>
+
+To set API keys, add them to `$HOME/.config/subfinder/provider-config.yaml`. See [the ProjectDiscovery's Documentation](https://docs.projectdiscovery.io/tools/subfinder/install#post-install-configuration) for details.
+
+```shellscript
+# -all: Use all sources for enumeration
+# -cs: Include all sources in the output
+subfinder -d example.com -all -cs > tmp.txt ; cat tmp.txt | cut -d "," -f 1 > domains.txt ; rm tmp.txt
+```
+
+#### BBOT <a href="#bbot" id="bbot"></a>
+
+```shellscript
+bbot -t example.com -f subdomain-enum
+# After enumerating, see the result file at ~/.bbot/scans/xxxx_xxxx/subdomains.txt
+```
+
+### Google Dorks <a href="#google-dorks" id="google-dorks"></a>
+
+Use `site:` parameter on Google search.
+
+```shellscript
+site:example.com
+site:*.example.com
+site:*.*.example.com
+
+# Subdomains including hyphen ('-') e.g. api-dev.example.com
+site:*-*.example.com
+
+# Exclude 'www' domain
+site:*.example.com -site:www.example.com
+```
+
+### Subdomain Takeover <a href="#subdomain-takeover" id="subdomain-takeover"></a>
+
+After enumerating, it’s worth to check the [Subdomain Takever](https://exploit-notes.hdks.org/exploit/reconnaissance/subdomain/subdomain-takeover/).

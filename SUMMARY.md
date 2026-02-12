@@ -504,6 +504,9 @@
   * [Kubernetes Pentesting](cloud-hacking/docker-and-and-kubernetes/kubernetes-pentesting.md)
   * [MicroK8s Pentesting](cloud-hacking/docker-and-and-kubernetes/microk8s-pentesting.md)
 * [Virtual Machine](cloud-hacking/virtual-machine.md)
+* [Git Pentesting](cloud-hacking/git-pentesting.md)
+* [Gitea Pentesting](cloud-hacking/gitea-pentesting.md)
+* [Gogs Pentesting](cloud-hacking/gogs-pentesting.md)
 
 ## AI HACKING
 
@@ -632,6 +635,9 @@
 ## Tools
 
 * [Privacy](tools/privacy.md)
+* [Steganography](tools/steganography/README.md)
+  * [Image File Reparing](tools/steganography/image-file-reparing.md)
+  * [Morse OCR](tools/steganography/morse-ocr.md)
 * [Password cracking](tools/password-cracking/README.md)
   * [Gathering the Hashes](tools/password-cracking/gathering-the-hashes.md)
   * [Wordlist Manipulation](tools/password-cracking/wordlist-manipulation.md)
