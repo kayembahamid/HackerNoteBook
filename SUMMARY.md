@@ -592,6 +592,11 @@
   * [Model analysis](machine-learning-hacks/create-malicious-ml-model/model-analysis.md)
   * [Pickle Code Injection](machine-learning-hacks/create-malicious-ml-model/pickle-code-injection.md)
 
+## CODE HACKING
+
+* [Code review](code-hacking/code-review.md)
+* [Sinks](code-hacking/sinks.md)
+
 ## MOBILE HACKING
 
 * [General](mobile-hacking/general.md)
@@ -614,10 +619,38 @@
   * [Solidity Storage Values Analysis](blockchain-hacking/attack-methodology/solidity-storage-values-analysis.md)
   * [Tx Origin Attack](blockchain-hacking/attack-methodology/tx-origin-attack.md)
 
-## CODE HACKING
+## CRYPTOGRAPHY HACKING
 
-* [Code review](code-hacking/code-review.md)
-* [Sinks](code-hacking/sinks.md)
+* [John the Ripper](cryptography-hacking/john-the-ripper.md)
+* [Password Safe Pentesting](cryptography-hacking/password-safe-pentesting.md)
+* [Cryptography Basic](cryptography-hacking/cryptography-basic.md)
+* [PowerShell Credentials](cryptography-hacking/powershell-credentials.md)
+* [Algorithim Pentesting](cryptography-hacking/algorithim-pentesting/README.md)
+  * [AES-CBC Padding Oracle Attack](cryptography-hacking/algorithim-pentesting/aes-cbc-padding-oracle-attack.md)
+  * [AES-ECB Padding Attack](cryptography-hacking/algorithim-pentesting/aes-ecb-padding-attack.md)
+  * [Ansible Vault Secret](cryptography-hacking/algorithim-pentesting/ansible-vault-secret.md)
+  * [Atbash Cipher](cryptography-hacking/algorithim-pentesting/atbash-cipher.md)
+  * [DES (Data Encryption Standard)](cryptography-hacking/algorithim-pentesting/des-data-encryption-standard.md)
+  * [Diffie hellman key exchange](cryptography-hacking/algorithim-pentesting/diffie-hellman-key-exchange.md)
+  * [GPG (GNU Privacy Guard)](cryptography-hacking/algorithim-pentesting/gpg-gnu-privacy-guard.md)
+  * [KDBX Files](cryptography-hacking/algorithim-pentesting/kdbx-files.md)
+  * [Kerberos TGT Cracking](cryptography-hacking/algorithim-pentesting/kerberos-tgt-cracking.md)
+  * [NTLM, NTLMv2](cryptography-hacking/algorithim-pentesting/ntlm-ntlmv2.md)
+  * [PGP (Pretty Good Privacy)](cryptography-hacking/algorithim-pentesting/pgp-pretty-good-privacy.md)
+  * [PKCS (Public-Key Cryptography Standards)](cryptography-hacking/algorithim-pentesting/pkcs-public-key-cryptography-standards.md)
+  * [ROT13, ROT47](cryptography-hacking/algorithim-pentesting/rot13-rot47.md)
+  * [RPNG (Pseudo Random Number Generator) Guessing](cryptography-hacking/algorithim-pentesting/rpng-pseudo-random-number-generator-guessing.md)
+  * [RSA (Rivest Shamir Adleman)](cryptography-hacking/algorithim-pentesting/rsa-rivest-shamir-adleman.md)
+  * [SHA1 Hash Collision Attack](cryptography-hacking/algorithim-pentesting/sha1-hash-collision-attack.md)
+  * [SHA1, SHA256, SHA512](cryptography-hacking/algorithim-pentesting/sha1-sha256-sha512.md)
+* [Key Derivation](cryptography-hacking/key-derivation/README.md)
+  * [PBKDF2](cryptography-hacking/key-derivation/pbkdf2.md)
+  * [Scrypt](cryptography-hacking/key-derivation/scrypt.md)
+* [Math](cryptography-hacking/math/README.md)
+  * [Exponentiation](cryptography-hacking/math/exponentiation.md)
+  * [GCD (Greatest Common Divisor)](cryptography-hacking/math/gcd-greatest-common-divisor.md)
+  * [Modular Congruence](cryptography-hacking/math/modular-congruence.md)
+  * [Quadratic Residue](cryptography-hacking/math/quadratic-residue.md)
 
 ## IOT HACKING
 
