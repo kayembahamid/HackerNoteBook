@@ -436,6 +436,7 @@
 * [GCP](cloud/gcp.md)
 * [CDN - Comain Fronting](cloud/cdn-comain-fronting.md)
 * [Docker && Kubernetes](cloud/docker-and-and-kubernetes.md)
+* [Virtual Machine](cloud/virtual-machine.md)
 
 ## AI HACKING
 
@@ -509,6 +510,21 @@
 * [Android](mobile/android.md)
 * [iOS](mobile/ios.md)
 
+## BLOCKCHAIN
+
+* [Ethereum](blockchain/ethereum/README.md)
+  * [Interact with Ethereum using Python](blockchain/ethereum/interact-with-ethereum-using-python.md)
+* [Attack Methodology](blockchain/attack-methodology/README.md)
+  * [Contract Address Recovery](blockchain/attack-methodology/contract-address-recovery.md)
+  * [Delegatecall Attack](blockchain/attack-methodology/delegatecall-attack.md)
+  * [DoS Attack for Smart Contract](blockchain/attack-methodology/dos-attack-for-smart-contract.md)
+  * [Reentrancy Attack](blockchain/attack-methodology/reentrancy-attack.md)
+  * [Self Destruct Attack](blockchain/attack-methodology/self-destruct-attack.md)
+  * [Solidity Assembly](blockchain/attack-methodology/solidity-assembly.md)
+  * [Solidity Overflow & Underflow](blockchain/attack-methodology/solidity-overflow-and-underflow.md)
+  * [Solidity Storage Values Analysis](blockchain/attack-methodology/solidity-storage-values-analysis.md)
+  * [Tx Origin Attack](blockchain/attack-methodology/tx-origin-attack.md)
+
 ## CODE REVIEW
 
 * [Code review](code-review/code-review.md)
@@ -517,6 +533,7 @@
 ## Tools
 
 * [OSINT](tools/osint.md)
+* [Privacy](tools/privacy.md)
 * [Wifi Hacking](tools/wifi-hacking.md)
 * [Password cracking](tools/password-cracking/README.md)
   * [Gathering the Hashes](tools/password-cracking/gathering-the-hashes.md)
@@ -534,5 +551,8 @@
 * [Internal Pentest](tools/internal-pentest.md)
 * [Report template](tools/report-template.md)
 * [Writeups](tools/writeups.md)
+* [Audio/Tv Hacking](tools/audio-tv-hacking/README.md)
+  * [Spectrogram](tools/audio-tv-hacking/spectrogram.md)
+  * [SSTV (Slow-scan Television)](tools/audio-tv-hacking/sstv-slow-scan-television.md)
 * [Random](tools/random.md)
 * [Master assessment mindmaps](tools/master-assessment-mindmaps.md)
