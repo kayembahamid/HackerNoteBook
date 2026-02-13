@@ -75,8 +75,8 @@ Attacker can now access the newly uploaded webshell via `http://10.0.0.6/c.aspx`
 
 See T1108: Webshells for observations:
 
-{% content-ref url="../../exploitation/web-attacks/webshells.md" %}
-[webshells.md](../../exploitation/web-attacks/webshells.md)
+{% content-ref url="../../exploitation/web-app-attacks/webshells.md" %}
+[webshells.md](../../exploitation/web-app-attacks/webshells.md)
 {% endcontent-ref %}
 
 ### References
@@ -158,8 +158,8 @@ Attacker can now access the newly uploaded webshell via `http://10.0.0.6/c.aspx`
 
 See T1108: Webshells for observations:
 
-{% content-ref url="../../exploitation/web-attacks/webshells.md" %}
-[webshells.md](../../exploitation/web-attacks/webshells.md)
+{% content-ref url="../../exploitation/web-app-attacks/webshells.md" %}
+[webshells.md](../../exploitation/web-app-attacks/webshells.md)
 {% endcontent-ref %}
 
 ### References
