@@ -1,4 +1,14 @@
-# WAFs
+# WAF (Web Application Firewall) Detection
+
+WAF (Web Application Firewall) is a specific form of application firewall that filters, monitors, and blocks HTTP traffic to and from a web service.
+
+### Automation <a href="#automation" id="automation"></a>
+
+```shellscript
+nmap --script=http-waf-fingerprint example.com
+
+wafw00f https://example.com
+```
 
 ## WAF Bypasses
 
