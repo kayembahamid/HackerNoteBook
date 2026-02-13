@@ -1,0 +1,16 @@
+# SOCKS Proxy in Burp Suite
+
+If we want to use SOCKS proxy in Burp Suite, we can add it in the proxy setting.
+
+### Setup SOCKS Proxy <a href="#setup-socks-proxy" id="setup-socks-proxy"></a>
+
+1. In **Burp Suite**, go to **Proxy → Proxy settings**.
+2. In the settings window, select **User** tab and go to **Netwotk → Connections** in left pane.
+3. In the **SOCKS** proxy section, enable **"Override options for this project only"**.
+4.  Fill proxy host and port as follow:
+
+    ```
+    SOCKS proxy host: 127.0.0.1
+    SOCKS proxy port: 9251
+    ```
+5. Check **"Use SOCKS proxy"** and close the window.
