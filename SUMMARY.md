@@ -386,7 +386,8 @@
   * [Prototype Pollution](exploitation/web-attacks/prototype-pollution.md)
   * [Command Injection](exploitation/web-attacks/command-injection.md)
   * [Deserialization](exploitation/web-attacks/deserialization.md)
-  * [DNS rebinding](exploitation/web-attacks/dns-rebinding.md)
+  * [DNS (Domain Name Systems) Pentesting](exploitation/web-attacks/dns-domain-name-systems-pentesting/README.md)
+    * [MDNS (Multicast DNS) Pentesting](exploitation/web-attacks/dns-domain-name-systems-pentesting/mdns-multicast-dns-pentesting.md)
   * [Vulnerable components](exploitation/web-attacks/vulnerable-components.md)
   * [Rate limiting](exploitation/web-attacks/rate-limiting.md)
 * [Payloads](exploitation/payloads.md)
@@ -419,12 +420,14 @@
 ## DATA EXFILTRATION
 
 * [Unix Data Exfilt](data-exfiltration/unix-data-exfilt.md)
+* [Backdoors in Linux](data-exfiltration/backdoors-in-linux.md)
 * [Window Data Exfilt](data-exfiltration/window-data-exfilt/README.md)
   * [AD Impacket](data-exfiltration/window-data-exfilt/ad-impacket.md)
 
 ## PERSISTENCE
 
 * [Unix Persist](persistence/unix-persist.md)
+* [Cover Your Tracks in Linux](persistence/cover-your-tracks-in-linux.md)
 * [Window Persist](persistence/window-persist/README.md)
   * [AD Persist](persistence/window-persist/ad-persist.md)
 
