@@ -109,7 +109,7 @@ ssh user@127.0.0.1
 ### Mounting <a href="#mounting" id="mounting"></a>
 
 Check disks or mounted folders and we might be able to see the directories of the host system.\
-See [Linux Privilege Escalation](../../privilege-escalation/unix-priv-esca/) for details.
+See [Linux Privilege Escalation](../../privilege-escalation/unix-priv-esca.md) for details.
 
 #### 1. List Disks/Mounted Folders <a href="#id-1-list-disksmounted-folders" id="id-1-list-disksmounted-folders"></a>
 
@@ -140,7 +140,7 @@ chroot /mounted_folder bash
 
 ### Privilege Escalation to Root <a href="#privilege-escalation-to-root" id="privilege-escalation-to-root"></a>
 
-Please see [Linux Privilege Escalation.](../../privilege-escalation/unix-priv-esca/)
+Please see [Linux Privilege Escalation.](../../privilege-escalation/unix-priv-esca.md)
 
 ### Run Vulnerable Docker Image <a href="#run-vulnerable-docker-image" id="run-vulnerable-docker-image"></a>
 

