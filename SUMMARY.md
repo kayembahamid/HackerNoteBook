@@ -298,6 +298,10 @@
 * [Email Analysis](reconnaissance/email-analysis.md)
 * [Webs recon](reconnaissance/webs-recon.md)
 * [Web Basic Pentesting](reconnaissance/web-basic-pentesting.md)
+* [Windows Forensics](reconnaissance/windows-forensics/README.md)
+  * [OneDrive Logs](reconnaissance/windows-forensics/onedrive-logs.md)
+* [Active Directory Pentesting](reconnaissance/active-directory-pentesting.md)
+* [AD CS (Active Directory Certificate Services) Pentesting](reconnaissance/ad-cs-active-directory-certificate-services-pentesting.md)
 * [Cloud Info Gathering](reconnaissance/cloud-info-gathering.md)
 
 ## Enumeration
@@ -406,7 +410,12 @@
   * [Others](enumeration/web-app-technologies/others.md)
 * [Unix Enum](enumeration/unix-enum.md)
 * [Windows Enum](enumeration/windows-enum/README.md)
+  * [SMB (Server Message Block) Pentesting](enumeration/windows-enum/smb-server-message-block-pentesting.md)
+  * [WSL Pentesting](enumeration/windows-enum/wsl-pentesting.md)
+  * [LAPS (Local Administrator Password Solution) Pentesting](enumeration/windows-enum/laps-local-administrator-password-solution-pentesting.md)
+  * [LDAP (Lightweight Directory Access Protocol) Pentesting](enumeration/windows-enum/ldap-lightweight-directory-access-protocol-pentesting.md)
   * [AD Enum](enumeration/windows-enum/ad-enum.md)
+  * [Kerberos Pentesting](enumeration/windows-enum/kerberos-pentesting.md)
 
 ## Exploitation
 
@@ -484,7 +493,20 @@
 * [Unix Exploit](exploitation/unix-exploit/README.md)
   * [Fork Bomb](exploitation/unix-exploit/fork-bomb.md)
 * [Window Exploit](exploitation/window-exploit/README.md)
-  * [AD Piv/lateral](exploitation/window-exploit/ad-piv-lateral.md)
+  * [Malicious PDF](exploitation/window-exploit/malicious-pdf.md)
+  * [Windows Print Spooler Service](exploitation/window-exploit/windows-print-spooler-service.md)
+  * [MSRPC (Microsoft Remote Procedure Call) Pentesting](exploitation/window-exploit/msrpc-microsoft-remote-procedure-call-pentesting.md)
+  * [RDP (Remote Desktop Protocol) Pentesting](exploitation/window-exploit/rdp-remote-desktop-protocol-pentesting.md)
+  * [WinRM (Windows Remote Management) Pentesting](exploitation/window-exploit/winrm-windows-remote-management-pentesting.md)
+  * [LDAP Injection](exploitation/window-exploit/ldap-injection.md)
+  * [Netlogon Elevasion](exploitation/window-exploit/netlogon-elevasion.md)
+  * [AD Exploit](exploitation/window-exploit/ad-exploit.md)
+  * [AS-REP Roasting](exploitation/window-exploit/as-rep-roasting.md)
+  * [Constrained Delegation Attack](exploitation/window-exploit/constrained-delegation-attack.md)
+  * [DACL (Discretionary Access Control List) Attack](exploitation/window-exploit/dacl-discretionary-access-control-list-attack.md)
+  * [Kerberoasting Attack](exploitation/window-exploit/kerberoasting-attack.md)
+  * [RBCD (Resource-Based Constrained Delegation) Attack](exploitation/window-exploit/rbcd-resource-based-constrained-delegation-attack.md)
+  * [Shadow Credentials](exploitation/window-exploit/shadow-credentials.md)
 
 ## Privilege Escalation
 
