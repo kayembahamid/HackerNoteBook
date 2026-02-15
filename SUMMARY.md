@@ -290,6 +290,8 @@
 * [Root domains](reconnaissance/root-domains.md)
 * [Subdomain Enum](reconnaissance/subdomain-enum/README.md)
   * [Subdomain Takeover](reconnaissance/subdomain-enum/subdomain-takeover.md)
+* [DNS (Domain Name Systems) Pentesting](reconnaissance/dns-domain-name-systems-pentesting.md)
+* [MDNS (Multicast DNS) Pentesting](reconnaissance/mdns-multicast-dns-pentesting.md)
 * [Port Scan](reconnaissance/port-scan.md)
 * [Network Scanning](reconnaissance/network-scanning.md)
 * [Host Scanning](reconnaissance/host-scanning.md)

@@ -28,6 +28,8 @@ Silence supports nothing. Operators invest in what builds them.
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/abdlhamidkb)
 
+{% embed url="https://www.paypal.com/ncp/payment/R8FNN99FBMDVN" %}
+
 ### BOOKS:
 
 {% embed url="https://www.amazon.com/Hackers-Notes-All-Tech-Theory-Execution/dp/B0F5ZGFK1B/" %}
