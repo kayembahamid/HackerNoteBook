@@ -845,6 +845,14 @@
 * [NETGEAR Pentesting](hardware-hacking/netgear-pentesting.md)
 * [SAL Logic Analysis](hardware-hacking/sal-logic-analysis.md)
 
+## WRITEUPS
+
+* [THM Walkthroughs](writeups/thm-walkthroughs.md)
+* [OSCP Preparation](writeups/oscp-preparation.md)
+* [Labs writeups](writeups/labs-writeups.md)
+* [SQLi lab setup & writeups](writeups/sqli-lab-setup-and-writeups.md)
+* [Blogs/Gitbooks Links](writeups/blogs-gitbooks-links.md)
+
 ## Tools
 
 * [Privacy](tools/privacy.md)
@@ -871,8 +879,6 @@
 * [Red Team Tools](tools/red-team-tools.md)
 * [Internal Pentest](tools/internal-pentest.md)
 * [Report template](tools/report-template.md)
-* [Writeups](tools/writeups.md)
-  * [SQLi lab setup & writeups](exploitation/web-app-attacks/sqli/sqli-lab-setup-and-writeups.md)
 * [Random](tools/random.md)
 * [Wireshark Cheat Sheet](tools/wireshark-cheat-sheet.md)
 * [Tshark Cheat Sheet](tools/tshark-cheat-sheet.md)
