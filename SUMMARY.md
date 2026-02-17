@@ -305,6 +305,8 @@
 * [Active Directory Pentesting](reconnaissance/active-directory-pentesting.md)
 * [AD CS (Active Directory Certificate Services) Pentesting](reconnaissance/ad-cs-active-directory-certificate-services-pentesting.md)
 * [Cloud Info Gathering](reconnaissance/cloud-info-gathering.md)
+* [Dark-Web Search](reconnaissance/dark-web-search.md)
+* [Social Engineering](reconnaissance/social-engineering.md)
 
 ## Enumeration
 
@@ -643,6 +645,7 @@
 * [Wifi Enum](wireless-hacking/wifi-enum.md)
 * [Wifi Exploit](wireless-hacking/wifi-exploit.md)
 * [Wifi Priv](wireless-hacking/wifi-priv.md)
+* [Bluetooth](wireless-hacking/bluetooth.md)
 * [VPN](wireless-hacking/vpn/README.md)
   * [OpenVPN Troubleshooting](wireless-hacking/vpn/openvpn-troubleshooting.md)
 * [Audio/Tv Hacking](wireless-hacking/audio-tv-hacking/README.md)
@@ -839,6 +842,9 @@
 
 ## HARDWARE HACKING
 
+* [Flipper Zero](hardware-hacking/flipper-zero/README.md)
+  * [Signal reading](hardware-hacking/flipper-zero/signal-reading.md)
+  * [Add new remote controls](hardware-hacking/flipper-zero/add-new-remote-controls.md)
 * [Firmware Analysis](hardware-hacking/firmware-analysis.md)
 * [Gerber (GBR) Files](hardware-hacking/gerber-gbr-files.md)
 * [MQTT Pentesting](hardware-hacking/mqtt-pentesting.md)
@@ -848,6 +854,7 @@
 ## WRITEUPS
 
 * [THM Walkthroughs](writeups/thm-walkthroughs.md)
+* [HTB Walkthroughs](writeups/htb-walkthroughs.md)
 * [OSCP Preparation](writeups/oscp-preparation.md)
 * [Labs writeups](writeups/labs-writeups.md)
 * [SQLi lab setup & writeups](writeups/sqli-lab-setup-and-writeups.md)
