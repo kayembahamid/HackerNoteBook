@@ -864,6 +864,7 @@
 * [THM Walkthroughs](writeups/thm-walkthroughs.md)
 * [HTB Walkthroughs](writeups/htb-walkthroughs.md)
 * [OSCP Preparation](writeups/oscp-preparation.md)
+* [CRTP Prepration](writeups/crtp-prepration.md)
 * [Labs writeups](writeups/labs-writeups.md)
 * [SQLi lab setup & writeups](writeups/sqli-lab-setup-and-writeups.md)
 * [Blogs/Gitbooks Links](writeups/blogs-gitbooks-links.md)
