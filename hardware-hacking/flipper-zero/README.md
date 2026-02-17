@@ -172,10 +172,178 @@ You can switch to legacy sleep mode in **Main Menu -> Settings -> System** and b
 * Avoid extreme ambient temperatures. -> Flipper Zero is designed to operate within a temperature range of 0° to 40° C (32° to 104° F). Avoid exposing your device to ambient temperatures outside this specified range.
 * Store the device half-charged when it will be turned off for extended periods. -> Charge your Flipper Zero to approximately 50% before turning it off for an extended period.
 
+## ﻿qFlipper
+
+On this page you will find an overview of the application and learn how to install it on your PC. You will also learn how to update and control your Flipper Zero.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3GUDYkC5JgUWgo6RW8piO-mU-xci-ZON3mhTIBwe9Ta-20241025-132049.png%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=1eeaa110&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+**qFlipper** is a desktop application for updating the firmware and databases of the Flipper Zero, managing files on the microSD card, and repairing corrupted firmware. qFlipper is available for Windows, macOS, and Linux.﻿
+
+### qFlipper Installation <a href="#xf0g4" id="xf0g4"></a>
+
+To install the qFlipper application on your computer, do the following:
+
+1. Download the qFlipper installation file for your operating system
+
+{% embed url="https://flipperzero.one/downloads" %}
+
+1. Run the downloaded file and follow the instructions for your operating system.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2F2648005400-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FRolFIJKRJaxKzAUqQKJb%252Fuploads%252Fpdr0hQAW6xB1vV6dftaM%252Fimage.png%3Falt%3Dmedia%26token%3D603f67fa-af96-4cf0-9723-56307c148a30&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=36b461b2&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+### qFlipper: Overview <a href="#xinqx" id="xinqx"></a>
+
+After installing the qFlipper application on your computer, **connect your Flipper Zero (with a microSD card inserted) to your computer using a USB cable** .
+
+On the **Device Information** tab , you can view key information about the Flipper Zero hardware and installed firmware, [update the device](https://docs.flipper.net/qflipper#ORL5Q) , and [control it remotely](https://docs.flipper.net/qflipper#Yag86) .
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3StCFqarJkJQZV-7N79yY%2FTb0rOpzudusehbt6n32Wx_monosnap-miro-2023-11-29-16-25-49.jpg%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=afb98cad&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+The device information tab provides an overview of the main features.﻿
+
+On the **Advanced Control** tab , you can back up, restore, and reset your Flipper Zero, as well as choose the firmware you want to install on the device. Similar to the Device Information tab, you can control your Flipper Zero and initiate the update procedure. See [Internal Storage Repair](https://docs.flipperzero.one/basics/firmware-update/storage-repair) for more information on backup and restore procedures.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3StCFqarJkJQZV-7N79yY%2F-uBB7wv13CSyWOhX6_t-0_monosnap-miro-2023-11-29-16-26-48.jpg%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=d9b68d39&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+The advanced controls tab gives you access to update, delete, and restore functions.﻿
+
+On the **File Manager** tab , you can delete, rename, and upload files to Flipper Zero. You can easily navigate through the files using the arrow keys on your keyboard.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3StCFqarJkJQZV-7N79yY%2FbniUEuWxZLKXo_fTds6wQ_image.png%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=8cea3c1c&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+You can manage Flipper Zero files in the qFlipper application.﻿
+
+To upload files in the **File Manager** tab , drag and drop the files into the desired folder or right-click the required folder and click **Upload Here** .
+
+﻿Upon uploading, files with the same name will be overwritten without prior notice.﻿
+
+You can easily navigate the File Manager tab using only a keyboard:
+
+#### **Command**
+
+**Keys in Windows and Linux**
+
+<figure><img src="../../.gitbook/assets/Screenshot 2026-02-17 at 19.23.26.png" alt=""><figcaption></figcaption></figure>
+
+### Update Flipper Zero via qFlipper <a href="#orl5q" id="orl5q"></a>
+
+The qFlipper app has three firmware update channels:
+
+* ﻿**DEVELOPMENT (Dev):** Continuous development involves constantly creating a new version of the firmware with each new commit, often several times a day. This development version includes all the latest features, but it can be unstable, cause crashes or data corruption, or stop working altogether.
+* ﻿**RELEASE CANDIDATE (RC):** The version submitted for validation testing to the quality assurance department. If errors are detected during the testing phase, the version is revised and a new release candidate is issued. Once the release candidate successfully passes all tests, it becomes the release version.
+* ﻿**RESEALE:** The stable firmware version has been extensively tested to ensure reliability and is therefore recommended for general use.
+
+Insert a microSD card before the update procedure. To update the firmware correctly, a microSD card must be inserted into the Flipper Zero. The Flipper Zero databases are stored on a microSD card. For more information, see [Configuring the microSD card.](https://docs.flipperzero.one/basics/sd-card)﻿
+
+To update your Flipper Zero via the qFlipper app, do the following:
+
+1. Connect your Flipper Zero to your computer using a USB cable.
+2. On your computer, run the **qFlipper** application .
+3. In the qFlipper application, go to the **Advanced Controls tab.**
+4. Click on **Update Channel** and select a firmware version from the drop-down list ( **Release is recommended** ).
+5. Click **Update** to start the update process.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3StCFqarJkJQZV-7N79yY%2FtZ27yn5Kj3LI9fXR48O_F_monosnap-miro-2023-11-29-16-01-36.jpg%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=7f11e1e3&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+### Controlling Flipper Zero via qFlipper <a href="#yag86" id="yag86"></a>
+
+You can also control your Flipper Zero remotely via the qFlipper app by doing the following:
+
+1. On the Device Information tab, click on the Flipper Zero image.
+2. Click the buttons on the screen
+3. Use the keypad to control your Flipper Zero remotely. Click on ℹ️ for more information about the keypad controls.
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3StCFqarJkJQZV-7N79yY%2Fo-7OIQ_JDzXtTWS14--S8_monosnap-miro-2023-11-29-16-30-50.jpg%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=80b1c3c9&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+Additionally, you can capture screenshots from your Flipper Zero device and save them directly to your computer by clicking the **SAVE SCREENSHOT** button
+
 ﻿
 
-### &#x20;<a href="#dtq6a" id="dtq6a"></a>
+## Install qFlipper on Kali Linux
 
-﻿
+On this page you will learn how to install qFlipper on Kali Linux systems
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2Fimages.archbee.com%2F3GUDYkC5JgUWgo6RW8piO-mU-xci-ZON3mhTIBwe9Ta-20241025-132049.png%3Fformat%3Dwebp&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=1eeaa110&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+### qFlipper Installation <a href="#xf0g4" id="xf0g4"></a>
+
+To install **qFlipper** on **Kali Linux** and be able to run it globally from any terminal, follow these steps:
+
+***
+
+#### **1. Download qFlipper** <a href="#id-1.-descargar-qflipper" id="id-1.-descargar-qflipper"></a>
+
+Let's download qFlipper from its official website:
+
+{% embed url="https://flipperzero.one/downloads" %}
+
+We select Download for Linux:
+
+<figure><img src="https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2F2648005400-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FRolFIJKRJaxKzAUqQKJb%252Fuploads%252FYNQXomfpTNzHEZr1q28p%252Fliiinux.png%3Falt%3Dmedia%26token%3Ddf0d5abb-db65-4250-b54c-7e8c7f4efc55&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=6eca767a&#x26;sv=2" alt=""><figcaption></figcaption></figure>
+
+The executable file will be in your Downloads folder:
+
+
+
+```shellscript
+qFlipper-x86_64-1.3.3.AppImage
+```
+
+Install dependencies required to run files `.AppImage`:
+
+```shellscript
+sudo apt install libfuse2 -y
+```
+
+#### **2. Grant execution permissions** <a href="#id-2.-dar-permisos-de-ejecucion" id="id-2.-dar-permisos-de-ejecucion"></a>
+
+Once downloaded, grant execution permissions to the file:
+
+```shellscript
+chmod +x *.AppImage
+```
+
+#### **3. Move it `/usr/local/bin/`to use it globally** <a href="#id-3.-moverlo-a-usr-local-bin-para-usarlo-globalmente" id="id-3.-moverlo-a-usr-local-bin-para-usarlo-globalmente"></a>
+
+To be able to run **qFlipper** from any terminal without having to move to its directory, move it to **`/usr/local/bin/`**:
+
+```shellscript
+sudo mv qFlipper-x86_64-1.3.3.AppImage /usr/local/bin/qflipper
+```
+
+You can now open it with the following command from any terminal:
+
+```shellscript
+sudo qflipper
+```
+
+#### **4. Create a shortcut in the applications menu (Optional)** <a href="#id-4.-crear-un-acceso-directo-en-el-menu-de-aplicaciones-opcional" id="id-4.-crear-un-acceso-directo-en-el-menu-de-aplicaciones-opcional"></a>
+
+If you want to add **qFlipper** to the applications menu in Kali Linux, create a file `.desktop`:
+
+```shellscript
+sudo nano /usr/share/applications/qflipper.desktop
+```
+
+Add the following:
+
+```shellscript
+[Desktop Entry]
+Name=qFlipper
+Exec=/usr/local/bin/qflipper
+Icon=qflipper
+Type=Application
+Categories=Utility;
+Terminal=false
+```
+
+Save the file with `CTRL + X`, then `Y`and `ENTER`.
+
+To update the menu:
+
+```shellscript
+update-desktop-database ~/.local/share/applications
+```
 
 [^1]: 
