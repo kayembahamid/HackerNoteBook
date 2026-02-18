@@ -882,7 +882,7 @@
 
 ## BugBounty
 
-* [BugBounty Methodology](bugbounty/bugbounty-methodology.md)
+* [BugBounty Methodology](tools/bugbounty.md)
 
 ## Tools
 

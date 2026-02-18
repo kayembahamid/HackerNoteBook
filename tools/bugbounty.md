@@ -568,46 +568,67 @@ spending enough time testing the filter in file upload is worthy
 * Look for headers with
   * `Acesss-Control-Allow-Origin`
   * `Access-Allow-Credentials:true`
-* These headers allow an external website to read the contents of the website.
-  * Example :
-    * if you have the sensitive information on https://api.hamcodes/user/ and you saw `Acesss-Control-Allow-Origin`: https://www.yoursite.com/.
-    * Then you could the content of this website successfully via yoursite.com.
-    * `Access-Allow-Credentials:true` will be needed if season cookies are required on the request.
-    * Developer will only create filters to only allow for their domain to read the contents but remember.
-    * when there is a filter there is usually a bypass
-    * CORS misconfiguration simply add `Origin:theirdomain.com` on to every request you make
-    * Then grep for `Acesss-Control-Allow-Origin`
-    * other approach `anythingheretheirdomain.com`
+
+
+
+**These headers allow an external website to read the contents of the website.**
+
+* Example :
+  * if you have the sensitive information on https://api.hamcodes/user/ and you saw `Acesss-Control-Allow-Origin`: https://www.yoursite.com/.
+  * Then you could the content of this website successfully via yoursite.com.
+  * `Access-Allow-Credentials:true` will be needed if season cookies are required on the request.
+  * Developer will only create filters to only allow for their domain to read the contents but remember.
+  * when there is a filter there is usually a bypass
+  * CORS misconfiguration simply add `Origin:theirdomain.com` on to every request you make
+  * Then grep for `Acesss-Control-Allow-Origin`
+  * other approach `anythingheretheirdomain.com`
 
 ## SQL Injection
 
+{% hint style="danger" %}
 \#SQL
+{% endhint %}
 
-* legacy code is more vulnerable to SQL injection.
+**legacy code is more vulnerable to SQL injection.**
+
 * keep an eye for old features.
 * Take all places which query the database for inputs
 * These days most of the developers disable error messages so its not the if you don't the error thats where it stops
 * Try checking with a sleep payload.(usually they'll slip through any filter )
-* It's easy to indicate the delay on the response which would mean your payload was executed blindly
-* I'll use between 15-30 seconds to determine if the page is actually vulnerable
-  * `or sleep(15)and 1=1#`
-  * `or sleep(15)#`
-  * `union select sleep(15),null#`
-* when texting for SQL injection I will take the same approach as XSS and test throughout the web application. \_though they are rare to find these days \_
+* It's easy to indicate the delay on the response which would mean your payload was executed blindly<br>
+
+**I'll use between 15-30 seconds to determine if the page is actually vulnerable**
+
+* `or sleep(15)and 1=1#`
+* `or sleep(15)#`
+* `union select sleep(15),null#`
+
+
+
+when texting for SQL injection I will take the same approach as XSS and test throughout the web application. \_though they are rare to find these days \_
 
 ## Business/Application Logic
 
 This involves understanding how the website work and create weird behaviour which can lead to interesting findings.
 
-* example : if you test a target with max limit of $1,000. if you change that to $10000 and bypass their limit then you've done nothing but take advantage of the feature
-* Common areas to look for this bug is **new feature which interact with old features**
-  * _example_: Getting premium access but they require a valid payment data.you need to upgrade to access the page So the valid payment data act as identification.
-  * If we bypass it then will own the page
-  * Spending days/weeks understanding how the developer expected the user to input/do
-  * Then come up with ways to break & bypass this.
-    * _example_: Signup for a account with the email example example@target.com.
-    * sometimes these accounts have special privileges such as no rate limiting and bypassing certain verfications.
-* You get to find mure of these bugs if you have an understanding how the website works.
+**Example** : if you test a target with max limit of $1,000. if you change that to $10000 and bypass their limit then you've done nothing but take advantage of the feature
+
+**Common areas to look for this bug is new feature which interact with old features**
+
+_**`E`xample**_**:** Getting premium access but they require a valid payment data.you need to upgrade to access the page So the valid payment data act as identification.
+
+* If we bypass it then will own the page
+* Spending days/weeks understanding how the developer expected the user to input/do
+
+
+
+**Then come up with ways to break & bypass this.**
+
+* _example_: Signup for a account with the email example example@target.com.
+* sometimes these accounts have special privileges such as no rate limiting and bypassing certain verfications.<br>
+
+**You get to find mure of these bugs if you have an understanding how the website works.**
+
 * understanding how things SHOULD work
 * imagine different endpoints available to some users and how they can access them.
 * Looking out for APIs
@@ -615,46 +636,54 @@ This involves understanding how the website work and create weird behaviour whic
 
 ## Choosing a program
 
-* Seven step methodology:
-  * Spending months on their program(You can't find bugs in weeks some companies are huge)
-  * Choose a wide scope and well know names (easy to find mistakes in big company)
-  * Focus on you to pick the platform
-  * The main methodology is using features available to me on their website and find issues.
-  * Then expand my attack surface as i scan for subdomains, file and directories
-  * Spending more time getting into developers' head
-  * Complete mind-map of this company and how everything works. Don't rush the process, trust it.
+**Seven step methodology:**
+
+1. Spending months on their program(You can't find bugs in weeks some companies are huge)
+2. Choose a wide scope and well know names (easy to find mistakes in big company)
+3. Focus on you to pick the platform
+4. The main methodology is using features available to me on their website and find issues.
+5. Then expand my attack surface as i scan for subdomains, file and directories
+6. Spending more time getting into developers' head
+7. Complete mind-map of this company and how everything works. Don't rush the process, trust it.
 
 ## checklist for a good well run bug bounty program.
 
-* Direct Communication of rely on the platform 100% (managed service then proceed with caution.)
-* Does the program look active ? when was the scope last updated
-* How does the team handle low hanging fruit bugs which are chained to create more impact?
-* Does the team reward each XSS as the same or do they recognise your work and reward more.
-* Don't be afraid to walk away from bad experiences.
-* Response time across 3-5 reports. not more than month.
+* [ ] Direct Communication of rely on the platform 100% (managed service then proceed with caution.)
+* [ ] Does the program look active ? when was the scope last updated
+* [ ] How does the team handle low hanging fruit bugs which are chained to create more impact?
+* [ ] Does the team reward each XSS as the same or do they recognise your work and reward more.
+* [ ] Don't be afraid to walk away from bad experiences.
+* [ ] Response time across 3-5 reports. not more than month.
 
 ## Writing notes as you hack
 
-* This save you from burnout in the feature and it streamlines the process
+This save you from burnout in the feature and it streamlines the process
+
 * You can always refer back to you notes and revisits interesting endpoints
 * Trying new feature with anew approach with a fresh mindset.
-* Note down
-  * interesting endpoints
-  * Behaviour and parameters(as you are browsing and hacking the web application)
-  * features which can/ can't be exploited
-  * what you have tried what you believe is vulnerable
-  * Never burn yourself out
-  * If your guts is saying you are tired of testing then move on.
-* Note can help you to create custom wordlists.
-  * example: You are testing example.com and we've discovered `/admin /admin-new /server_health`
-  * parameters `debug and isTrue`
-  * we can create example.com-endpoints.txt & params.txt, we know these endpoints work on the specific domain
-  * from there you can test all the endpoints /parameters across multiple domains
-  * create a global-endpoints.txt and begin create commonly found endpoints.
-  * Overtime you will end up with lots of endpoints/parameters for specific domains
-  * you can start to map out a web application much easier.
 
-## Let's apply my methodology & hack!
+**1.Note down**
+
+* interesting endpoints
+* Behaviour and parameters(as you are browsing and hacking the web application)
+* features which can/ can't be exploited
+* what you have tried what you believe is vulnerable
+* Never burn yourself out
+* If your guts is saying you are tired of testing then move on.<br>
+
+**2.Note can help you to create custom wordlists.**
+
+* Example: You are testing example.com and we've discovered `/admin /admin-new /server_health`
+* parameters `debug and isTrue`
+
+we can create example.com-endpoints.txt & params.txt, we know these endpoints work on the specific domain
+
+* from there you can test all the endpoints /parameters across multiple domains
+* create a global-endpoints.txt and begin create commonly found endpoints.
+* Overtime you will end up with lots of endpoints/parameters for specific domains
+* you can start to map out a web application much easier.
+
+## <mark style="color:purple;">Let's apply my methodology & hack!</mark>
 
 ### step one: Getting a feel for things
 
@@ -663,14 +692,16 @@ This involves understanding how the website work and create weird behaviour whic
 * Any interesting bypass used by other Hackers https://www.google.com/?q=domain.com+vulnerability https://www.hackerone.com/hacktivity https://www.openbugbounty.org/
 * How the main website works
 * Testing the login or register feature
-  * Can i login with my social media account?
-  * Is it the same on the mobile application?
-  * if i try another geolocation can i login with more options?
-  * What characters aren't allowed.
-  * let my thought go down a rabbit hole because thats what make me a natural hacker
-  * what inputs can you control when you sign up?
-  * What are these reflected?
-  * Does the mobile signup use a different codebase?
+
+- [ ] Can i login with my social media account?
+- [ ] Is it the same on the mobile application?
+- [ ] if i try another geolocation can i login with more options?
+- [ ] What characters aren't allowed.
+- [ ] let my thought go down a rabbit hole because thats what make me a natural hacker
+- [ ] what inputs can you control when you sign up?
+- [ ] What are these reflected?
+- [ ] Does the mobile signup use a different codebase?<br>
+
 * \*\*\*Below is a list of key features i go for on my first initial look
 * \*\*\*Question i ask myself when looking for vulnerabilities
 
@@ -680,59 +711,58 @@ This involves understanding how the website work and create weird behaviour whic
 * if there's a lot of information (Name, location, bio, etc)
 * where is this then reflected after signup?
 
-\*\*\*upload a photo
+#### **\*\*\*upload a photo**
 
-* check what type of file we can upload?
-* Can we upload a normal jpeg but change the extension to `.txt .xml and .svg`
-* This depends on the web application works, you may not see where your photo is uploaded until after you complete the registration process.
-* re-testing features multiple times works well here. \*\*\*Display name and profile description
-* where are they reflected/stored until you complete the signup process.
-* What characters are allowed?
-* where is this information used?
-* Try sign up with <> see if it's displayed after registration.
-* Did the developer only prevent XSS on your profile? about making a post or adding someone?
+* [ ] check what type of file we can upload?
+* [ ] Can we upload a normal jpeg but change the extension to `.txt .xml and .svg`
+* [ ] This depends on the web application works, you may not see where your photo is uploaded until after you complete the registration process.
+* [ ] re-testing features multiple times works well here. \*\*\*Display name and profile description
+* [ ] where are they reflected/stored until you complete the signup process.
+* [ ] What characters are allowed?
+* [ ] where is this information used?
+* [ ] Try sign up with <> see if it's displayed after registration.
+* [ ] Did the developer only prevent XSS on your profile? about making a post or adding someone?
 
-\*\*\*Can i register with my social media account?
+#### \*\*\*Can i register with my social media account?
 
-* if yes , Is there any type of Oauth flow implementation?which i may be able to leak?
-* what social media account are allowed?
-* what information do they trust from my social media profile?
-* Try discovering stored XSS via importing my facebook album conveniently named \`"alert(0)".
+* [ ] if yes , Is there any type of Oauth flow implementation?which i may be able to leak?
+* [ ] what social media account are allowed?
+* [ ] what information do they trust from my social media profile?
+* [ ] Try discovering stored XSS via importing my facebook album conveniently named \`"alert(0)".<br>
 
-\*\*\*what characters are allowed? Is <>" ' allowed in my name" ?
+#### **\*\*\*what characters are allowed? Is <>" ' allowed in my name" ?**
 
-* Enter the XSS process testing. `<script> Test my not work but <script does)`
-* what about unicode , `%00, %0d` ?
-* how will it react to me providing `myemail%00@email.com`?
-* it may read it as `mymail@email.com`?
-* is it the same when signing up with their mobile app?
+* [ ] Enter the XSS process testing. `<script> Test my not work but <script does)`
+* [ ] what about unicode , `%00, %0d` ?
+* [ ] how will it react to me providing `myemail%00@email.com`?
+* [ ] it may read it as `mymail@email.com`?
+* [ ] is it the same when signing up with their mobile app?<br>
 
-_**Can i sign up using @target.com or is it blacklisted?**_
+#### _**Can i sign up using @target.com or is it blacklisted?**_
 
-* if yes to being blacklisted why?
-* Perhaps it has special privileges/features after signing up?
-* Can you bypass this ? Always sign up using your target email address.
+* [ ] if yes to being blacklisted why?
+* [ ] Perhaps it has special privileges/features after signing up?
+* [ ] Can you bypass this ? Always sign up using your target email address.\
+  <br>
 
-\*\*\*What happens if i revisit the register page after signing up?
+#### \*\*\*What happens if i revisit the register page after signing up?
 
-* Does it redirect, and can i control this with a parameter?(Most likely yes!)
-* what happens if i re-sign up as an authenticated user?
-* Think about it from developers' perspective.
-* They want users to have a good experience so revisiting the register page when authenticated should redirect you.
-* Enter the need for parameters to control where to redirect the user!
+* [ ] Does it redirect, and can i control this with a parameter?(Most likely yes!)
+* [ ] what happens if i re-sign up as an authenticated user?
+* [ ] Think about it from developers' perspective.
+* [ ] They want users to have a good experience so revisiting the register page when authenticated should redirect you.
+* [ ] Enter the need for parameters to control where to redirect the user!<br>
 
-_**what parameter are used on this endpoint?**_
+#### _**what parameter are used on this endpoint?**_
 
-* Any listed in the source or javascript?
-* Is it the same for every language type as well device (Desktop vs mobile)
+* [ ] Any listed in the source or javascript?
+* [ ] Is it the same for every language type as well device (Desktop vs mobile)
+* [ ] if applicable, what do the .js files do on this page?
+* [ ] the login page has specific "login.js" file which contains more URLs
+* [ ] This may give an indication that the site relies on a .js file for each feature!
+* [ ] here is video about hunting for js file . [Let’s be a dork and read .js files](https://www.youtube.com/watch?v=0jM8dDVifaI)<br>
 
-\*\*\*if applicable, what do the .js files do on this page?
-
-* the login page has specific "login.js" file which contains more URLs
-* This may give an indication that the site relies on a .js file for each feature!
-* here is video about hunting for js file . [Let’s be a dork and read .js files](https://www.youtube.com/watch?v=0jM8dDVifaI)
-
-\*\*\*what does Google know about the register page?
+#### \*\*\*what does Google know about the register page?
 
 * Login/register pages change often (user experience again) and Google robots indexes and remembers a LOT.
   * `site:example.com inurl:register inurl:&`
