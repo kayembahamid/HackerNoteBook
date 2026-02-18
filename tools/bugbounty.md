@@ -783,27 +783,27 @@ we can create example.com-endpoints.txt & params.txt, we know these endpoints wo
   * `returnUri`
   * `cancelUrl`
   * `back`
-  * `returnTo`
+  * `returnTo`<br>
 
-_**what happens if i try login with myemail%00@email.com?**_
+#### _**what happens if i try login with myemail%00@email.com?**_
 
 * Does it recognise it as myemail@email.com and maybe log me in?
 * if yes yes signup with my%00email@email.com and try for an account takeover.
-* think about the same when claiming a username too
+* think about the same when claiming a username too<br>
 
-\*\*\*Can i login with my social media account? if yes
+#### **\*\*\*Can i login with my social media account? if yes**
 
 * is there any Oauth implementation which require tokens which i may be able to leak?
 * what social media is allowed ? is it the same for all countries?
 * You may think this is related to the registration process however not always.
 * sometime you can only login via social media but can't register and you connect it once logged in
-* which would be another process to test in itself?
+* which would be another process to test in itself?<br>
 
-\*\*\*How does the mobile login flow differ from desktop?
+#### **\*\*\*How does the mobile login flow differ from desktop?**
 
-* Remember, user experience! Mobile website are designed for user to have easiest flow as they don't have a mouse to easily navigate.
+* Remember, user experience! Mobile website are designed for user to have easiest flow as they don't have a mouse to easily navigate.<br>
 
-\*\*\*when resetting your password what parameters are used?
+#### \*\*\*when resetting your password what parameters are used?
 
 * perhaps it will be vulnerable to IDOR (try injecting an id parameter and testing for HPP!).
 * is the host header trusted?
@@ -814,49 +814,51 @@ _**what happens if i try login with myemail%00@email.com?**_
 
 #### Updating account information
 
-\*\*\*Is there any CSRF protection when updating your profile information?
+
+
+#### \*\*\*Is there any CSRF protection when updating your profile information?
 
 * There should be , so expect it. Remember,
 * we're expecting this site to be secure and we want to challenge ourselves on bypassing their protection.
 * if yes how is this validated?
-* what happens when i send a blank CSRF token? or a different token with the same length?
+* what happens when i send a blank CSRF token? or a different token with the same length?<br>
 
-\*\*\*Any second confirmation for changing your email/password?
+#### \*\*\*Any second confirmation for changing your email/password?
 
 * if no, you can chain this with XSS for account takeover.
 * Typically by itself it isn't an issue,
-* if the program wants to see impact from XSS then this is something to consider?
+* if the program wants to see impact from XSS then this is something to consider?<br>
 
-\*\*\*How do they handle basic <>" ' characters and where are they reflected?
+#### \*\*\*How do they handle basic <>" ' characters and where are they reflected?
 
 * what about unicode? `%09 %07 %0d%0a` These characters should be tested everywhere possible.
-* leave no stone untuned.
+* leave no stone untuned.<br>
 
-\*\*\*can i input my own URL on my profile?
+#### \*\*\*can i input my own URL on my profile?
 
 * what filtering is in place to prevent something such as javascript:alert(0)?
-* its a key area to look for when setting up my profile.
+* its a key area to look for when setting up my profile.<br>
 
-\*\*\*is updating my account information different on the mobile app?
+#### \*\*\*is updating my account information different on the mobile app?
 
 * most mobile apps will use an API to update information (check IDOR)
-* check if desktop filtering is the same as the one on mobile. (XSS)
+* check if desktop filtering is the same as the one on mobile. (XSS)<br>
 
-\*\*\*How do they handle photo/video uploads (if a vailable)?
+#### \*\*\*How do they handle photo/video uploads (if a vailable)?
 
 * what sort of filtering is in place?
 * Can i upload `.txt` even though it say `.jpg .png` is allowed?
 * Do they store these files on root domain or is it hosted elsewhere?
-* check if the domain where its stored is included in the CSP
+* check if the domain where its stored is included in the CSP<br>
 
-\*\*\*what information is actually available on my public profile that i can control?
+#### \*\*\*what information is actually available on my public profile that i can control?
 
 * The key is what you can control how and where its reflected.
 * what's in place to prevent me from entering malicious HTML in my bio ?
 * Maybe they used htmlentities so <> "is filtered, and it's reflected as:
   * \`
 * if you could use `');alert('example');` which result in:
-  * `<div id="example" onclick="runjs('userinput');alert('example');">`
+  * `<div id="example" onclick="runjs('userinput');alert('example');">`<br>
 
 #### Developer tools
 
@@ -864,122 +866,122 @@ Theses include something such as :
 
 * Testing webhooks
 * oauth flows
-* graphql explorers These are tool set up to help developers to explore and test various API's publicly
+* graphql explorers These are tool set up to help developers to explore and test various API's publicly<br>
 
-\*\*\*where are they?
+#### \*\*\*where are they?
 
 * Do they host it themselves or is it hosted on AWS?
-* Usually it is. if it is hosted on AWS then your aim will be to read AWS keys.
+* Usually it is. if it is hosted on AWS then your aim will be to read AWS keys.<br>
 
-\*\*\*what tools are available for developers?
+#### \*\*\*what tools are available for developers?
 
 * can i test a webhook event for example?
-* just google for SSRF webhook and you'll see
+* just google for SSRF webhook and you'll see<br>
 
-\*\*\*Can i actually see the response on any tools ?
+#### \*\*\*Can i actually see the response on any tools ?
 
-* if yes, focus on this as with the response we prove impact easier if we find a bug.
+* if yes, focus on this as with the response we prove impact easier if we find a bug.<br>
 
-\*\*\*Can i create my own application ?
+#### \*\*\*Can i create my own application ?
 
-* how about the permission (token)
+* how about the permission (token)<br>
 
-\*\*\*After creating an application, how does the login flow actually work?And when i "disconnect"the application from my profile.is the token invalidated?
+#### \*\*\*After creating an application, how does the login flow actually work?And when i "disconnect"the application from my profile.is the token invalidated?
 
 * Are there anew _return\_uri_ parameters used and how do they work?
 * You can discover the company's whitelist certain domains for debugging/testing.
 * Try -_theirdomain.com, .aws.amazon.com. http://localhost_
-* its common but it doesn't affect users.
+* its common but it doesn't affect users.<br>
 
-\*\*\*Does the wiki/help docs reveal any information on how the API works?
+#### \*\*\*Does the wiki/help docs reveal any information on how the API works?
 
 * the wiki provide information on how the token was authenticated
-* API docs also reveal more API endpoints , plus keywords for your wordlist. you are building for you target
+* API docs also reveal more API endpoints , plus keywords for your wordlist. you are building for you target<br>
 
-\*\*\*Can i upload any files such as an application image?
+#### \*\*\*Can i upload any files such as an application image?
 
 * is the filtering the same as updating my account information?
 * is it using another/different codebase?
-* finding example.com not vulnerable to picture upload doesn't mean different code is used when uploading a profile photo on developer.example.com
+* finding example.com not vulnerable to picture upload doesn't mean different code is used when uploading a profile photo on developer.example.com<br>
 
-\*\*\*Can i create a separate account on the developer site or does it share the same session from the main domain?
+#### \*\*\*Can i create a separate account on the developer site or does it share the same session from the main domain?
 
 * what's the login process like if so?
 * sometime you can login to the developer site (developer.example.com) via your main session(www.example.com)
 * There could be token exchange handled by a redirect.
 * Try entering the open url you have discovered by now.
 * if the account is brand new re-enter that open url redirect
-* see what is reflected and where
+* see what is reflected and where<br>
 
-#### The main feature of the site.
+### The main feature of the site.
 
 * This depends on the website you are testing
   * example website which handle file upload
 * take your time testing each feature,Try getting a mind map on how the website is put together.
 * Notice all requests use GraphQL, or discover the same parameters used throughout, "xyz\_id =11 "
-* same code? One bug equals many.
+* same code? One bug equals many.<br>
 
-\*\*\*Are all of the features on the main web application also available on the mobile app?
+#### \*\*\*Are all of the features on the main web application also available on the mobile app?
 
 * Do they work differently at all?
 * Sometimes some feature on mobile app aren't available on the Desktop.
 * Test different country tides as they may offer different features if its in scope.
-* check payment checkout if they are the same for other countries
+* check payment checkout if they are the same for other countries<br>
 
-\*\*\*What features are actually available to me?
+#### \*\*\*What features are actually available to me?
 
 * what do they do and what type of data is handled?
 * Do multiple features all use the same data source?
 * Is the request the same for each feature to retrieve information(API)? example:final checkout page with a product page to estimate shipping.
-* is it different parameters/endpoints throughout.
+* is it different parameters/endpoints throughout.<br>
 
-\*\*\*Can i pay for any upgraded features?
+#### \*\*\*Can i pay for any upgraded features?
 
 * if yes test with paid vs free account.
-* Can the free account access the paid features without paying?
+* Can the free account access the paid features without paying?<br>
 
-\*\*\*what are the oldest features?
+#### \*\*\*what are the oldest features?
 
 * research for the features they were excited to release but didn't workout.
 * Google dorking around can help you find old files
-* old code = bugs.
+* old code = bugs.<br>
 
-\*\*\*what new features do they plan on releasing?
+#### \*\*\*what new features do they plan on releasing?
 
 * can i find any reference to it already on their site?
 * follow on the social media signup to their newsletters.
 * stay update on what the company is working on and stay up to date.
-* Think about change `true to false`and the vice verser check out this article on this. https://www.jonbottarini.com/2019/06/17/using-burp-suite-match-and-replace-settings-to-escalate-your-user-privileges-and-find-hidden-features/
+* Think about change `true to false`and the vice verser check out this article on this. https://www.jonbottarini.com/2019/06/17/using-burp-suite-match-and-replace-settings-to-escalate-your-user-privileges-and-find-hidden-features/<br>
 
-\*\*\*Do any feature offer a privacy setting? (private & public)?
+#### \*\*\*Do any feature offer a privacy setting? (private & public)?
 
 * Testing features see if they are intended to work.
 * Is that post really private?
-* focus on what is in front of you
+* focus on what is in front of you<br>
 
-\*\*\*if any features have different account level permission?
+#### \*\*\*if any features have different account level permission?
 
 * (admin,moderator,user,guest)
 * Test the various level of permissions?
-* Can the guest make API calls only a moderator should be able to?
+* Can the guest make API calls only a moderator should be able to?<br>
 
-#### Payment features
+### Payment features
 
-\*\*\*what features are available if i upgrade my account?
+#### \*\*\*what features are available if i upgrade my account?
 
-* can i access them without paying? How? (business impact loss of revenue bag) not paid.
+* can i access them without paying? How? (business impact loss of revenue bag) not paid.<br>
 
-\*\*\*Is it easily obtainable
+#### \*\*\*Is it easily obtainable
 
 * From an XSS because it's in the HTML DOM?
-* Chain XSS to leak payment information for higher impact
+* Chain XSS to leak payment information for higher impact<br>
 
-\*\*\*what payment option are available for different counties?
+#### \*\*\*what payment option are available for different counties?
 
 * see if they require phone verification to claim ownership of the page.
 * you can find test numbers from sites below.
   * https://www.jonbottarini.com/2019/06/17/using-burp-suite-match-and-replace-settings-to-escalate-your-user-privileges-and-find-hidden-features/
-  * https://www.paypalobjects.com/en\_GB/vhelp/paypalmanager\_help/credit\_card\_numbers.htm
+  * https://www.paypalobjects.com/en\_GB/vhelp/paypalmanager\_help/credit\_card\_numbers.htm<br>
 
 **Next is to expand our attack surface and dig deeper.**
 
@@ -989,48 +991,48 @@ Start by running the subdomain scanning tools.
 
 * start looking at domains with function features Start google dorking some common keywords. This is hunting for domains with functionality. `login,register,upload,contact,feedback,join,signup,profile,user,comment,api,developer,affiliate,careers,upload,mobile,upgrade,passwordreset`
 
-check out this post:https://exposingtheinvisible.org/guides/google-dorking/
+check out this post:https://exposingtheinvisible.org/guides/google-dorking/<br>
 
-\*\*\*Google is great TOOL to spider the world.
+#### \*\*\*Google is great TOOL to spider the world.
 
 * As long as you ask the right questions?
 * Don't overlook on duplicating results from google.
 * if you scroll to the last page of your search & click repeat the search with omitted results included.
 * Then more result will appear
 * As you are dorking you can use keywords to remove some certain endpoints you're not interested in
-* check also the mobile user-agent with the Desktop as the results are different
+* check also the mobile user-agent with the Desktop as the results are different<br>
 
-\*\*\*Dorking for file extensions.
+#### \*\*\*Dorking for file extensions.
 
 * `php, aspx, jsp, txt, xml, bak.`
 * Revealing the file extension can give you an insight in the web technology used on the domain and server
 * can also help you to know which wordlist you are going to use when fuzzing
 * can even get lucky and find sensitive file exposed
-* Don't not blindly use wordlist on your target use meaningful wordlist to yield better results.
+* Don't not blindly use wordlist on your target use meaningful wordlist to yield better results.<br>
 
-\*\*\*Dorking on GitHub, Shodan , BinaryEdge.
+#### \*\*\*Dorking on GitHub, Shodan , BinaryEdge.
 
-* search for strings search as "domain.com" api\_secret, api\_key, apiSecret, password, admin\_password
+* search for strings search as "domain.com" api\_secret, api\_key, apiSecret, password, admin\_password<br>
 
-\*\*\*XAMPP
+#### \*\*\*XAMPP
 
 * To quickly scan the robots.txt of each domain
 * Why robots.txt? because Robots.txt contains a list of endpoints the website own does & does NOT want indexed by google so for example
 * it may reveal the third party software used and guess what id on the subdomain
 * Robot.txt is a great starting indicator to determine whether a subdomain is worth scanning for further directories/files.
-* Find subdomain which have function to play with rather than relying on the wordlist
+* Find subdomain which have function to play with rather than relying on the wordlist<br>
 
-\*\*\*Burp intruder to scan for robots.txt.  \*\*\*Run XAMPP locally, host a basic PHP script:
+#### \*\*\*Burp intruder to scan for robots.txt.  \*\*\*Run XAMPP locally, host a basic PHP script:
 
 * `<?php header("Location:".$_GET['url']; ?)>`
 * we are looking for keywords such as "dev", "prod", "qa"?
-* Are there third party controlled domain such as careers.target.com?
+* Are there third party controlled domain such as careers.target.com?<br>
 
-\*\*\*WayBackMachine.org
+#### \*\*\*WayBackMachine.org
 
-* this enables you to see a site history for years ago and sometimes old files referenced in robots.txt
+* this enables you to see a site history for years ago and sometimes old files referenced in robots.txt<br>
 
-\*\*\*Scanning with FFUF, CommonSpeak
+#### \*\*\*Scanning with FFUF, CommonSpeak
 
 * looking for sensitive files & directories
 
@@ -1042,44 +1044,120 @@ Don't forget to test for GET.POST! i have had cases where it wasn't vulnerable i
 
 ### Step Three Time to automate! Rinse & Repeat
 
-check out NahamSec to help you out on Recon: https://github.com/nahamsec/lazyrecon
+check out NahamSec to help you out on Recon:&#x20;
 
-Staying up to date with new program : https://twitter.com/disclosedh1
+{% embed url="https://github.com/nahamsec/lazyrecon" %}
 
-Checkout the writeup of some common bugs:
+Staying up to date with new program :&#x20;
 
-https://medium.com/@zseano/how-signing-up-for-an-account-with-an-company-com-email-can-have-unexpected-results-7f1b700976f5
+https://twitter.com/disclosedh1
 
-https://medium.com/@zseano/how-signing-up-for-an-account-with-an-company-com-email-can-have-unexpected-results-7f1b700976f5
+### Checkout the writeup of some common bugs:
+
+{% embed url="https://medium.com/@zseano/how-signing-up-for-an-account-with-an-company-com-email-can-have-unexpected-results-7f1b700976f5" %}
+
+{% embed url="https://medium.com/@zseano/how-signing-up-for-an-account-with-an-company-com-email-can-have-unexpected-results-7f1b700976f5" %}
 
 I recommend you check out my following list & simply follow all of them.
 
-https://twitter.com/zseano/following https://www.yougetsignal.com/tools/web-sites-on-web-server/ Find other sites hosted on a web server by entering a domain or IP address
+{% embed url="https://twitter.com/zseano/following" %}
 
-https://github.com/swisskyrepo/PayloadsAllTheThings A list of useful payloads and bypass for Web Application Security and Pentest/CTF
+{% embed url="https://www.yougetsignal.com/tools/web-sites-on-web-server/" %}
 
-https://certspotter.com/api/v0/certs?domain=domain.com For finding subdomains & domains
+Find other sites hosted on a web server by entering a domain or IP address
 
-http://www.degraeve.com/reference/urlencoding.php Just a quick useful list of url encoded characters you may need when hacking.
+{% embed url="https://github.com/swisskyrepo/" %}
 
-https://apkscan.nviso.be/ Upload an .apk and scan it for any hardcoded URLs/strings
+PayloadsAllTheThings A list of useful payloads and bypass for Web Application Security and Pentest/CTF
 
-https://publicwww.com/ Find any alphanumeric snippet, signature or keyword in the web pages HTML, JS and CSS code.
+{% embed url="https://certspotter.com/api/v0/certs?domain=domain.com" %}
 
-https://github.com/masatokinugawa/filterbypass/wiki/Browser's-XSS-Filter-Bypass-C heat-Sheet and https://d3adend.org/xss/ghettoBypass https://thehackerblog.com/tarnish/ Chrome Extension Analyzer
+For finding subdomains & domains
 
-https://medium.com/bugbountywriteup Up to date list of write ups from the bug bounty community
+{% embed url="http://www.degraeve.com/reference/urlencoding.php" %}
 
-https://pentester.land A great site that every dedicated researcher should visit regularly. Podcast, newsletter, cheatsheets, challenges, Pentester.land references all your needed resources.
+Just a quick useful list of url encoded characters you may need when hacking.
 
-https://bugbountyforum.com/tools/ A list of some tools used in the industry provided by the researchers themselves
+{% embed url="https://apkscan.nviso.be/" %}
 
-https://github.com/cujanovic/Open-Redirect-Payloads/blob/master/Open-Redirect-pa yloads.txt A list of useful open url redirect payloads
+Upload an .apk and scan it for any hardcoded URLs/strings
 
-https://www.jsfiddle.net and https://www.jsbin.com/ for playing with HTML in a sandbox. Useful for testing various payloads.<br>
+{% embed url="https://publicwww.com/" %}
+
+Find any alphanumeric snippet, signature or keyword in the web pages HTML, JS and CSS code.
+
+{% embed url="https://github.com/masatokinugawa/filterbypass/wiki/" %}
+
+Browser's-XSS-Filter-Bypass-C heat-Sheet
+
+{% embed url="https://d3adend.org/xss/ghettoBypass" %}
+
+{% embed url="https://thehackerblog.com/tarnish/" %}
+
+Chrome Extension Analyzer
+
+{% embed url="https://medium.com/bugbountywriteup" %}
+
+Up to date list of write ups from the bug bounty community
+
+{% embed url="https://pentester.land" %}
+
+A great site that every dedicated researcher should visit regularly. Podcast, newsletter, cheatsheets, challenges, Pentester.land references all your needed resources.
+
+{% embed url="https://bugbountyforum.com/tools/" %}
+
+A list of some tools used in the industry provided by the researchers themselves
+
+{% embed url="https://github.com/cujanovic/Open-Redirect-Payloads/blob/master/Open-Redirect-payloads.txt" %}
+
+A list of useful open url redirect payloads
+
+{% embed url="https://www.jsfiddle.net" %}
+
+for playing with HTML in a sandbox. Useful for testing various payloads.<br>
 
 {% embed url="https://gowthams.gitbook.io/bughunter-handbook" %}
 
-Twitter handle to follow
+### Twitter handle to follow
 
-https://www.twitter.com/securinti https://www.twitter.com/filedescriptor https://www.twitter.com/Random\_Robbie https://www.twitter.com/iamnoooob https://www.twitter.com/omespino https://www.twitter.com/brutelogic https://www.twitter.com/WPalant https://www.twitter.com/h1\_kenan https://www.twitter.com/irsdl https://www.twitter.com/Regala\_ https://www.twitter.com/Alyssa\_Herrera\_ https://www.twitter.com/ajxchapman https://www.twitter.com/ZephrFish https://www.twitter.com/albinowax https://www.twitter.com/damian\_89\_ https://www.twitter.com/rootpentesting https://www.twitter.com/akita\_zen https://www.twitter.com/0xw2w https://www.twitter.com/gwendallecoguic https://www.twitter.com/ITSecurityguard https://www.twitter.com/samwcyo
+https://www.twitter.com/securinti&#x20;
+
+https://www.twitter.com/filedescriptor&#x20;
+
+https://www.twitter.com/Random\_Robbie&#x20;
+
+https://www.twitter.com/iamnoooob&#x20;
+
+https://www.twitter.com/omespino&#x20;
+
+https://www.twitter.com/brutelogic&#x20;
+
+https://www.twitter.com/WPalant&#x20;
+
+https://www.twitter.com/h1\_kenan&#x20;
+
+https://www.twitter.com/irsdl&#x20;
+
+https://www.twitter.com/Regala\_&#x20;
+
+https://www.twitter.com/Alyssa\_Herrera\_&#x20;
+
+https://www.twitter.com/ajxchapman&#x20;
+
+https://www.twitter.com/ZephrFish&#x20;
+
+https://www.twitter.com/albinowax&#x20;
+
+https://www.twitter.com/damian\_89\_&#x20;
+
+https://www.twitter.com/rootpentesting&#x20;
+
+https://www.twitter.com/akita\_zen&#x20;
+
+https://www.twitter.com/0xw2w&#x20;
+
+https://www.twitter.com/gwendallecoguic&#x20;
+
+https://www.twitter.com/ITSecurityguard&#x20;
+
+https://www.twitter.com/samwcyo
