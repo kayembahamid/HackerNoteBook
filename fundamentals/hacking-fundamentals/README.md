@@ -35,14 +35,14 @@ There are various types of hackers based on their motivations and activities. He
 
 In the field of cyber security and ethical hacking, there are various job roles and specializations that individuals can pursue. Here are some common roles:
 
-1. Cyber Security Analyst: Cyber security analysts are responsible for monitoring and analyzing security incidents, conducting threat assessments, and implementing security measures to protect systems and networks.
-2. Penetration Tester: Penetration testers, also known as ethical hackers, simulate cyber attacks to identify vulnerabilities and weaknesses in systems. They perform controlled exploits to assess security defenses and provide recommendations for improvement.
-3. Security Engineer: Security engineers design, implement, and maintain security systems, including firewalls, intrusion detection systems, and encryption protocols. They work to ensure that systems are protected against potential threats.
-4. Red Team/Blue Team: Red team and blue team professionals work together in a collaborative manner. Red team members simulate real-world cyber attacks to identify vulnerabilities, while blue team members defend and respond to those attacks. This approach helps organizations assess their security effectiveness and improve their defenses.
-5. Incident Responder: Incident responders investigate and respond to security incidents, such as data breaches or cyber attacks. They analyze incidents, contain the threat, and implement remediation strategies to prevent future incidents.
-6. Security Architect: Security architects design and develop secure system architectures and frameworks. They ensure that systems are built with security in mind and align with industry best practices and regulatory requirements.
-7. Threat Intelligence Analyst: Threat intelligence analysts gather and analyze information on potential cyber threats, such as malware, hacking techniques, and emerging vulnerabilities. They provide insights to support proactive threat detection and prevention strategies.
-8. Security Operations Center (SOC) Analyst: SOC analysts monitor and analyze security events and alerts in real-time, investigate potential security incidents, and respond to security breaches. They play a crucial role in maintaining the security posture of an organization.
+1. **Cyber Security Analyst:** Cyber security analysts are responsible for monitoring and analyzing security incidents, conducting threat assessments, and implementing security measures to protect systems and networks.
+2. **Penetration Tester:** Penetration testers, also known as ethical hackers, simulate cyber attacks to identify vulnerabilities and weaknesses in systems. They perform controlled exploits to assess security defenses and provide recommendations for improvement.
+3. **Security Engineer:** Security engineers design, implement, and maintain security systems, including firewalls, intrusion detection systems, and encryption protocols. They work to ensure that systems are protected against potential threats.
+4. **Red Team/Blue Team:** Red team and blue team professionals work together in a collaborative manner. Red team members simulate real-world cyber attacks to identify vulnerabilities, while blue team members defend and respond to those attacks. This approach helps organizations assess their security effectiveness and improve their defenses.
+5. **Incident Responder:** Incident responders investigate and respond to security incidents, such as data breaches or cyber attacks. They analyze incidents, contain the threat, and implement remediation strategies to prevent future incidents.
+6. **Security Architect:** Security architects design and develop secure system architectures and frameworks. They ensure that systems are built with security in mind and align with industry best practices and regulatory requirements.
+7. **Threat Intelligence Analyst:** Threat intelligence analysts gather and analyze information on potential cyber threats, such as malware, hacking techniques, and emerging vulnerabilities. They provide insights to support proactive threat detection and prevention strategies.
+8. **Security Operations Center (SOC) Analyst:** SOC analysts monitor and analyze security events and alerts in real-time, investigate potential security incidents, and respond to security breaches. They play a crucial role in maintaining the security posture of an organization.
 
 ### <mark style="color:blue;">Importance of ethical hacking and penetration testing</mark>
 
@@ -56,5 +56,3 @@ Ethical hacking and penetration testing play crucial roles in ensuring the secur
 6. **Securing IoT and Critical Infrastructure**: As the Internet of Things (IoT) expands, penetration testing helps secure connected devices and critical infrastructure, reducing the risk of large-scale disruptions.
 7. **Training and Awareness**: Ethical hacking and penetration testing raise cybersecurity awareness among staff, educating them about common threats and how to recognize and report suspicious activities.
 8. **Continuous Improvement**: Regular testing encourages a culture of continuous improvement, leading to ongoing refinement of security measures and a proactive approach to cybersecurity.
-
-you can check this [YouTube Video](https://www.youtube.com/watch?v=fDjNmXxheio) for more Hacking Films
