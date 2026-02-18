@@ -7,6 +7,9 @@
 * [Computer Fundamentals](fundamentals/computer-fundamentals.md)
 * [Network Fundamentals](fundamentals/network-fundamentals.md)
 * [Unix Fundamentals](fundamentals/unix-fundamentals.md)
+* [Hacking Fundamentals](fundamentals/hacking-fundamentals/README.md)
+  * [Kali Linux](fundamentals/hacking-fundamentals/kali-linux.md)
+  * [Virtual Machine](fundamentals/hacking-fundamentals/virtual-machine.md)
 
 ## Pentesting Cheatsheets
 
