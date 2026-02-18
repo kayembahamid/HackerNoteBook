@@ -10,6 +10,14 @@
 * [Hacking Fundamentals](fundamentals/hacking-fundamentals/README.md)
   * [Kali Linux](fundamentals/hacking-fundamentals/kali-linux.md)
   * [Virtual Machine](fundamentals/hacking-fundamentals/virtual-machine.md)
+  * [Network Basics](fundamentals/hacking-fundamentals/network-basics.md)
+  * [OSINT](fundamentals/hacking-fundamentals/osint.md)
+  * [Digital Forensics](fundamentals/hacking-fundamentals/digital-forensics.md)
+  * [Phishing Attacks](fundamentals/hacking-fundamentals/phishing-attacks.md)
+  * [Hardware Attacks](fundamentals/hacking-fundamentals/hardware-attacks.md)
+  * [Cryptography](fundamentals/hacking-fundamentals/cryptography.md)
+  * [Password Attacks](fundamentals/hacking-fundamentals/password-attacks.md)
+  * [Wireless Attacks](fundamentals/hacking-fundamentals/wireless-attacks.md)
 
 ## Pentesting Cheatsheets
 
