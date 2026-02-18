@@ -19,3 +19,5 @@
 {% embed url="https://blu3eye.gitbook.io/malware-insight" %}
 
 {% embed url="https://cas-cyber.gitbook.io/cas-cybersecurity" %}
+
+{% embed url="https://sallam.gitbook.io/sec-88" %}
