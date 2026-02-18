@@ -2,10 +2,6 @@
 
 ## Ethical Hacking
 
-{% hint style="info" %}
-Thanks to [Simplilearn](https://www.youtube.com/@SimplilearnOfficial) for the great [video](https://www.youtube.com/watch?v=inWWhr5tnEA) ! I found it so informative and helpful to start with this chapter.
-{% endhint %}
-
 {% embed url="https://youtu.be/inWWhr5tnEA" %}
 
 ### <mark style="color:blue;">What is</mark> <mark style="color:blue;">Ethical Hacking?</mark>
