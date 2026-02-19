@@ -15,7 +15,9 @@ I’m [_**Hamcodes**_](https://www.google.com/search?sca_esv=89aaa52b873f06b6\&s
 ### You’re here because you don’t want average.
 
 {% hint style="success" %}
-This book wasn’t written by someone guessing.It was written in the dark, Late nights, Failed exploits and Burned time. Real grind! Most people consume knowledge. Few respect the cost behind it.
+No rights reserved. Use my content freely. Permission not needed, credit appreciated.
+
+This book wasn’t written by only one person guessing.It was written in the Dark, Late nights, Failed exploits and Burned time. Real grind! Most people consume knowledge. Few respect the energy behind it.
 
 If this material sharpens you…, If it saves you hours of trial and error… If it pushes you one level ahead
 
