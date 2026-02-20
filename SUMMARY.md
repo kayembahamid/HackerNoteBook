@@ -878,6 +878,7 @@
 * [CRTP Prepration](writeups/crtp-prepration.md)
 * [Labs writeups](writeups/labs-writeups.md)
 * [SQLi lab setup & writeups](writeups/sqli-lab-setup-and-writeups.md)
+* [traial](writeups/traial.md)
 * [Blogs/Gitbooks Links](writeups/blogs-gitbooks-links.md)
 
 ## BugBounty
