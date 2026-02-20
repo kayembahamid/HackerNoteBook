@@ -519,6 +519,3 @@ Like, Follow & Subscribe (last remarks).
 {% endstep %}
 {% endstepper %}
 
-***
-
-End of notes.

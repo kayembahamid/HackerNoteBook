@@ -312,8 +312,3 @@ Use standard Git tools (or GUI clients) to inspect commit diffs and recover leak
 * Logger++ (Burp extension)
 * Wordlists for fuzzing
 * Git tools for analyzing downloaded `.git` directories
-
-If you want, I can:
-
-* Convert any of the lab steppers into separate GitBook pages.
-* Create ready-to-paste Burp match-and-replace snippets or example grep rules for detecting common disclosures.

@@ -626,19 +626,19 @@ Example:
 * Frontend: `POST /myaccount name=peter`
 * Server-side translates to:
 
-```
+```shellscript
 PATCH /users/7312/update {"name":"peter"}
 ```
 
 If you can make frontend send:
 
-```
+```shellscript
 POST /myaccount name=peter","access_level":"administrator
 ```
 
 and server-side concatenates without adequate encoding, server may process:
 
-```
+```shellscript
 PATCH /users/7312/update {"name":"peter","access_level":"administrator"}
 ```
 

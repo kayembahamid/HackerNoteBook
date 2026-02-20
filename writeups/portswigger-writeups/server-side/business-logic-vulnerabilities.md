@@ -600,9 +600,3 @@ Create a crafted ciphertext for `administrator:timestamp` using the encryption e
 * Model workflows and edge cases, and create tests for unconventional inputs, sequence deviations, and multi-component interactions.
 * Conduct manual security testing with an understanding of the domain, and incorporate threat modeling focused on logic flaws.
 
-***
-
-If you want, I can:
-
-* Convert any specific lab into a runnable checklist with more granular Burp steps.
-* Generate a concise cheat-sheet of Burp extensions and settings useful for these labs (macros, Intruder settings, resource pools).

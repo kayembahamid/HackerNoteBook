@@ -2,8 +2,6 @@
 
 ## Auth — webhacking: login page Vuln
 
-[Web Application Vulnerbility](/broken/pages/b354ea7c9a8047788c9d5b4abd55c9282d3b6168)
-
 * The concept of authentication is closely related to security.
 * Authentication vulnerabilities can allow attackers to gain access to sensitive data and functionality.
 * They also expose additional attack surface for further exploits.
@@ -115,7 +113,7 @@ Enumerate a valid username, then brute-force this user's password.
 {% step %}
 ### Payload examples
 
-```
+```shellscript
 username=§invalid-username§
 username=identified-user&password=§invalid-password§
 ```
@@ -154,7 +152,7 @@ Enumerate a valid username, then brute-force this user's password.
 {% step %}
 ### Payload examples
 
-```
+```shellscript
 username=§invalid-username§
 username=identified-user&password=§invalid-password§
 ```
@@ -819,6 +817,3 @@ Payloads: candidate password list. Grep match: "New passwords do not match".
 {% endstep %}
 {% endstepper %}
 
-***
-
-End of document.

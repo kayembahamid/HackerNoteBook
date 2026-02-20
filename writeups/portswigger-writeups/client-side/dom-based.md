@@ -599,6 +599,3 @@ Real-world impact:
 * Implement a strong Content Security Policy (CSP) to limit sources of executable scripts and reduce XSS impact.
 * Avoid relying on global variables that can be clobbered; validate and tightly control values used to build HTML.
 
-***
-
-(End of document)

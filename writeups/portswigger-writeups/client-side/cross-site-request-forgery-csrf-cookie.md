@@ -493,10 +493,3 @@ Modify the exploit so the victim clicks the page:
 {% endstep %}
 {% endstepper %}
 
-***
-
-If you want, I can:
-
-* Convert any of the labs into standalone GitBook pages (one lab per page).
-* Generate ready-to-paste exploit HTML files (with placeholders substituted).
-* Produce a checklist for detection/mitigation steps for each vulnerability demonstrated. Which would you prefer?

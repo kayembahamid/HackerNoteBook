@@ -529,9 +529,3 @@ registry.addMapping("/**")
 * Vary: Origin when ACAO is dynamic.
 * Keep server-side auth/CSRF/authorization/rate limits.
 
-***
-
-If you want, I can:
-
-* Convert any of the labs into standalone GitBook pages (one lab per page) with step-by-step runnable instructions and code blocks.
-* Produce ready-to-paste Nginx or application middleware snippets for a specific tech stack (Express, Spring Boot, Django, etc.). Which would you prefer?

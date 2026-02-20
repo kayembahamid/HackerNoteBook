@@ -6,10 +6,9 @@ Tags: #recon #webhacking
 
 Links
 
-* bugbountyhunter: https://www.bugbountyhunter.com/
-* Tools to use (Obsidian): obsidian://open?vault=Obsidian%20Vault\&file=3.%20Resource%2FTopics%20interest%2Fhacking%20tool%20collection
-* HTML sandbox: https://www.jsfiddle.net/
-* JavaScript sandbox: https://www.jsbin.com/
+* [**bugbountyhunter**](https://www.bugbountyhunter.com/)
+* [**HTML sandbox**](https://www.jsfiddle.net/)
+* [**JavaScript sandbox**](https://www.jsbin.com/)
 
 ### How websites work with HTML, CSS and JavaScript
 
@@ -31,7 +30,7 @@ Links
 
 ### Developer experience
 
-* PayloadsAllTheThings: https://github.com/swisskyrepo/PayloadsAllTheThings
+* [**PayloadsAllTheThings**](https://github.com/swisskyrepo/PayloadsAllTheThings)
 * Try to understand what a payload is trying to achieve: why/how it was created, what it does, and why it was needed.
 * Combine payload understanding with experimenting with basic HTML and tracing the code path (POST vs GET, JSON bodies, etc).
 * Brute force common parameter names — you can get lucky.
@@ -149,7 +148,9 @@ Use the stepper below for a quick overview of core tooling and commands.
 {% endstep %}
 {% endstepper %}
 
+{% hint style="danger" %}
 Note: my tool trend is to find new content, parameters, and functionality to poke at.
+{% endhint %}
 
 ### Common issues I start with & why
 
@@ -280,7 +281,7 @@ Tags: #xss
 
 Example payload (multipart form filename containing SVG):
 
-```payload
+```shellscript
 ------WebKitFormBoundarySrtFN30pCNmqmNz2
 Content-Disposition: form-data; name="file"; filename="58832_300x300.jpg<svg onload=confirm()>"
 Content-Type: image/jpeg
@@ -289,19 +290,19 @@ Content-Type: image/jpeg
 
 Other malformed examples to test how the server treats content-type and filename:
 
-```payload
+```shellscript
 ------WebKitFormBoundaryAxbOlwnrQnLjU1j9
 Content-Disposition: form-data; name="imageupload"; filename="hamcodes.jpg" 
 Content-Type: text/html
 ```
 
-```payload
+```shellscript
 ------WebKitFormBoundaryAxbOlwnrQnLjU1j9
 Content-Disposition: form-data; name="imageupload"; filename="hamcodes." 
 Content-Type: text/html
 ```
 
-```payload
+```shellscript
 ------WebKitFormBoundaryAxbOlwnrQnLjU1j9
 Content-Disposition: form-data; name="imageupload"; filename=".html" 
 Content-Type: image/png
@@ -310,7 +311,7 @@ Content-Type: image/png
 
 Another example showing an image filter bypass:
 
-```payload
+```shellscript
 ------WebKitFormBoundaryoMZOWnpiPkiDc0yV
 Content-Disposition: form-data; name="oauth_application[logo_image_file]"; filename="testing1.html"
 Content-Type: text/html
@@ -480,32 +481,6 @@ Tags: #SQL
   * https://www.yougetsignal.com/tools/web-sites-on-web-server/
   * https://apkscan.nviso.be/
   * https://publicwww.com/
-* Example writeups and tutorials:
-  * How signing up with company.com email can produce unexpected results (example writeup): https://medium.com/@zseano/how-signing-up-for-an-account-with-an-company-com-email-can-have-unexpected-results-7f1b700976f5
 
-Twitter handles to follow (security researchers)
 
-* https://twitter.com/securinti
-* https://twitter.com/filedescriptor
-* https://twitter.com/Random\_Robbie
-* https://twitter.com/iamnoooob
-* https://twitter.com/omespino
-* https://twitter.com/brutelogic
-* https://twitter.com/WPalant
-* https://twitter.com/h1\_kenan
-* https://twitter.com/irsdl
-* https://twitter.com/Regala\_
-* https://twitter.com/Alyssa\_Herrera\_
-* https://twitter.com/ajxchapman
-* https://twitter.com/ZephrFish
-* https://twitter.com/albinowax
-* https://twitter.com/damian\_89\_
-* https://twitter.com/rootpentesting
-* https://twitter.com/akita\_zen
-* https://twitter.com/0xw2w
-* https://twitter.com/gwendallecoguic
-* https://twitter.com/ITSecurityguard
-* https://twitter.com/samwcyo
-
-***
 
