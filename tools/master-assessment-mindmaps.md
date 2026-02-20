@@ -1,7 +1,9 @@
 # Master assessment mindmaps
 
-![](<../.gitbook/assets/image (2637)>)
+### Note Taking Mindmap
 
-![](https://pentestbook.six2dez.com/~gitbook/image?url=https%3A%2F%2Fblog.it-securityguard.com%2Fpbbt.png\&width=768\&dpr=4\&quality=100\&sign=7bee406a\&sv=2)
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
-![](<../.gitbook/assets/image (2638)>)
+### Recon Mindmap
+
+![](<../.gitbook/assets/image (2637)>) ![](<../.gitbook/assets/image (2638)>)
