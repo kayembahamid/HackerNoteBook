@@ -481,6 +481,8 @@ Below is an example of a typical directory structure found on the most common Li
 
 ![Standard Linux Directories and Files](https://3024260823-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MA6m3cVikIPDudqayqo%2Fuploads%2Fgit-blob-00f9a0074dcd32fef8c72916f37cc1bf047e93b0%2F0_rOZTLGBULgHhS2p_.png?alt=media)
 
+{% embed url="https://youtu.be/A3G-3hp88mo?si=2SwAIOopevOsMDoL" %}
+
 | **Directory** | **Description**                                                                                                      | **Example Files**                                                 |
 | ------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `/bin`        | Common programs shared by the system, the system administrator, and users.                                           | `ls`, `cp`, `mv`, `bash`                                          |
