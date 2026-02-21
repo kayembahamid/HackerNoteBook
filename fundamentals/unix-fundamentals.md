@@ -398,7 +398,9 @@ Run a second command only if the first command fails (usually any exit code othe
 command1 || command2
 ```
 
-#### Useful Basic Commands
+### Useful Basic Commands
+
+{% embed url="https://www.youtube.com/watch?v=VbEx7B_PTOE&list=PLIhvC56v63IJIujb5cyE13oLuyORZpdkL" %}
 
 | Command                | Description                                                                                                                                                                                                           |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1813,7 +1815,7 @@ For Kali live persistent boot USBs you will need the additional step of adding a
 
 #### Fixing `command-not-found` errors
 
-[https://stackoverflow.com/questions/19873430/command-not-found-message-when-i-try-to-add-command-in-bashrc/26976325](https://stackoverflow.com/questions/19873430/command-not-found-message-when-i-try-to-add-command-in-bashrc/26976325)
+{% embed url="https://stackoverflow.com/questions/19873430/command-not-found-message-when-i-try-to-add-command-in-bashrc/26976325" %}
 
 If you encounter errors on your system when you mistype a command or try to run a program that is not installed try these steps to fix the `command-not-found` command.
 
@@ -1826,7 +1828,7 @@ sudo update-command-not-found #rebuild the database
 sudo chmod ugo+r /var/lib/command-not-found/commands.db* #fix database permissions
 ```
 
-[https://bugs.launchpad.net/command-not-found/+bug/1824000](https://bugs.launchpad.net/command-not-found/+bug/1824000)
+{% embed url="https://bugs.launchpad.net/command-not-found/+bug/1824000" %}
 
 ### Fork Bomb
 
