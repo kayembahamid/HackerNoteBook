@@ -1,9 +1,5 @@
 # Computer Fundamentals
 
-## Fundamentals and Theory of Computing
-
-This content area contains the fundamentals and theory behind computer design, networking, and entry level computing concepts. This includes knowledge of types of basic computer components, CPU architectures, and OS concepts.
-
 #### Von Neumann Architecture
 
 The **Von Neumann Architecture** is a foundational model for modern computing systems, proposed by mathematician and physicist John von Neumann in 1945. It describes a system where the CPU, memory, and input/output devices share a common communication pathway. This architecture is characterized by the following five main components:
@@ -39,6 +35,8 @@ This architecture remains the basis for most modern computers, though enhancemen
 ### Parts of a Modern Computer
 
 A modern computer is a complex system composed of several key components, each playing a specific role in ensuring the system operates efficiently. These components can be broadly categorized into hardware and software elements. By working together, these components form a cohesive system capable of performing a wide range of tasks, from basic computing to advanced data processing and gaming. Below is an overview of the major hardware components of a modern computer:
+
+{% embed url="https://youtu.be/d86ws7mQYIg?si=PRWYHsrGJiXKqo20" %}
 
 #### **Central Processing Unit (CPU)**
 
@@ -839,6 +837,8 @@ A hypervisor is the core software component in virtualization. It manages the cr
   * VMware Workstation
   * Oracle VirtualBox
   * Parallels Desktop
+
+{% embed url="https://www.youtube.com/watch?v=wX75Z-4MEoM&t=1176s&pp=ygUOVmlydHVhbGl6YXRpb24%3D" %}
 
 #### Popular Virtualization Platforms
 
