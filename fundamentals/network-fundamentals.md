@@ -1,5 +1,138 @@
 # Network Fundamentals
 
+## **Network refresher**
+
+## IP address
+
+* `ifconfig` is a command used on Linux to check IP (IPv4/IPv6).
+* `ifconfig en0` on macOS summarizes the output for the en0 interface.
+* `ipconfig` is for Windows systems.
+
+<figure><img src="../.gitbook/assets/Image.png" alt=""><figcaption></figcaption></figure>
+
+## IPv4: private vs public
+
+* IPv4 addresses are categorized as private and public.
+  * Private address classes:
+    * Class A example: `10.0.0.0` — common for large businesses.
+    * Class B example: `172.16.0.0` — often used for IoT.
+    * Class C example: `192.168.0.0` — common for home networks.
+    * Loopback/localhost range: `127.0.0.0` to `127.0.0.7`.
+  * Public IPs are the remaining addresses — assigned/rented by ISPs.
+* IPs operate at OSI layer 3; routing is dealt with at this layer.
+
+## IPv6
+
+* IPv6 addresses use hexadecimal notation and have a much larger address space (128-bit).
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## MAC address
+
+* A MAC address is the physical address of a machine and is always presented as a hardware (layer 2) address.
+* Example: `ether f0:18:98:25:ce:35`
+* MAC addresses operate at OSI layer 2 and are used by switches.
+* The first three octets identify the vendor/manufacturer (e.g., `f0:18:98`); you can use online MAC lookup tools to identify the device/vendor.
+
+## Subnetting of IPv4
+
+* Bit values in an octet: 128 64 32 16 8 4 2 1 — when you add them = 255. These are bits.
+* Example binary-to-decimal:
+  * 1 1 1 1 1 1 1 1 = 255 (an octet). 1 means "on" (include the value); 0 means "off".
+  * 0 0 0 0 0 1 1 1 = 4 + 2 + 1 = 7
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+## Subnetting (more detail)
+
+* Subnet mask example: `255.255.255.0` (a /24 mask) — very common for business and home networks.
+* Each octet has 8 bits (e.g., 255 = 1 1 1 1 1 1 1 1).
+* A bit set to 1 means the value is included; bits are considered in order from highest to lowest value.
+* Example additions:
+  * 128 + 64 = 192
+  * 8 + 4 + 1 = 13
+
+{:height 621, :width 778}   &#x20;
+
+***
+
+## Subnetting example
+
+* To determine subnets, check the column for the mask (e.g., /24 is in the third octet). Use the mask values (255, 254, 252, etc.) to calculate network and broadcast addresses.
+  * Example note from the original: to get 255 you might add 254 + 1 = 255 (illustrating how bit sums are formed).
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+we check the column of mask where 24 is in the third column then we take 255 from the address adding column how we got 255 was get 254 under 252 and we add 1 254+1 = 255.
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+
+
+## TCP / UDP and the three-way handshake
+
+* TCP is a connection-oriented protocol; UDP is connectionless.
+  * TCP examples: HTTP, SSH, FTP.
+  * UDP examples: live streams, DNS, VoIP.
+* Most port-scanning focuses on TCP, which uses a three-way handshake:
+  * SYN → SYN/ACK → ACK
+* You can capture/inspect this using packet capture tools (e.g., Wireshark).
+
+{% hint style="info" %}
+To inspect TCP handshake packets, run Wireshark with appropriate privileges (for example, using sudo on Linux/macOS).
+{% endhint %}
+
+***
+
+## Common ports to scan
+
+* TCP
+  * FTP — 21
+  * SSH — 22
+  * TELNET — 23
+  * SMTP — 25
+  * DNS — 53
+  * HTTP — 80
+  * HTTPS — 443
+  * POP3 — 110
+  * SMB — 139, 445
+  * IMAP — 143
+* UDP
+  * DNS — 53
+  * DHCP — 67, 68 (dynamic assignment on home networks; static leases do not change)
+  * TFTP — 69 (trivial)
+  * SNMP — 161
+
+## The OSI Model (Receive ⏬ / Transmit ⏫)
+
+Please Do Not Throw Sausage Pizza Away.
+
+1. Physical — data, cables (e.g., Cat6) — start troubleshooting here (helpdesk).
+2. Data Link — switching, MAC addresses.
+3. Network — IP addresses, routing.
+4. Transport — TCP/UDP.
+5. Session — session management.
+6. Presentation — formats like WMV, JPEG, MOV.
+7. Application — protocols like HTTP, SMTP.
+
+***
+
 ## **The OSI Model**
 
 The Open Systems Interconnection (OSI) model is a fundamental concept in networking, providing a structured framework to standardize communication processes across diverse systems. It consists of seven layers, each responsible for specific network functions. This modular design enables interoperability between hardware and software from different vendors, streamlining troubleshooting, optimizing performance, and supporting scalability.
@@ -920,72 +1053,6 @@ The **Presentation Layer** is the sixth layer of the OSI model, sitting between 
 * **ASCII, EBCDIC**: Character encoding standards for text representation.
 
 ***
-
-### Encryption and Cryptography Fundamentals
-
-**Cryptography** is the art of "writing in secret," ensuring that information is protected from unauthorized access or tampering. It involves techniques like encryption, hashing, and digital signatures to secure data. Encryption and cryptography are essential components of secure communication in modern networks. It fits within the **Presentation Layer (Layer 6)** and other closely-related layers of the OSI model and plays a crucial role in data encryption, decryption, and ensuring secure communication between systems.
-
-#### Key Concepts
-
-* **Plaintext**: Plaintext refers to the original, readable data or message that needs to be protected. It is the input for encryption algorithms and is transformed into ciphertext to ensure confidentiality. Examples include emails, passwords, or any sensitive information before encryption.
-* **Ciphertext**: Ciphertext is the result of encrypting plaintext using an encryption algorithm and a key. It is unreadable to unauthorized parties and can only be converted back to plaintext through decryption using the appropriate key.
-* **Hash Values**: A hash value is a fixed-length string of characters generated by a hash function from input data of any size. Hashing is a one-way process, meaning it cannot be reversed to retrieve the original data. Hash values are commonly used to verify data integrity, ensuring that the data has not been altered during transmission or storage. Examples of hash functions include MD5, SHA-1, and SHA-256.
-* **Public Key**: In asymmetric cryptography, the public key is one half of a key pair and is used for encrypting data or verifying digital signatures. It is shared openly and does not need to be kept secret. Public keys are often distributed via digital certificates to ensure authenticity.
-* **Private Key**: The private key is the other half of the key pair in asymmetric cryptography and must be kept confidential. It is used for decrypting data encrypted with the corresponding public key or for creating digital signatures. The security of the private key is critical to the overall security of the encryption system.
-* **Session Key**: A session key is a temporary, symmetric key used to encrypt and decrypt data during a single communication session. It is typically generated for each session to ensure that even if one session key is compromised, other sessions remain secure. Session keys are often exchanged securely using asymmetric encryption during the initial handshake of a secure communication protocol, such as TLS.
-* **Digital Signature**: A digital signature is a cryptographic technique used to verify the authenticity and integrity of a message or document. It is created using the sender's private key and can be verified by anyone with the sender's public key. Digital signatures ensure that the message has not been tampered with and confirm the sender's identity.
-* **Encryption Algorithm**: An encryption algorithm is a mathematical procedure used to transform plaintext into ciphertext and vice versa. Examples include symmetric algorithms like AES (Advanced Encryption Standard) and asymmetric algorithms like RSA (Rivest-Shamir-Adleman).
-* **Key Exchange**: Key exchange is the process of securely sharing cryptographic keys between parties to enable encrypted communication. Common methods include the Diffie-Hellman key exchange and the use of public-key cryptography to exchange session keys.
-* **Initialization Vector (IV)**: An initialization vector is a random or pseudo-random value used in conjunction with a key to ensure that identical plaintexts encrypt to different ciphertexts. It adds an additional layer of security by preventing patterns in the ciphertext.
-* **Certificate Authority (CA)**: A certificate authority is a trusted entity that issues digital certificates to verify the ownership of public keys. These certificates are used to establish trust in secure communications, such as HTTPS.
-* **Salt**: Salt is a random value added to plaintext before hashing to ensure that identical inputs produce different hash values. It is commonly used to secure passwords against dictionary and rainbow table attacks.
-* **Key Length**: Key length refers to the size of the encryption key, typically measured in bits. Longer keys provide stronger security but may require more computational resources. For example, AES supports key lengths of 128, 192, and 256 bits.
-* **Elliptic Curve Cryptography (ECC)**: ECC is a type of asymmetric cryptography that uses elliptic curves to provide strong security with smaller key sizes compared to traditional methods like RSA. It is widely used in modern secure communication protocols.
-* **Entropy**: Entropy in cryptography refers to the randomness or unpredictability of a key or data. High entropy ensures that keys are difficult to guess or brute-force, enhancing the security of the encryption system.
-* **Encryption Key Lifecycle**: Encryption keys go through several stages throughout their lifetime:
-  * **Key Generation**: Creating the encryption key.
-  * **Pre-Activation**: Preparing the key for use.
-  * **Activation**: The key is actively used for encryption/decryption.
-  * **Expiration**: The key is retired after its validity period.
-  * **Post-Activation**: The key is archived for reference.
-  * **Escrow**: Secure storage of keys for recovery purposes.
-  * **Destruction**: Securely deleting the key to prevent misuse.
-
-**Hash Functions**
-
-Hash functions accept plaintext data of any length and produce a fixed-length hash. They are **one-way functions**, meaning they cannot be reversed to retrieve the original data.
-
-* **Hash Usage in Applications**:
-  * **Verifying File Integrity**:
-    * Hashes are used to ensure that files have not been tampered with or corrupted during downloads or backups. By comparing the hash value of the downloaded file with the hash provided by the source, users can verify the file's integrity.
-  * **Storing Hashed Passwords**:
-    * Passwords are stored in databases as hashed values rather than plaintext. This ensures that even if the database is compromised, the original passwords are not directly exposed. Salting is often used alongside hashing to further enhance security.
-  * **Generating Digital Signatures**:
-    * Hashes are used in digital signatures to authenticate the sender of a message and ensure the message's integrity. The hash of the message (**message digest**) is encrypted with the sender's private key, and the recipient can verify it using the sender's public key.
-  * **Data Deduplication**:
-    * Hashes are used to identify duplicate data in storage systems. By comparing hash values of data blocks, systems can avoid storing redundant copies.
-  * **Blockchain Technology**:
-    * Cryptographic hashes are fundamental to blockchain, ensuring data integrity and linking blocks securely in the chain.
-* **Key Properties of Cryptographic Hash Functions**:
-  * **Deterministic**: The same input always produces the same hash output.
-  * **Fast Computation**: Hash functions should be computationally efficient.
-  * **Pre-image Resistance**: It should be computationally infeasible to reverse a hash to find the original input.
-  * **Collision Resistance**: It should be computationally infeasible to find two different inputs that produce the same hash.
-  * **Avalanche Effect**: A small change in the input should produce a significantly different hash output.
-* **Practical Considerations**:
-  * Always use modern, secure hash functions for cryptographic purposes.
-  * Avoid using hashes like MD5 or SHA-1 for sensitive applications.
-  * Use salting and key stretching techniques (e.g., PBKDF2, Argon2) when hashing passwords to defend against brute-force and rainbow table attacks.
-
-**Hash Collisions**
-
-A hash collision occurs when two different inputs produce the same hash value. Collisions undermine the reliability of a hash function, especially in applications like digital signatures or file integrity checks.
-
-Modern cryptographic hash functions, such as SHA-256 and SHA-3, are designed to minimize the likelihood of collisions. However, older algorithms like MD5 and SHA-1 are vulnerable to collision attacks and are no longer considered secure for cryptographic purposes.
-
-**The Birthday Paradox**
-
-The birthday paradox explains why collisions in hash functions can occur more frequently than intuition suggests. In a hash function with `n` possible outputs, the probability of a collision becomes significant after approximately √n inputs. For example, in a 128-bit hash function, there are 2^128 possible outputs. However, a collision is likely to occur after only about 2^64 inputs due to the birthday paradox. This principle highlights the importance of using hash functions with sufficiently large output sizes to reduce the risk of collisions in practical applications.
 
 **Common Hash Algorithms**
 
