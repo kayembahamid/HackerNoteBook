@@ -102,4 +102,68 @@ The thinking pattern to solve problems. The confrontation expands the so-called 
 
 We know that we have a good influence on our thought processes and thought patterns and can influence them according to our decisions. This means we can develop and train such talent for any field we want.
 
+
+
+## Way Of Learning
+
+***
+
+So, let us jump back to the math exercise from the first section.
+
+```cpp
+20 * ________+ ________ = 65535
+```
+
+#### Why did we calculate the math task like this?
+
+We performed the calculation the way we learned it. That means we will use the patterns we have been conditioned to use. At this stage, as in the previous example with the calculation, we used the information we already had.&#x20;
+
+This art of thinking, called "`Outside the box`," is an essential part of the "`hacker mindset`", or the way we must think as penetration testers to solve complex problems.&#x20;
+
+Thinking outside the box means seeing things outside of the limitations placed on us. This means we have to be able to "`pivot`."&#x20;
+
+We have to focus on so many different technologies during our penetration tests that it can become confusing and frustrating when we do not understand some things.
+
+{% hint style="danger" %}
+A problem is an emotional state. Without emotions, it is just a situation.
+{% endhint %}
+
+Frustration and confusion come with the point of view we are looking at. The learning process is not just a theoretical and practical part. It is also our learning process and progress that largely depends on our `emotional state`. If we feel good and we know we will reach our goal, we will be successful.
+
+{% hint style="info" %}
+The most essential part that makes you successful is `knowing your goal`.&#x20;
+{% endhint %}
+
+{% stepper %}
+{% step %}
+**You're standing still in a room, and your instructor instructs you to move across the room, and you start moving. After a while, the instructor puts a chair in your way.**&#x20;
+
+**What will you do? - You may sit down on this chair.**
+
+_Now let us change the scenario a little bit._
+{% endstep %}
+
+{% step %}
+**Your instructor instructs you to move to the other corner. We start moving, and the instructor puts a chair in our way again.**
+
+&#x20;**What will we do?**\
+\
+You will pass the chair and continue moving forward to the corner because you know your goal.
+
+
+{% endstep %}
+
+{% step %}
+**The big difference between these two scenarios is that we `know our goal` and know how we have to move on.**&#x20;
+
+We will overcome the obstacles which are put in our way. If we do not have a goal, we will stop at the first obstacle. Without a goal, we will be disoriented moving from one topic to another.
+{% endstep %}
+{% endstepper %}
+
+
+
+
+
+
+
 [^1]: 
