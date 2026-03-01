@@ -214,6 +214,28 @@ At this point, we also should think about the [Pareto Principle](https://en.wiki
 
 Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Passive Learning
+
+If we follow the Learning Pyramid while going through the modules just by reading, we will learn only about `10%` of the whole penetration testing experience. By watching some demonstrations, we will not learn more than `30%`.
+
+### Active Learning
+
+When we start to discuss our entire enumeration process, results, and findings with others, we will see different points of view, results, and information to compare with our own and find out what we missed.&#x20;
+
+By using this type of active learning, we collect up to `50%` experience. Before we can discuss our results with others, we should practice on our own. So while we practice, our learning experience grows to `75%`.
+
+{% hint style="info" %}
+**There are many different ways to stay motivated. An excellent method that works very well is by recognizing success and** **see that we have made progress, even the most minor successes.**
+
+
+
+_Progress is noticeable when the question that tortured us has lost its meaning._
+{% endhint %}
+
+
 
 [^1]: 
