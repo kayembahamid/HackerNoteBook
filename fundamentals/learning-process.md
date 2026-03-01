@@ -54,6 +54,8 @@ Ask yourself why you didn't solve the problem in a different way. Write it down 
 
 ## Think Outside the Box
 
+***
+
 What limitations were you given for this exercise? - None.
 
 So, why didn't you think to add more digits or to replace the given arithmetic operations?
@@ -67,6 +69,8 @@ During this learning path, we will acquire more information that will help us fi
 During the learning process, when we identify the solution to the problem, the process and the steps required to achieve it seem pretty straightforward in most cases. Looking back, it always seems easy once we know the solution. The art, after all, is not to get some flag but to find the way to it.
 
 ## Talent
+
+***
 
 There is no precise definition of talent. Because the official definition is that talent is a natural aptitude or skill.&#x20;
 
@@ -162,8 +166,54 @@ We will overcome the obstacles which are put in our way. If we do not have a goa
 
 
 
+## Learning Efficiency
 
+***
 
+The problem here is the sheer size of the information security field.  There is a lot to learn and many topics to cover. Many of the courses available are very technical.  We have to understand how things work, how they are structured, and how to use them.&#x20;
 
+The primary and most difficult objective we must overcome is the `combination` of our knowledge, adaptation, and new information.
+
+It often is not easy to find the information we need. First, we have to find out what kind of information we need.
+
+* `What do we already know?`
+* `What do we not know yet?`
+
+Even if we find the information we need, we do not know how to use it because we do not have an overview.
+
+The major problem we must solve is handling this massive amount of information and adapting it to our strengths and weaknesses.
+
+{% hint style="success" %}
+The first learning phrase is FAILURE&#x20;
+{% endhint %}
+
+we have to fail. It is an `unavoidable` and `essential` part of `learning`. This is one of the parts of the learning process which make us successful.&#x20;
+
+Experience is built on failures. It explains that we know how to handle different and sometimes adverse situations where something does not work as expected.
+
+#### So how do we:
+
+* Learn faster
+* Structure our knowledge
+* Find the information we need
+* Get the overview
+
+There is this theory called the "10,000-Hour Rule," which explains that you need to spend 10,000 hours on becoming good at something. We do not want to spend 10,000 hours learning a skill.&#x20;
+
+That not learn Faster, Right!
+
+But When you watch TEDx talk by [Josh Kaufman](https://ideas.ted.com/dont-have-10000-hours-to-learn-something-new-thats-fine-all-you-need-is-20-hours/) in which he explains it more in-depth.&#x20;
+
+{% embed url="https://youtu.be/5MgBikgcWnY?si=4TqbHTZG2xX-c7Cx" %}
+
+He proposes that we can learn something new in `20 hours`, even working on it for just `45 minutes` `per day`. This sounds much more attainable!&#x20;
+
+At this point, we also should think about the [Pareto Principle](https://en.wikipedia.org/wiki/Pareto_principle), or the `80/20 rule`.
+
+{% embed url="https://youtube.com/shorts/lpkC5h-5Pmk?si=_9Ehvdv81M49hv4p" %}
+
+Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 [^1]: 
