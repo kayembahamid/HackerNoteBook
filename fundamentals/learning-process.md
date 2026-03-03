@@ -238,4 +238,33 @@ _Progress is noticeable when the question that tortured us has lost its meaning.
 
 
 
+## The Goal
+
+I cannot emphasize strongly enough the importance of setting a clear goal for ourselves. 90 % of people are significantly more successful in achieving their dreams by `setting challenging and specific goals`.
+
+* Pass an exam?
+* Obtain a certification?
+* Learn and master new skills?
+* Or impress and please others?
+
+What do we want to achieve? Do we want to...:
+
+#### how to reach this goal.&#x20;
+
+If we think about it in more detail, none of the current "great" and well-known personalities will be able to say that they knew the path that led them to the goal beforehand. None of these people knew it. What they did know, however,&#x20;
+
+{% hint style="warning" %}
+Was the goal that they had set for themselves.No matter what goal we have in mind, we must decide on it.
+{% endhint %}
+
+## Decision Making
+
+A decision is, in simple terms, the choice of one of several options. All decisions are made based on the importance of the circumstances. We make decisions based on what we expect to get the most out of it. Thus,&#x20;
+
+{% hint style="success" %}
+Decisions are made not only `rationally` but also `emotionally`.&#x20;
+{% endhint %}
+
+Decide the right (`Decision Making`) is the  (`The Goal`) that you really want to achieve from your heart (`Willingness`), and that will make you happy consciously and subconsciously (`The Brain`).
+
 [^1]: 
