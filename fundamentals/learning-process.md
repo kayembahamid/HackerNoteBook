@@ -267,4 +267,38 @@ Decisions are made not only `rationally` but also `emotionally`.&#x20;
 
 Decide the right (`Decision Making`) is the  (`The Goal`) that you really want to achieve from your heart (`Willingness`), and that will make you happy consciously and subconsciously (`The Brain`).
 
+## Documentation
+
+***
+
+When it comes to documentation, we must first determine the report audience. We will document our activities differently than we would present our results to a customer. The purpose of documentation is to present the information we have obtained in a comprehensible and easy way to reproduce a specific activity.
+
+These are the essential characteristics of documentation :
+
+1. Overview
+2. Structure
+3. Clarity
+
+As we learn and practice, we will come across many different situations and resources. we will have to process massive amounts of information.
+
+Take Notes, Using can use  `CherryTree or any other choice` and a picture is worth a thousand words.  `FlameShot` makes it easier for us to take screenshots and edit them directly.
+
+## Focus
+
+It is essential to differentiate between `focus` and `attention` because they are not the same.&#x20;
+
+{% hint style="warning" %}
+`Attention` refers to the **momentum**, as it is happening right now, and you are reading this text.&#x20;
+{% endhint %}
+
+{% hint style="success" %}
+`focus` is on the topic you are dealing with at the moment.&#x20;
+{% endhint %}
+
+The focus is based on our will and what we want to achieve. It can be a `conscious decision` and a `subconscious decision` guided by external influences.
+
+`Focusing is the purposeful and deliberate alignment to a specific goal`.
+
+Focused people are not only enormously persistent and tenacious, but they are also hardly distracted or discouraged. If we know our goal, it is easier to align our focus accordingly. This, in turn, makes us much more efficient, and we get closer to our goal much faster and do not let ourselves be distracted by external influences.
+
 [^1]: 
