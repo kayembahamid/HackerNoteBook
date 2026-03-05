@@ -22,7 +22,7 @@ Flipper Zero is constantly being updated, so it is recommended to check the offi
 
 Turn on the Flipper Zero by pressing and holding the **BACK** button for 3 seconds.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your Flipper Zero won't turn on, its battery may be completely drained. To turn it on, simply connect the USB charging cable, and the device will power up automatically. If your Flipper Zero still won't turn on even after charging, try pressing and holding the LEFT and BACK buttons for 5 seconds. If your Flipper Zero still won't turn on, follow the steps outlined in Firmware Recovery .
 

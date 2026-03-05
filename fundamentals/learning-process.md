@@ -214,9 +214,9 @@ At this point, we also should think about the [Pareto Principle](https://en.wiki
 
 Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Passive Learning
 
@@ -320,5 +320,53 @@ Once we know how our attention span is behaving, we will also get an idea of how
 It would be best if we did not force ourselves to focus on a specific topic because it will have a negative effect and, as mentioned before, can end up in frustration.
 
 `Make sure that you feel comfortable and ready to learn new things.`
+
+## Comfort <a href="#comfort" id="comfort"></a>
+
+This is the feeling of well-being in the form of comfort and the attitude of risk-free behavior. This is also often referred to as the so-called `comfort zone` in which the person `thinks`(`!`) he/she is located.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+When we leave the so-called `comfort zone`, we enter a situation or field where we have little or no experience. This kind of uncertainty lowers our ability to think and has a powerful impact on our thought processes, which, in turn, slows us down.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Fear <a href="#fear" id="fear"></a>
+
+People are often afraid of something new, of something they do not know, and cannot evaluate if it could harm them somehow.
+
+I'm talking about `interpreted fear`. This is an imaginary state of fear. fear is an emotional feeling .
+
+{% hint style="success" %}
+People fear what might happen in the future while not considering the present
+{% endhint %}
+
+{% embed url="https://youtu.be/VsTBCQ2MnRM?si=1XATK-jCLKCdciUs" %}
+
+Imaginary fear is an emotional state that keeps us from having the best experiences and prevents us from moving forward on the desired path.&#x20;
+
+Even if we want to be excellent penetration testers, most beginners are afraid to put their maximum energy and time into it because of the imaginary fear of failure.&#x20;
+
+{% hint style="danger" %}
+**The difference between a winner and a loser is that the winner has lost more often than the loser.**
+{% endhint %}
+
+Failure is essential to learning and unavoidable. No one has ever acquired a skill without making a single mistake.&#x20;
+
+Our failures are crucial in our learning curve because they give us momentum to climb higher. In doing so, we reach a point where we have been before but already know what to expect at the higher level. This makes it easier for us to master this uphill climb because we have already slipped once at this point and know that we have to take a different path to get higher.
+
+### Mindset <a href="#mindset" id="mindset"></a>
+
+* I cannot do this
+* This is not for me
+* I do not understand this
+
+The only thing we have to do is to add the word "yet."
+
+* I cannot do this "yet."
+* This is not for me "yet."
+* I do not understand this "yet."
+
+
 
 [^1]: 
