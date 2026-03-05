@@ -301,4 +301,24 @@ The focus is based on our will and what we want to achieve. It can be a `conscio
 
 Focused people are not only enormously persistent and tenacious, but they are also hardly distracted or discouraged. If we know our goal, it is easier to align our focus accordingly. This, in turn, makes us much more efficient, and we get closer to our goal much faster and do not let ourselves be distracted by external influences.
 
+
+
+## Attention
+
+`Attention is influenced by your interests, needs, personal attitudes, beliefs, orientations, goals, and experiences.`
+
+So when I  talk about concentration, I mean the maintenance of our attention on a specific topic. This means that as long as we are interested in a given topic, we keep working on it until we have achieved the desired result for our well-being. Again, attention goes hand in hand with concentration and focus.
+
+Information security is a vast subject,  We will not be able to absorb all the information at once. We will often come back to topics and repeat what we are missing. This is a normal process. We must understand how to divide our attention.
+
+There is no general formula that we can use to learn how to divide our attention correctly. This is an individual process you train.&#x20;
+
+We know that attention takes place at the moment and therefore has a limited duration to maintain it. It will be a great advantage to find out how long our emotional state and our attention span lasts the longest.
+
+Once we know how our attention span is behaving, we will also get an idea of how we can split it up. Experiment with this. Change our place of learning , learning hours, duration of learning  if possible. Listen to different music and try out different things that might help us.
+
+It would be best if we did not force ourselves to focus on a specific topic because it will have a negative effect and, as mentioned before, can end up in frustration.
+
+`Make sure that you feel comfortable and ready to learn new things.`
+
 [^1]: 
