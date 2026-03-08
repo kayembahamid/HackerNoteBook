@@ -367,6 +367,35 @@ The only thing we have to do is to add the word "yet."
 * This is not for me "yet."
 * I do not understand this "yet."
 
+## Questioning <a href="#questioning" id="questioning"></a>
 
+We have all been in a situation where we suddenly did not know what to do and could not even understand what to start with to figure out the situation.
+
+{% hint style="info" %}
+**The most important and most difficult thing in any situation is not the search for the right answer but the search for the right question.**
+{% endhint %}
+
+* There are no `"good"` or `"bad"` questions. End of story.
+
+We can rather assign states to a question; thus, we would describe it as a `rough question` or a `precise question`.
+
+* A `rough question` would be, for example, "How can I hack X?"
+* A `precise question` would be: "How can I use the server's SMB service to identify its existing user accounts?"
+
+People use the states "good" and "bad" to describe the profit or loss they expect from the question. If an answer  benefits them, that a "good" one. However, what if the question leads to a loss or, let us even say, does not help the person? Is the question bad? - Actually, not.
+
+### So how should we Question?  <a href="#relationship-oriented-questioning-model" id="relationship-oriented-questioning-model"></a>
+
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+This model represents five components:
+
+| **Component**       | **Description**                                                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `Your Position`     | This describes the position we are in and our view.                                                                       |
+| `The Object`        | The object is the core element of the question. The main component of our sentence takes the meaning out of the question. |
+| `Known`             | This information is known to us.                                                                                          |
+| `Unknown`           | This information is not known to us.                                                                                      |
+| `Other Position(s)` | This component describes the position of other persons.                                                                   |
 
 [^1]: 
