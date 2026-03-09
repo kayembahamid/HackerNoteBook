@@ -21,7 +21,7 @@
   * Public IPs are the remaining addresses — assigned/rented by ISPs.
 * IPs operate at OSI layer 3; routing is dealt with at this layer.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## IPv6
 
@@ -46,17 +46,17 @@
 
 {% embed url="https://youtu.be/Bvx-hDHkIBk?si=JribsjwOQX9dzFOd" %}
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://youtu.be/mJ_5qeqGOaI?si=12Z70fHOjv51PwsB" %}
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Subnetting (more detail)
 

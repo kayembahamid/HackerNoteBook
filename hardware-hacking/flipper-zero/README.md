@@ -22,7 +22,7 @@ Flipper Zero is constantly being updated, so it is recommended to check the offi
 
 Turn on the Flipper Zero by pressing and holding the **BACK** button for 3 seconds.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your Flipper Zero won't turn on, its battery may be completely drained. To turn it on, simply connect the USB charging cable, and the device will power up automatically. If your Flipper Zero still won't turn on even after charging, try pressing and holding the LEFT and BACK buttons for 5 seconds. If your Flipper Zero still won't turn on, follow the steps outlined in Firmware Recovery .
 
@@ -32,7 +32,7 @@ If your Flipper Zero freezes while in use, press and hold the **LEFT** and **BAC
 
 ![](https://afsh4ck.gitbook.io/ethical-hacking-cheatsheet/~gitbook/image?url=https%3A%2F%2F2648005400-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FRolFIJKRJaxKzAUqQKJb%252Fuploads%252FSSVhgfZQx4n8sRj3zraM%252Fimage.png%3Falt%3Dmedia%26token%3D6741a531-1cde-4fce-a14d-1298d3ec91dc\&width=768\&dpr=3\&quality=100\&sign=acde7d7b\&sv=2)
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -52,7 +52,7 @@ For more information, visit the [MicroSD card settings](https://docs.flipper.net
 
 Insert the microSD card with the pins facing upwards. Use a high-quality microSD card.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 It is important to use high-quality, brand-name microSD cards, such as SanDisk, Kingston, or others, to ensure proper performance of your Flipper Zero. Using low-quality microSD cards can not only result in poor performance but may also brick or even damage your device.﻿
 
@@ -81,7 +81,7 @@ Once you have downloaded the Flipper mobile app, you can connect your phone to y
 1. In the Flipper mobile app, tap **Connect** .
 2. On the next screen, next to the name of the detected Flipper Zero, tap **Connect** .
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the Flipper mobile app, **enter the pairing code** shown on the Flipper Zero screen.
 
@@ -96,7 +96,7 @@ To update your Flipper Zero via the Flipper mobile app, do the following:
 
 The update via the Flipper mobile app may take **up to approximately 10 minutes** .
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 For additional information about the firmware update steps, visit [Firmware Update](https://docs.flipperzero.one/basics/firmware-update) .
 

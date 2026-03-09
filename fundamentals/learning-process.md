@@ -214,9 +214,9 @@ At this point, we also should think about the [Pareto Principle](https://en.wiki
 
 Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Passive Learning
 
@@ -325,11 +325,11 @@ It would be best if we did not force ourselves to focus on a specific topic beca
 
 This is the feeling of well-being in the form of comfort and the attitude of risk-free behavior. This is also often referred to as the so-called `comfort zone` in which the person `thinks`(`!`) he/she is located.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 When we leave the so-called `comfort zone`, we enter a situation or field where we have little or no experience. This kind of uncertainty lowers our ability to think and has a powerful impact on our thought processes, which, in turn, slows us down.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fear <a href="#fear" id="fear"></a>
 
@@ -397,5 +397,140 @@ This model represents five components:
 | `Known`             | This information is known to us.                                                                                          |
 | `Unknown`           | This information is not known to us.                                                                                      |
 | `Other Position(s)` | This component describes the position of other persons.                                                                   |
+
+#### **Example:**&#x20;
+
+> **what are all the methods available to remotely access Windows operating systems?**
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+| **Component**       | **Question Part** | **Description**                                                                                                           |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `Your Position`     |                   | Our position where we are situated.                                                                                       |
+| `The Object`        | Windows           | The Object is the core element of the question. The main component of our sentence takes the meaning out of the question. |
+| `Known`             | Methods           | This information is known to us.                                                                                          |
+| `Unknown`           | Methods           | This information is not known to us.                                                                                      |
+| `Other Position(s)` |                   | This component describes the position of other persons.                                                                   |
+
+**Connecting the Components**<br>
+
+> What is the purpose for us to use Windows?
+
+Mainly we use the operating system to use its functions to solve our tasks. We describe this as `Operating on`.
+
+> How does Windows influence our state in our position?
+
+Windows is the most used operating system in the world and has the most compatibility and many user-friendly functions. Therefore, we can also summarize this and call it `Provides functionality`
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Now we can connect the relations between Windows and the methods we know.
+
+> What must Windows do or offer to be managed by remote access methods?
+
+A service must allow remote access over the Internet or network.&#x20;
+
+* We know for sure `WinRM`, `Remote Desktop`, and a few more.&#x20;
+* (If not, it does not matter. We will learn about though the process).&#x20;
+* Otherwise, we would not be able to access it remotely.&#x20;
+* We call this connection `Listening Service`.<br>
+
+Next, the following question comes up:
+
+> How do the remote access methods affect Windows and thus change the state of Windows? What do these methods provide us with?
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Now let us look at what we know about the known remote access methods.
+
+> What is the purpose of remote access methods?
+
+The purpose is to be able to manage Windows in different ways remotely. So all we do with it is to use it. So, therefore, we call this connection `Using`.
+
+> How do the different remote access methods that we know affect us?
+
+Apart from the different services these methods are designed for, they all have one thing in common. They allow us to interact with Windows. Therefore we call this connection `Allow to interact with`.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Since we already know some remote access methods, we know how they are connected to Windows. Before Windows can be accessed remotely, the corresponding service must be running.
+
+> Which services must Windows have running to use methods unknown to us?
+
+We can not know this because the methods are unknown to us. Therefore we name it like this: `???`
+
+Now the same question arises again.
+
+> How do the remote access methods affect Windows and thus change the state of Windows? What do these methods offer us?
+
+The different methods offer different ways to access Windows. Because the purpose of the methods, in this case, has not changed. Therefore we call it again: `Remote Access`.
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Now that we know and understand the relationships between all the individual components, we know exactly what information we are missing and what we should focus on.&#x20;
+
+In this case, we can use `Windows services` to find the unknown remote access methods.
+
+This model is stackable and you can answer your own question through the process. For example, if we have identified such Windows services and found unknown methods, the field `Unknown` becomes `Known` and would look like this:
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* So, what is the right question?
+
+{% hint style="info" %}
+**`A right question is a precise question that allows us to establish the relationships between the components, to understand them, and to take us one step further to the required answer`**`.`
+{% endhint %}
+
+## Handling Frustration <a href="#handling-frustration" id="handling-frustration"></a>
+
+Frustration is an emotional reaction to an event, situation, or condition that occurs in the form of disappointment or powerlessness.&#x20;
+
+{% hint style="info" %}
+Most often, such a feeling occurs in varying intensity, depending on expectations or desires.&#x20;
+{% endhint %}
+
+There are two different types of frustration.&#x20;
+
+* &#x20;`external influences`, such as negative opinions of superiors
+* `inner frustration`, caused by conscious or subconscious thought processes.
+
+Your feelings `reflect subconscious thoughts` and thought processes. That is why you can understand quite well how you think from your feelings.&#x20;
+
+It helps to listen to our thoughts from a 3rd-person perspective or imagine that our best friend expresses these thoughts. With that, we gain some distance from the feeling of being affected by it, which makes it easier to construct an objective opinion and judgment about it.<br>
+
+_In order to express frustration tolerance in this way, it is crucial to know where it comes from._
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+Do not forget that this feeling of frustration is `temporary`. This means that when we feel frustrated, it will pass.&#x20;
+
+Most people get scared and panicky at such a feeling, which leads to the fact that such people sometimes even react aggressively.&#x20;
+
+They are not aware that it is a temporary feeling. Therefore, we do not need to be afraid to venture into such situations.&#x20;
+
+{% hint style="success" %}
+**Frustration passes, the experience we have gained through it remains.**
+{% endhint %}
+
+Instead, over time, we will become calmer in reacting and dealing with such stressful situations, which in turn will strengthen our self-confidence.&#x20;
+
+* We can control our inner frustration.&#x20;
+* The frustration of the external factors, however, can hardly be controlled.
+
+## Learning Progress <a href="#learning-progress" id="learning-progress"></a>
+
+In order to see our progress, two specific states are compared, including a specific time window between the learning process.&#x20;
+
+* we compare our knowledge from the `past` with the `present` and try to keep track of the progress to give ourselves the confirmation that we have achieved something new.
+
+People who have been on the road for years will know how exhausting it can be and what hurdles they have to overcome. We only gain height by going uphill. Going uphill is always exhausting, and we may slip and slide a little bit down again. What is essential here is to keep moving constantly. How fast we want to reach a defined height depends entirely on our ambition. Whether we only take one step a day or ten steps a day only plays a role in the duration.
+
+The difference here is easy to see. If you stop on the mountain and do not climb any further up, you will stay on the same spot.&#x20;
+
+{% hint style="danger" %}
+**1% is even enough for 10 minutes per day = Just show up for 10 mins THAT'S IT.**
+{% endhint %}
+
+
 
 [^1]: 
