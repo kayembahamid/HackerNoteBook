@@ -214,7 +214,7 @@ At this point, we also should think about the [Pareto Principle](https://en.wiki
 
 Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -329,7 +329,7 @@ This is the feeling of well-being in the form of comfort and the attitude of ris
 
 When we leave the so-called `comfort zone`, we enter a situation or field where we have little or no experience. This kind of uncertainty lowers our ability to think and has a powerful impact on our thought processes, which, in turn, slows us down.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fear <a href="#fear" id="fear"></a>
 
@@ -402,7 +402,7 @@ This model represents five components:
 
 > **what are all the methods available to remotely access Windows operating systems?**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 | **Component**       | **Question Part** | **Description**                                                                                                           |
 | ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -422,7 +422,7 @@ Mainly we use the operating system to use its functions to solve our tasks. We d
 
 Windows is the most used operating system in the world and has the most compatibility and many user-friendly functions. Therefore, we can also summarize this and call it `Provides functionality`
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now we can connect the relations between Windows and the methods we know.
 

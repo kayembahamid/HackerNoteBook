@@ -285,7 +285,8 @@
 
 ## HACKING MANUEL
 
-* [Hacking Methodology](hacking-manuel/hacking-methodology.md)
+* [Hacking Methodology](hacking-manuel/hacking-methodology/README.md)
+  * [Pre-Engagement](hacking-manuel/hacking-methodology/pre-engagement.md)
 * [Pentesting Web checklist](hacking-manuel/pentesting-web-checklist/README.md)
   * [Methodology](hacking-manuel/pentesting-web-checklist/methodology.md)
   * [Web Security Testing Guide Checklist](hacking-manuel/pentesting-web-checklist/web-security-testing-guide-checklist.md)
