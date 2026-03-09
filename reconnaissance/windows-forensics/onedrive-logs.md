@@ -12,7 +12,7 @@ These logs are located in the following on **Windows**:
 
 [This repository](https://github.com/ydkhatri/OneDrive) is useful to deobfuscate OneDrive logs.
 
-```
+```shellscript
 python -m venv venv
 # on Windows
 .\venv\Scripts\activate

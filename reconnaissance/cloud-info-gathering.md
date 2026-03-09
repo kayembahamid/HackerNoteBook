@@ -43,7 +43,7 @@ https://github.com/righteousgambit/quiet-riot
 
 ## Google Dorks
 
-```
+```shellscript
 site:.amazonaws.com -www "compute"
 site:.amazonaws.com -www "compute" "ap-south-1"
 site:pastebin.com "rds.amazonaws.com" "u " pass OR password
@@ -52,7 +52,7 @@ https://storage.googleapis.com/COMPANY
 
 ## Check certificate transparency logs
 
-```
+```shellscript
 https://crt.sh
 %.netfilx.com
 ```
@@ -68,7 +68,7 @@ python3 CloudScraper.py -u https://example.com
 
 Dork:
 
-```
+```shellscript
 site:*.s3.amazonaws.com ext:xls | ext:xlsx | ext:csv password|passwd|pass user|username|uid|email
 ```
 
@@ -94,6 +94,6 @@ scout --provider aws --profile stolen
 
 Prowler - AWS security assessment, auditing and hardening:&#x20;
 
-```
+```shellscript
 https://github.com/toniblyx/prowler
 ```

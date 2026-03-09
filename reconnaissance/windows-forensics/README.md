@@ -8,7 +8,7 @@ Windows Forensics is the method of gathering information about the target Window
 
 Below are the location of the file which contains the information of IP address and MAC address.
 
-```
+```shellscript
 # Look@LAN is a network monitoring tool. So if the system uses the tool, we can retrieve the information of the network.
 # LANIP -> IP address
 # LANNIC -> MAC address
@@ -19,7 +19,7 @@ c:\Program Files (x86)\Look@LAN\irunin.ini
 
 The name of the network card is such like “Intel(R) PRO/1000 MT Desktop Adapter”.
 
-```
+```shellscript
 c:\ProgramData\Microsoft\DiagnosticLogCSP\Collectors\DiagnosticLogCSP_Collector_DeviceProvisioning_2023_1_2_3_45_67.etl
 ```
 
@@ -27,7 +27,7 @@ c:\ProgramData\Microsoft\DiagnosticLogCSP\Collectors\DiagnosticLogCSP_Collector_
 
 Sometimes PowerShell command history contains the sensitive information about the system.
 
-```
+```shellscript
 c:\Users\<username>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 ```
 
@@ -35,7 +35,7 @@ c:\Users\<username>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\Cons
 
 Suspicious activities are likely detected by Windows Defender.
 
-```
+```shellscript
 c:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory\
 ```
 

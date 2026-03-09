@@ -31,7 +31,7 @@ Upload the image in each search engine.
 
 FFmpeg extracts every single frame from a video.
 
-```
+```shellscript
 # -i: input file
 # %06d: followed by six digits e.g. img_000001.png, img_000002.png, etc.
 # -hide_banner: hide unnecessary text.
