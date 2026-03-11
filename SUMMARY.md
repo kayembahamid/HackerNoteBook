@@ -323,6 +323,7 @@
 
 ## Enumeration
 
+* [Information Gathering](enumeration/information-gathering.md)
 * [Files](enumeration/files.md)
 * [SSL/TLS](enumeration/ssl-tls.md)
 * [Ports](enumeration/ports.md)
