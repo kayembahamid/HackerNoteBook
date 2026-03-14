@@ -1,2 +1,2 @@
-# Records Types
+# 🔴 Records Types
 

@@ -1,2 +1,2 @@
-# Dangerous Settings
+# 🔴 Dangerous Settings
 

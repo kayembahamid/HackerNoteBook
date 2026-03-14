@@ -1,2 +1,2 @@
-# Dangerous Setttings
+# 🔴 Dangerous Setttings
 
