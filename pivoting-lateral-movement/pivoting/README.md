@@ -1,4 +1,4 @@
-# Pivoting
+# 🟢 Pivoting
 
 {% embed url="https://blog.raw.pm/en/state-of-the-art-of-network-pivoting-in-2019" %}
 

@@ -2,5 +2,5 @@
 icon: sparkle
 ---
 
-# Fully Interactive TTY
+# NetExec
 
