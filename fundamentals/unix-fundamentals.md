@@ -400,8 +400,6 @@ command1 || command2
 
 ### Useful Basic Commands
 
-{% embed url="https://www.youtube.com/watch?v=VbEx7B_PTOE&list=PLIhvC56v63IJIujb5cyE13oLuyORZpdkL" %}
-
 | Command                | Description                                                                                                                                                                                                           |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `man $command`         | Get help with a command                                                                                                                                                                                               |
