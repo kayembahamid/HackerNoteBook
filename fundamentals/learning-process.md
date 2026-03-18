@@ -214,9 +214,9 @@ At this point, we also should think about the [Pareto Principle](https://en.wiki
 
 Josh Kaufman explained, we can become excellent pretty fast. This is the so-called `learning curve`, including active and passive learning. These active and passive learning types can be found in the [Learning Pyramid.](https://en.wikipedia.org/wiki/Learning_pyramid)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Passive Learning
 
@@ -325,11 +325,11 @@ It would be best if we did not force ourselves to focus on a specific topic beca
 
 This is the feeling of well-being in the form of comfort and the attitude of risk-free behavior. This is also often referred to as the so-called `comfort zone` in which the person `thinks`(`!`) he/she is located.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 When we leave the so-called `comfort zone`, we enter a situation or field where we have little or no experience. This kind of uncertainty lowers our ability to think and has a powerful impact on our thought processes, which, in turn, slows us down.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fear <a href="#fear" id="fear"></a>
 
@@ -402,7 +402,7 @@ This model represents five components:
 
 > **what are all the methods available to remotely access Windows operating systems?**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 | **Component**       | **Question Part** | **Description**                                                                                                           |
 | ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -422,7 +422,7 @@ Mainly we use the operating system to use its functions to solve our tasks. We d
 
 Windows is the most used operating system in the world and has the most compatibility and many user-friendly functions. Therefore, we can also summarize this and call it `Provides functionality`
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now we can connect the relations between Windows and the methods we know.
 
@@ -439,7 +439,7 @@ Next, the following question comes up:
 
 > How do the remote access methods affect Windows and thus change the state of Windows? What do these methods provide us with?
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now let us look at what we know about the known remote access methods.
 
@@ -451,7 +451,7 @@ The purpose is to be able to manage Windows in different ways remotely. So all w
 
 Apart from the different services these methods are designed for, they all have one thing in common. They allow us to interact with Windows. Therefore we call this connection `Allow to interact with`.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Since we already know some remote access methods, we know how they are connected to Windows. Before Windows can be accessed remotely, the corresponding service must be running.
 
@@ -465,7 +465,7 @@ Now the same question arises again.
 
 The different methods offer different ways to access Windows. Because the purpose of the methods, in this case, has not changed. Therefore we call it again: `Remote Access`.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Now that we know and understand the relationships between all the individual components, we know exactly what information we are missing and what we should focus on.&#x20;
 
@@ -473,7 +473,7 @@ In this case, we can use `Windows services` to find the unknown remote access me
 
 This model is stackable and you can answer your own question through the process. For example, if we have identified such Windows services and found unknown methods, the field `Unknown` becomes `Known` and would look like this:
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 * So, what is the right question?
 
@@ -500,7 +500,7 @@ It helps to listen to our thoughts from a 3rd-person perspective or imagine that
 
 _In order to express frustration tolerance in this way, it is crucial to know where it comes from._
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Do not forget that this feeling of frustration is `temporary`. This means that when we feel frustrated, it will pass.&#x20;
 

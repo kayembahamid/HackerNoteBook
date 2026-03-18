@@ -1,4 +1,4 @@
-# Kali Linux
+# Kali Linux Vs Parrot Security OS
 
 ## Why Kali ?
 
@@ -53,7 +53,7 @@ Kali Linux is a popular choice for cybersecurity professionals and ethical hacke
 3. **Ease of Use:** Kali aims to be user-friendly and accessible, making it suitable for both beginners and experienced professionals. Its popularity and wide community support mean there are many resources available for learning and troubleshooting.
 4. **Updates:** Kali Linux releases frequent updates to its tools and features, ensuring that users have access to the latest security tools and techniques.
 
-**Parrot Security OS:**
+[**Parrot Security OS:**](https://help.hackthebox.com/en/articles/6369713-installing-parrot-security-on-a-vm)
 
 1. **Privacy and Anonymity:** Parrot Security OS places a strong emphasis on privacy and anonymity. It includes tools for secure communication, cryptography, and anonymous web browsing.
 2. **Lightweight and Customizable:** Parrot is designed to be lightweight and efficient, making it suitable for running on resource-constrained hardware. It also allows users to customize their installations according to their needs.
