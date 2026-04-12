@@ -15,6 +15,7 @@
   * [Using SSH](fundamentals/hacking-fundamentals/using-ssh.md)
   * [Using Tmux](fundamentals/hacking-fundamentals/using-tmux.md)
   * [Using Vim](fundamentals/hacking-fundamentals/using-vim.md)
+  * [- Dashed files](fundamentals/hacking-fundamentals/dashed-files.md)
   * [Network Basics](fundamentals/hacking-fundamentals/network-basics.md)
   * [OSINT](fundamentals/hacking-fundamentals/osint.md)
   * [Digital Forensics](fundamentals/hacking-fundamentals/digital-forensics.md)
