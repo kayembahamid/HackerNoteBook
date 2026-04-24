@@ -1395,7 +1395,7 @@ firewall-cmd --list-all                      # Show rules in a zone
 
 #### Managing connections
 
-TODO: add more information about Managing connections in Linux (Issue [#9](https://github.com/zweilosec/Infosec-Notes/issues/9))
+TODO: add more information about Managing connections in Linux (Issue #)
 
 * Add commands such as telnet, SSH, nc, curl, wget
 * Add commands for listing information about open network connections: lsof -i, ss, netstat
