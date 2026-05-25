@@ -453,6 +453,8 @@ command1 || command2
 
 Everything in Linux is a file, even directories and devices. This means that Linux treats hardware devices, sockets, pipes, and even processes as files, allowing for a unified interface for interacting with system resources.
 
+<div><figure><img src="../.gitbook/assets/Untitled Diagram.drawio (3).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled Diagram (1).gif" alt=""><figcaption></figcaption></figure></div>
+
 #### Directories as Files
 
 Directories in Linux are special types of files that contain references (or pointers) to other files and directories. They serve as organizational structures for the filesystem. While directories can be treated like files in many ways, they have some unique restrictions:
