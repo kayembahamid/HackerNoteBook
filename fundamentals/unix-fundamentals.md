@@ -8,6 +8,8 @@ The shell is a command-line interface that allows users to interact with the ope
 
 Terminals and pseudo-terminals are essential components of UNIX systems, providing interfaces for user interaction and process communication. A terminal allows access to the shell that a user interacts with. By understanding terminals and pseudo-terminals, users can better manage sessions, troubleshoot issues, and utilize advanced tools like multiplexers and remote access utilities.
 
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
 **Terminals (TTY)**
 
 * **Definition**: A terminal, or TTY (short for "teletype"), is a physical or virtual device that provides a text-based interface for user interaction with the operating system.
