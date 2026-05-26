@@ -510,6 +510,40 @@ Below is an example of a typical directory structure found on the most common Li
 
 <figure><img src="../.gitbook/assets/Linux Most Important Files.drawio.svg" alt=""><figcaption></figcaption></figure>
 
+{% tabs %}
+{% tab title="What Attackers Look For" %}
+* writable paths
+* exposed credentials
+* SSH keys
+* scripts
+* weak configs
+* cron scripts
+* SUID binaries
+{% endtab %}
+
+{% tab title="What Defenders Look For" %}
+* integrity
+* unauthorized changes
+* sensitive permissions
+* suspicious binaries
+* audit trails
+{% endtab %}
+{% endtabs %}
+
+***
+
+{% hint style="danger" %}
+
+
+**Security Questions**
+
+* who owns this file?
+* who can read/write?
+* where are secrets?
+* what should NOT be writable?
+* what logs exist?
+{% endhint %}
+
 #### Listing and viewing Directories and Files
 
 | Command                        | Description                                                                                                                                                                                                                                                |
