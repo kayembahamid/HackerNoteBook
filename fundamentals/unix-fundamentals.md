@@ -453,7 +453,7 @@ command1 || command2
 
 Everything in Linux is a file, even directories and devices. This means that Linux treats hardware devices, sockets, pipes, and even processes as files, allowing for a unified interface for interacting with system resources.
 
-<div><figure><img src="../.gitbook/assets/Untitled Diagram.drawio (3).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled Diagram (1).gif" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/Untitled Diagram.drawio (3).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled Diagram (2).gif" alt=""><figcaption></figcaption></figure></div>
 
 #### Directories as Files
 
@@ -483,6 +483,8 @@ Below is an example of a typical directory structure found on the most common Li
 
 ![Standard Linux Directories and Files](https://3024260823-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-MA6m3cVikIPDudqayqo%2Fuploads%2Fgit-blob-00f9a0074dcd32fef8c72916f37cc1bf047e93b0%2F0_rOZTLGBULgHhS2p_.png?alt=media)
 
+
+
 {% embed url="https://youtu.be/A3G-3hp88mo?si=2SwAIOopevOsMDoL" %}
 
 | **Directory** | **Description**                                                                                                      | **Example Files**                                                 |
@@ -505,6 +507,8 @@ Below is an example of a typical directory structure found on the most common Li
 | `/tmp`        | Temporary space for use by the system, cleaned upon reboot.                                                          | World-writeable, contains temporary files created by applications |
 | `/usr`        | Programs, libraries, documentation, etc., for all user-related programs. /bin and /sbin folders live in here as well | `/usr/bin/python3`, `/usr/lib/libc.so`, `/usr/share/man`          |
 | `/var`        | Storage for variable files and temporary files created by users.                                                     | `/var/log/syslog`, `/var/mail`, `/var/spool`                      |
+
+<figure><img src="../.gitbook/assets/Linux Most Important Files.drawio.svg" alt=""><figcaption></figcaption></figure>
 
 #### Listing and viewing Directories and Files
 
