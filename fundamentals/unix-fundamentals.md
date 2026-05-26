@@ -528,6 +528,22 @@ Below is an example of a typical directory structure found on the most common Li
 * suspicious binaries
 * audit trails
 {% endtab %}
+
+{% tab title="MOST IMPORTANT COMMANDS" %}
+```bash
+ls
+cd
+pwd
+find
+locate
+tree
+stat
+file
+du
+df
+mount
+```
+{% endtab %}
 {% endtabs %}
 
 ***
