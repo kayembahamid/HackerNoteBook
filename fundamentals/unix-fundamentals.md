@@ -455,6 +455,13 @@ Everything in Linux is a file, even directories and devices. This means that Lin
 
 <div><figure><img src="../.gitbook/assets/Untitled Diagram.drawio (3).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Untitled Diagram (2).gif" alt=""><figcaption></figcaption></figure></div>
 
+```shellscript
+/etc → configs + secrets
+/var/log → logs
+/tmp → writable attack surface
+/proc → process visibility
+```
+
 #### Directories as Files
 
 Directories in Linux are special types of files that contain references (or pointers) to other files and directories. They serve as organizational structures for the filesystem. While directories can be treated like files in many ways, they have some unique restrictions:
@@ -507,6 +514,50 @@ Below is an example of a typical directory structure found on the most common Li
 | `/tmp`        | Temporary space for use by the system, cleaned upon reboot.                                                          | World-writeable, contains temporary files created by applications |
 | `/usr`        | Programs, libraries, documentation, etc., for all user-related programs. /bin and /sbin folders live in here as well | `/usr/bin/python3`, `/usr/lib/libc.so`, `/usr/share/man`          |
 | `/var`        | Storage for variable files and temporary files created by users.                                                     | `/var/log/syslog`, `/var/mail`, `/var/spool`                      |
+
+<details>
+
+<summary>/etc</summary>
+
+## /etc
+
+### Purpose
+
+Stores system configuration files.
+
+### Enterprise Usage
+
+SSH configs, sudo policies, authentication configs.
+
+### Security Importance
+
+Contains sensitive trust configurations.
+
+### Attacker Interest
+
+Misconfigurations, credentials, SSH configs.
+
+### Defender Interest
+
+Integrity monitoring, auditing, hardening.
+
+### Important Files
+
+* passwd
+* shadow
+* sudoers
+* sshd\_config
+
+### Detection Ideas
+
+* changes to sudoers
+* suspicious SSH config changes
+
+### Real World Relevance
+
+Used in all Linux servers, containers, cloud workloads.
+
+</details>
 
 <figure><img src="../.gitbook/assets/Linux Most Important Files.drawio.svg" alt=""><figcaption></figcaption></figure>
 
