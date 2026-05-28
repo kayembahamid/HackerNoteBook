@@ -8,7 +8,7 @@ The shell is a command-line interface that allows users to interact with the ope
 
 Terminals and pseudo-terminals are essential components of UNIX systems, providing interfaces for user interaction and process communication. A terminal allows access to the shell that a user interacts with. By understanding terminals and pseudo-terminals, users can better manage sessions, troubleshoot issues, and utilize advanced tools like multiplexers and remote access utilities.
 
-<figure><img src="../.gitbook/assets/Linux system simplified (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Linux Security Architecture -Page-1.drawio.svg" alt=""><figcaption></figcaption></figure>
 
 **Terminals (TTY)**
 
@@ -448,6 +448,8 @@ command1 || command2
 | `0`      | Shortcut that stands for Standard Input (STDIN)                                     |
 | `1`      | Shortcut that stands for Standard Output (STDOUT)                                   |
 | `2`      | Shortcut that stands for Standard Error (STDERR)                                    |
+
+<figure><img src="../.gitbook/assets/Linux system simplified (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Filesystem Basics
 
