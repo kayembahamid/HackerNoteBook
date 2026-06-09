@@ -675,6 +675,8 @@ cat > $fileName
 
 #### File Permissions
 
+<figure><img src="../.gitbook/assets/Linux Pemission.drawio.svg" alt=""><figcaption></figcaption></figure>
+
 The permissions for a file (for example, viewed with the `ls -l` command) are typically written as:
 
 ```bash

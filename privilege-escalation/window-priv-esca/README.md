@@ -243,7 +243,7 @@ Running this in a function will bypass Script Execution policies, though JEA may
 
 #### Services
 
-**Modify service binary path (**_**link to**_ [_**persistence**_ ](/broken/pages/4pakVJLa0x4wjlRLDqsm)_**page**_**)**
+**Modify service binary path (**_**link to**_ [_**persistence**_ ](https://app.gitbook.com/s/pkdwDJIuvdv3ukF6DFYY/persistence)_**page**_**)**
 
 If one of the groups you have access to has **`SERVICE_ALL_ACCESS`** in a service, then it can modify the binary that is being executed by the service. To modify it and execute nc you can do:
 
